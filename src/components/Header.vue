@@ -28,6 +28,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  height: 100px;
   background-color: #fff;
   color: #000;
   display: flex;
