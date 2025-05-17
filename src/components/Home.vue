@@ -23,11 +23,73 @@
       <div id="project-1">Div 3</div>
       <div id="project-2">Div 4</div>
     </div>
+
+    <div class="stats-container">
+      <div
+        class="stat-item"
+        v-for="stat in stats"
+        :key="stat.id"
+        ref="statRefs"
+      >
+        <h3>{{ stat.value }}+</h3>
+        <p>{{ stat.label }}</p>
+      </div>
+    </div>
   </section>
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
 import brutalizm from "@/assets/images/brutalizm.jpg";
+
+const stats = ref([
+  { id: 1, value: 0, target: 7, label: "lat na rynku" },
+  { id: 2, value: 0, target: 200, label: "wizualizacji" },
+  { id: 3, value: 0, target: 50, label: "projektów graficznych" },
+  { id: 4, value: 0, target: 10, label: "stron internetowych" },
+]);
+
+const statRefs = ref([]);
+
+const animateNumbers = (stat) => {
+  const duration = 3000;
+  const startTime = performance.now();
+
+  const animate = (currentTime) => {
+    const elapsedTime = currentTime - startTime;
+    const progress = Math.min(elapsedTime / duration, 1);
+    const easeOutProgress = 1 - Math.pow(1 - progress, 4);
+
+    stat.value = Math.floor(easeOutProgress * stat.target);
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    }
+  };
+
+  requestAnimationFrame(animate);
+};
+
+const handleIntersection = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const index = statRefs.value.indexOf(entry.target);
+      if (index !== -1 && stats.value[index].value === 0) {
+        animateNumbers(stats.value[index]);
+      }
+    }
+  });
+};
+
+onMounted(() => {
+  const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.5,
+  });
+
+  statRefs.value.forEach((statRef) => {
+    observer.observe(statRef);
+  });
+});
 </script>
 
 <script>
@@ -130,6 +192,29 @@ section {
     @extend .grid-item;
     grid-area: 3 / 1 / 4 / 2;
     background-color: #666;
+  }
+
+  .stats-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+
+    .stat-item {
+      text-align: left;
+
+      h3 {
+        font-size: 7rem;
+        margin: 0;
+      }
+
+      p {
+        font-size: 1.5rem;
+        margin: 0;
+      }
+    }
   }
 }
 </style>
