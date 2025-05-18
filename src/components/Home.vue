@@ -11,6 +11,81 @@
     <div class="grid-container">
       <div id="motto">
         <img :src="modern" alt="Modern render" />
+        <div class="motto-content">
+          <svg
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 50H50V0C50 27.6143 27.6143 50 0 50Z"
+              fill="white"
+            />
+          </svg>
+          <div class="motto-row">
+            <svg
+              width="50"
+              height="50"
+              viewBox="0 0 50 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0 50H50V0C50 27.6143 27.6143 50 0 50Z"
+                fill="white"
+              />
+            </svg>
+            <div id="motto-item">
+              <h2>Design</h2>
+            </div>
+          </div>
+          <div class="motto-row">
+            <svg
+              width="50"
+              height="50"
+              viewBox="0 0 50 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0 50H50V0C50 27.6143 27.6143 50 0 50Z"
+                fill="white"
+              />
+            </svg>
+
+            <div id="motto-item">
+              <h2>Marketing</h2>
+            </div>
+          </div>
+          <div class="motto-row">
+            <svg
+              width="50"
+              height="50"
+              viewBox="0 0 50 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0 50H50V0C50 27.6143 27.6143 50 0 50Z"
+                fill="white"
+              />
+            </svg>
+
+            <div id="motto-item">
+              <h2>Technologia</h2>
+            </div>
+          </div>
+        </div>
       </div>
       <div id="desc">
         <h2>Niepowtarzalny styl</h2>
@@ -187,11 +262,48 @@ section {
     grid-area: 1 / 2 / 4 / 6;
     padding: 0;
     overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 50px;
+      position: absolute;
+      z-index: 1;
+    }
+
+    .motto-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: end;
+      height: 100%;
+
+      #motto-item {
+        background-color: #fff;
+        padding: 27px 40px 27px 40px;
+        border-radius: 50px 0 0 0;
+      }
+
+      .motto-row {
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+      }
+    }
+
+    h2 {
+      font-size: 7rem;
+      font-weight: 700;
+      color: #000;
+      margin: 0.5rem 0;
+      text-align: right;
+      line-height: 1;
     }
   }
 
