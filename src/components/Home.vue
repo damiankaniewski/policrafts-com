@@ -9,19 +9,111 @@
     </div>
 
     <div class="grid-container">
-      <div id="motto">Div 1</div>
+      <div id="motto">
+        <img :src="modern" alt="Modern render" />
+        <div class="motto-content">
+          <svg
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 50H50V0C50 27.6143 27.6143 50 0 50Z"
+              fill="white"
+            />
+          </svg>
+          <div class="motto-row">
+            <svg
+              width="50"
+              height="50"
+              viewBox="0 0 50 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0 50H50V0C50 27.6143 27.6143 50 0 50Z"
+                fill="white"
+              />
+            </svg>
+            <div id="motto-item">
+              <h2>Design</h2>
+            </div>
+          </div>
+          <div class="motto-row">
+            <svg
+              width="50"
+              height="50"
+              viewBox="0 0 50 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0 50H50V0C50 27.6143 27.6143 50 0 50Z"
+                fill="white"
+              />
+            </svg>
+
+            <div id="motto-item">
+              <h2>Marketing</h2>
+            </div>
+          </div>
+          <div class="motto-row">
+            <svg
+              width="50"
+              height="50"
+              viewBox="0 0 50 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0 50H50V0C50 27.6143 27.6143 50 0 50Z"
+                fill="white"
+              />
+            </svg>
+
+            <div id="motto-item">
+              <h2>Technologia</h2>
+            </div>
+          </div>
+        </div>
+      </div>
       <div id="desc">
         <h2>Niepowtarzalny styl</h2>
         <p>
           Łączymy preferencje klienta oraz nowoczesne technologie, starannie
-          analizując trendy rynkowe i specyfikę branży. Dzięki temu tworzymy
-          rozwiązania, które nie tylko odpowiadają indywidualnym potrzebom, ale
-          również wyróżniają się na tle konkurencji, zapewniając długotrwały
-          efekt i satysfakcję.
+          analizując trendy rynkowe i&nbsp;specyfikę branży. Dzięki temu
+          tworzymy rozwiązania, które nie tylko odpowiadają indywidualnym
+          potrzebom, ale również wyróżniają się na tle konkurencji, zapewniając
+          długotrwały efekt i&nbsp;satysfakcję.
         </p>
+        <button>Zobacz nasze realizacje</button>
       </div>
-      <div id="project-1">Div 3</div>
-      <div id="project-2">Div 4</div>
+      <div class="projects" id="project-1">
+        <img :src="pulaskiego" alt="Pułaskiego render" />
+        <div id="circle">
+          <div id="circle-content">
+            <ArrowRight color="#fff" size="3.5rem" />
+          </div>
+        </div>
+      </div>
+      <div class="projects" id="project-2">
+        <img :src="brzozowa" alt="Brzozowa render" />
+        <div id="circle">
+          <div id="circle-content">
+            <ArrowRight color="#fff" size="3.5rem" />
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="stats-container">
@@ -41,6 +133,10 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import brutalizm from "@/assets/images/brutalizm.jpg";
+import brzozowa from "@/assets/images/brzozowa.jpg";
+import pulaskiego from "@/assets/images/pulaskiego.webp";
+import modern from "@/assets/images/modern.webp";
+import { ArrowRight } from "lucide-vue-next";
 
 const stats = ref([
   { id: 1, value: 0, target: 7, label: "lat na rynku" },
@@ -145,7 +241,8 @@ section {
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     width: calc(100% - 40px);
-    height: calc(100vh - 140px);
+    // height: calc(100vh - 140px);
+    height: auto;
     padding: 20px;
   }
 
@@ -163,12 +260,59 @@ section {
   #motto {
     @extend .grid-item;
     grid-area: 1 / 2 / 4 / 6;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50px;
+      position: absolute;
+      z-index: 1;
+    }
+
+    .motto-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: end;
+      height: 100%;
+
+      #motto-item {
+        background-color: #fff;
+        padding: 27px 40px 27px 40px;
+        border-radius: 50px 0 0 0;
+      }
+
+      .motto-row {
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+      }
+    }
+
+    h2 {
+      font-size: 7rem;
+      font-weight: 700;
+      color: #000;
+      margin: 0.5rem 0;
+      text-align: right;
+      line-height: 1;
+    }
   }
 
   #desc {
     @extend .grid-item;
     grid-area: 1 / 1 / 2 / 2;
     background-color: #ccc;
+    display: flex;
+    flex-direction: column;
 
     h2 {
       text-align: left;
@@ -180,18 +324,66 @@ section {
       margin: 5px;
       font-size: 1.2rem;
     }
+
+    button {
+      align-self: flex-end;
+      border: 1px solid #000;
+      border-radius: 20px;
+      padding: 10px 14px 10px 14px;
+      background-color: #ccc;
+      font-size: 1rem;
+      margin: 5px;
+      cursor: pointer;
+      &:hover {
+        background-color: #000;
+        color: #fff;
+        transition: all 0.3s ease-in-out;
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .projects {
+    padding: 0;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50px;
+    }
+    #circle {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 27%;
+      aspect-ratio: 1/1;
+      background-color: #fff;
+      border-radius: 50px;
+      padding: 2%;
+    }
+    #circle-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      border-radius: 50px;
+      color: #fff;
+    }
   }
 
   #project-1 {
+    padding: 0;
     @extend .grid-item;
     grid-area: 2 / 1 / 3 / 2;
-    background-color: #999;
   }
 
   #project-2 {
+    padding: 0;
     @extend .grid-item;
     grid-area: 3 / 1 / 4 / 2;
-    background-color: #666;
   }
 
   .stats-container {
