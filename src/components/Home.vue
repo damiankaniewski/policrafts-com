@@ -133,7 +133,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import brutalizm from "@/assets/images/brutalizm.jpg";
-import brzozowa from "@/assets/images/brzozowa.webp";
+import brzozowa from "@/assets/images/brzozowa.jpg";
 import pulaskiego from "@/assets/images/pulaskiego.webp";
 import modern from "@/assets/images/modern.webp";
 import { ArrowRight } from "lucide-vue-next";
