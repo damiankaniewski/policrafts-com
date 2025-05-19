@@ -91,28 +91,25 @@
         <h2>Niepowtarzalny styl</h2>
         <p>
           Łączymy preferencje klienta oraz nowoczesne technologie, starannie
-          analizując trendy rynkowe i&nbsp;specyfikę branży. Dzięki temu
-          tworzymy rozwiązania, które nie tylko odpowiadają indywidualnym
-          potrzebom, ale również wyróżniają się na tle konkurencji, zapewniając
-          długotrwały efekt i&nbsp;satysfakcję.
+          analizując trendy rynkowe i&nbsp;specyfikę branży.
         </p>
-        <button>Zobacz nasze realizacje</button>
+        <a href="#projects">Zobacz nasze realizacje</a>
       </div>
       <div class="projects" id="project-1">
         <img :src="pulaskiego" alt="Pułaskiego render" />
-        <div id="circle">
+        <a href="https://www.pulaskiego32.pl" target="_blank" id="circle">
           <div id="circle-content">
             <ArrowRight color="#fff" size="3.5rem" />
           </div>
-        </div>
+        </a>
       </div>
       <div class="projects" id="project-2">
         <img :src="brzozowa" alt="Brzozowa render" />
-        <div id="circle">
+        <a href="https://www.domyzakrzow.pl" target="_blank" id="circle">
           <div id="circle-content">
             <ArrowRight color="#fff" size="3.5rem" />
           </div>
-        </div>
+        </a>
       </div>
     </div>
 
@@ -214,6 +211,14 @@ section {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transform: scale(1.2);
+
+      transition: all 5s ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1);
+      }
     }
   }
 
@@ -229,10 +234,23 @@ section {
     h1 {
       font-size: 10rem;
       margin: 0;
+      transition: all 5s ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+      }
     }
+
     p {
       margin: 0;
       font-size: 3.85rem;
+      transition: all 5s ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+      }
     }
   }
 
@@ -265,6 +283,7 @@ section {
     position: relative;
     display: flex;
     flex-direction: column;
+    box-shadow: none;
 
     img {
       width: 100%;
@@ -286,7 +305,7 @@ section {
 
       #motto-item {
         background-color: #fff;
-        padding: 27px 40px 27px 40px;
+        padding: 0 25px 0 25px;
         border-radius: 50px 0 0 0;
       }
 
@@ -304,6 +323,14 @@ section {
       margin: 0.5rem 0;
       text-align: right;
       line-height: 1;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: #333;
+        cursor: pointer;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
     }
   }
 
@@ -317,28 +344,33 @@ section {
     h2 {
       text-align: left;
       margin: 5px;
-      font-size: 2rem;
+      font-size: 1.7rem;
     }
     p {
       text-align: left;
       margin: 5px;
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
 
-    button {
+    a {
+      text-decoration: none;
       align-self: flex-end;
-      border: 1px solid #000;
+      border: 2px solid #333;
       border-radius: 20px;
       padding: 10px 14px 10px 14px;
+      color: #000;
+      font-weight: bold;
       background-color: #ccc;
       font-size: 1rem;
       margin: 5px;
+      transition: all 0.3s ease-in-out;
       cursor: pointer;
+
       &:hover {
         background-color: #000;
+        border: 2px solid #000;
         color: #fff;
-        transition: all 0.3s ease-in-out;
-        transform: scale(1.2);
+        transform: scale(1.1);
       }
     }
   }
@@ -346,6 +378,7 @@ section {
   .projects {
     padding: 0;
     position: relative;
+
     img {
       width: 100%;
       height: 100%;
@@ -361,6 +394,11 @@ section {
       background-color: #fff;
       border-radius: 50px;
       padding: 2%;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
     #circle-content {
       display: flex;
