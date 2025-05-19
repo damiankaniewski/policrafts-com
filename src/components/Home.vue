@@ -114,75 +114,43 @@
     </div>
 
     <div class="stats-container">
-      <div
-        class="stat-item"
-        v-for="stat in stats"
-        :key="stat.id"
-        ref="statRefs"
-      >
-        <h3>{{ stat.value }}+</h3>
-        <p>{{ stat.label }}</p>
+      <div class="stats-container">
+        <div class="stat-item">
+          <p>ponad</p>
+          <Roller value="7" :duration="1000"></Roller>
+          <p>lat na rynku</p>
+        </div>
+
+        <div class="stat-item">
+          <p>ponad</p>
+          <Roller value="275" :duration="1500"></Roller>
+          <p>wizualizacji</p>
+        </div>
+
+        <div class="stat-item">
+          <p>ponad</p>
+          <Roller value="55" :duration="2000"></Roller>
+          <p>projektów graficznych</p>
+        </div>
+
+        <div class="stat-item">
+          <p>ponad</p>
+          <Roller value="15" :duration="2500"></Roller>
+          <p>stron internetowych</p>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
 import brutalizm from "@/assets/images/brutalizm.jpg";
 import brzozowa from "@/assets/images/brzozowa.jpg";
 import pulaskiego from "@/assets/images/pulaskiego.webp";
 import modern from "@/assets/images/modern.webp";
 import { ArrowRight } from "lucide-vue-next";
-
-const stats = ref([
-  { id: 1, value: 0, target: 7, label: "lat na rynku" },
-  { id: 2, value: 0, target: 200, label: "wizualizacji" },
-  { id: 3, value: 0, target: 50, label: "projektów graficznych" },
-  { id: 4, value: 0, target: 10, label: "stron internetowych" },
-]);
-
-const statRefs = ref([]);
-
-const animateNumbers = (stat) => {
-  const duration = 3000;
-  const startTime = performance.now();
-
-  const animate = (currentTime) => {
-    const elapsedTime = currentTime - startTime;
-    const progress = Math.min(elapsedTime / duration, 1);
-    const easeOutProgress = 1 - Math.pow(1 - progress, 4);
-
-    stat.value = Math.floor(easeOutProgress * stat.target);
-
-    if (progress < 1) {
-      requestAnimationFrame(animate);
-    }
-  };
-
-  requestAnimationFrame(animate);
-};
-
-const handleIntersection = (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const index = statRefs.value.indexOf(entry.target);
-      if (index !== -1 && stats.value[index].value === 0) {
-        animateNumbers(stats.value[index]);
-      }
-    }
-  });
-};
-
-onMounted(() => {
-  const observer = new IntersectionObserver(handleIntersection, {
-    threshold: 0.5,
-  });
-
-  statRefs.value.forEach((statRef) => {
-    observer.observe(statRef);
-  });
-});
+import { Roller } from "vue-roller";
+import "vue-roller/dist/style.css";
 </script>
 
 <script>
@@ -428,21 +396,22 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 80%;
+    width: 90%;
     margin: 50px auto;
     padding: 20px;
 
     .stat-item {
-      text-align: left;
+      text-align: center;
+      font-size: 7rem;
+      margin: 1rem;
 
-      h3 {
-        font-size: 7rem;
-        margin: 0;
+      .roller {
+        justify-content: center;
       }
 
       p {
-        font-size: 1.5rem;
-        margin: 0;
+        font-size: 2.2rem;
+        margin: 1rem;
       }
     }
   }
