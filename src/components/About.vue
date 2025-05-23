@@ -1,90 +1,95 @@
 <template>
   <section id="about">
     <h1>O nas</h1>
-    <div class="about-content">
-      <div class="about-item">
-        <img :src="sadowa_teren_zielony" alt="Sadowa 20 - teren zielony" />
+    <div class="container">
+      <div class="about-content">
+        <div class="about-item">
+          <img :src="sadowa_teren_zielony" alt="Sadowa 20 - teren zielony" />
+        </div>
+        <div class="about-item" id="content-right">
+          <h2>Design - Technologia - Grafika</h2>
+          <h3>Wizualizacje 3D i&nbsp;grafika</h3>
+          <ul class="two-columns">
+            <li>Wizualizacje wnętrz</li>
+            <li>Wizualizacje budynków</li>
+            <li>Modele 3D</li>
+            <li>Tworzenie logo</li>
+            <li>Renderowanie 3D</li>
+            <li>Animacje 3D</li>
+          </ul>
+          <p>
+            Realistyczne wizualizacje, modele 3D i&nbsp;animacje, pomagające
+            lepiej zaprezentować produkty i&nbsp;koncepcje w&nbsp;atrakcyjnej,
+            angażującej formie.
+          </p>
+          <a class="custom-button" type="button" href="#kontakt">
+            <div class="button-highlight">
+              <span class="button-icon">
+                <ArrowRight :size="20" />
+              </span>
+            </div>
+            <span class="button-text"> Skontaktuj się z&nbsp;nami </span>
+          </a>
+        </div>
       </div>
-      <div class="about-item" id="content-right">
-        <h2>Design - Technologia - Grafika</h2>
-        <h3>Wizualizacje 3D i&nbsp;grafika</h3>
-        <ul class="two-columns">
-          <li>Wizualizacje wnętrz</li>
-          <li>Wizualizacje budynków</li>
-          <li>Modele 3D</li>
-          <li>Tworzenie logo</li>
-          <li>Renderowanie 3D</li>
-          <li>Animacje 3D</li>
-        </ul>
-        <p>
-          Realistyczne wizualizacje, modele 3D i&nbsp;animacje, pomagające
-          lepiej zaprezentować produkty i&nbsp;koncepcje w&nbsp;atrakcyjnej,
-          angażującej formie.
-        </p>
-        <a class="custom-button" type="button" href="#kontakt">
-          <div class="button-highlight">
-            <span class="button-icon">
-              <ArrowRight :size="20" />
-            </span>
-          </div>
-          <span class="button-text"> Skontaktuj się z&nbsp;nami </span>
-        </a>
+      <div class="about-content">
+        <div class="about-item" id="content-left">
+          <h2>Design - Technologia - Informatyka</h2>
+          <h3>Systemy i&nbsp;strony internetowe</h3>
+          <ul class="two-columns">
+            <li>Strony internetowe</li>
+            <li>Systemy i&nbsp;aplikacje webowe</li>
+            <li>Aplikacje mobilne i&nbsp;desktopowe</li>
+            <li>Technologie i&nbsp;integracje</li>
+            <li>Optymalizacja i&nbsp;bezpieczeństwo</li>
+          </ul>
+          <p>
+            Nowoczesne strony www, zachwycające funkcjonalnością systemy
+            i&nbsp;rozwiązania, skutecznie przyciągające klientów, dbając
+            o&nbsp;obecność Twojej marki w&nbsp;sieci.
+          </p>
+          <a class="custom-button" type="button" href="#kontakt">
+            <div class="button-highlight">
+              <span class="button-icon">
+                <ArrowRight :size="20" />
+              </span>
+            </div>
+            <span class="button-text"> Skontaktuj się z&nbsp;nami </span>
+          </a>
+        </div>
+        <div class="about-item">
+          <img
+            :src="domy_pod_krakowem_strona"
+            alt="Sadowa 20 - teren zielony"
+          />
+        </div>
       </div>
-    </div>
-    <div class="about-content">
-      <div class="about-item" id="content-left">
-        <h2>Design - Technologia - Informatyka</h2>
-        <h3>Systemy i&nbsp;strony internetowe</h3>
-        <ul class="two-columns">
-          <li>Strony internetowe</li>
-          <li>Systemy i&nbsp;aplikacje webowe</li>
-          <li>Aplikacje mobilne i&nbsp;desktopowe</li>
-          <li>Technologie i&nbsp;integracje</li>
-          <li>Optymalizacja i&nbsp;bezpieczeństwo</li>
-        </ul>
-        <p>
-          Nowoczesne strony www, zachwycające funkcjonalnością systemy
-          i&nbsp;rozwiązania, skutecznie przyciągające klientów, dbając
-          o&nbsp;obecność Twojej marki w&nbsp;sieci.
-        </p>
-        <a class="custom-button" type="button" href="#kontakt">
-          <div class="button-highlight">
-            <span class="button-icon">
-              <ArrowRight :size="20" />
-            </span>
-          </div>
-          <span class="button-text"> Skontaktuj się z&nbsp;nami </span>
-        </a>
-      </div>
-      <div class="about-item">
-        <img :src="domy_pod_krakowem_strona" alt="Sadowa 20 - teren zielony" />
-      </div>
-    </div>
-    <div class="about-content">
-      <div class="about-item">
-        <img :src="mvr" alt="Modern render" />
-      </div>
-      <div class="about-item" id="content-right">
-        <h2>Design - Technologia - Informatyka</h2>
-        <h3>Pozostałe usługi informatyczno-graficzne</h3>
-        <ul class="two-columns">
-          <li>Konsultacje IT/Design</li>
-          <li>Wsparcie techniczne</li>
-          <li>Audyt, analiza</li>
-          <li>Zarządzanie infrastrukturą</li>
-        </ul>
-        <p>
-          Dostarczamy kompleksowe wsparcie na każdym etapie cyfrowej
-          transformacji, dopasowując rozwiązania do Twoich potrzeb.
-        </p>
-        <a class="custom-button" type="button" href="#kontakt">
-          <div class="button-highlight">
-            <span class="button-icon">
-              <ArrowRight :size="20" />
-            </span>
-          </div>
-          <span class="button-text"> Skontaktuj się z&nbsp;nami </span>
-        </a>
+      <div class="about-content">
+        <div class="about-item">
+          <img :src="mvr" alt="Modern render" />
+        </div>
+        <div class="about-item" id="content-right">
+          <h2>Design - Technologia - Informatyka</h2>
+          <h3>Pozostałe usługi informatyczno-graficzne</h3>
+          <ul class="two-columns">
+            <li>Konsultacje IT/Design</li>
+            <li>Wsparcie techniczne</li>
+            <li>Audyt, analiza</li>
+            <li>Zarządzanie infrastrukturą</li>
+          </ul>
+          <p>
+            Dostarczamy kompleksowe wsparcie na każdym etapie cyfrowej
+            transformacji, dopasowując rozwiązania do Twoich potrzeb.
+          </p>
+          <a class="custom-button" type="button" href="#kontakt">
+            <div class="button-highlight">
+              <span class="button-icon">
+                <ArrowRight :size="20" />
+              </span>
+            </div>
+            <span class="button-text"> Skontaktuj się z&nbsp;nami </span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -105,17 +110,20 @@ export default {
 <style lang="scss" scoped>
 section {
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 80px;
 
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+  }
   h1 {
     font-size: 7rem;
     color: #000;
     font-weight: 700;
     margin: 0;
+    margin-bottom: 50px;
   }
 
   .about-content {
