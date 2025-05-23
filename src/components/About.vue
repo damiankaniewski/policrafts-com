@@ -7,7 +7,7 @@
       </div>
       <div class="about-item" id="content-right">
         <h2>Design - Technologia - Grafika</h2>
-        <h3>Wizualizacje 3D i grafika</h3>
+        <h3>Wizualizacje 3D i&nbsp;grafika</h3>
         <ul class="two-columns">
           <li>Wizualizacje wnętrz</li>
           <li>Wizualizacje budynków</li>
@@ -27,9 +27,64 @@
               <ArrowRight :size="20" />
             </span>
           </div>
-          <span class="button-text"> Skontaktuj się z nami </span>
+          <span class="button-text"> Skontaktuj się z&nbsp;nami </span>
         </a>
-        <!-- <button>Skontaktuj się z nami</button> -->
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="about-item" id="content-left">
+        <h2>Design - Technologia - Informatyka</h2>
+        <h3>Systemy i&nbsp;strony internetowe</h3>
+        <ul class="two-columns">
+          <li>Strony internetowe</li>
+          <li>Systemy i&nbsp;aplikacje webowe</li>
+          <li>Aplikacje mobilne i&nbsp;desktopowe</li>
+          <li>Technologie i&nbsp;integracje</li>
+          <li>Optymalizacja i&nbsp;bezpieczeństwo</li>
+        </ul>
+        <p>
+          Nowoczesne strony www, zachwycające funkcjonalnością systemy
+          i&nbsp;rozwiązania, skutecznie przyciągające klientów, dbając
+          o&nbsp;obecność Twojej marki w&nbsp;sieci.
+        </p>
+        <a class="custom-button" type="button" href="#kontakt">
+          <div class="button-highlight">
+            <span class="button-icon">
+              <ArrowRight :size="20" />
+            </span>
+          </div>
+          <span class="button-text"> Skontaktuj się z&nbsp;nami </span>
+        </a>
+      </div>
+      <div class="about-item">
+        <img :src="domy_pod_krakowem_strona" alt="Sadowa 20 - teren zielony" />
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="about-item">
+        <img :src="mvr" alt="Modern render" />
+      </div>
+      <div class="about-item" id="content-right">
+        <h2>Design - Technologia - Informatyka</h2>
+        <h3>Pozostałe usługi informatyczno-graficzne</h3>
+        <ul class="two-columns">
+          <li>Konsultacje IT/Design</li>
+          <li>Wsparcie techniczne</li>
+          <li>Audyt, analiza</li>
+          <li>Zarządzanie infrastrukturą</li>
+        </ul>
+        <p>
+          Dostarczamy kompleksowe wsparcie na każdym etapie cyfrowej
+          transformacji, dopasowując rozwiązania do Twoich potrzeb.
+        </p>
+        <a class="custom-button" type="button" href="#kontakt">
+          <div class="button-highlight">
+            <span class="button-icon">
+              <ArrowRight :size="20" />
+            </span>
+          </div>
+          <span class="button-text"> Skontaktuj się z&nbsp;nami </span>
+        </a>
       </div>
     </div>
   </section>
@@ -37,10 +92,9 @@
 
 <script setup>
 import sadowa_teren_zielony from "@/assets/images/sadowa_teren_zielony.webp";
+import domy_pod_krakowem_strona from "@/assets/images/domy_pod_krakowem_strona.webp";
+import mvr from "@/assets/images/mvr.jpg";
 import { ArrowRight } from "lucide-vue-next";
-// import { ref } from "vue";
-
-// const primaryColor = ref("#fff");
 </script>
 <script>
 export default {
@@ -55,6 +109,14 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 80px;
+
+  h1 {
+    font-size: 7rem;
+    color: #000;
+    font-weight: 700;
+    margin: 0;
+  }
 
   .about-content {
     display: flex;
@@ -67,24 +129,29 @@ section {
     .about-item {
       width: 50%;
       height: 100%;
-
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
       img {
         width: 100%;
         height: 100%;
         border-radius: 50px;
         object-fit: cover;
+        height: 600px;
       }
 
       h2 {
         font-size: 1.5rem;
         color: #7e7e7e;
         font-weight: 700;
+        margin: 0;
       }
 
       h3 {
         font-size: 5rem;
         color: #000;
         font-weight: 500;
+        margin: 0;
       }
 
       .two-columns {
@@ -92,6 +159,7 @@ section {
         grid-template-columns: 1fr 1fr;
         grid-auto-rows: auto;
         gap: 10px;
+        margin: 0;
       }
 
       .two-columns li {
@@ -104,6 +172,7 @@ section {
         font-size: 2rem;
         font-weight: 500;
         color: #000;
+        margin: 0;
       }
 
       .custom-button {
@@ -116,6 +185,7 @@ section {
         line-height: 1.75rem;
         font-weight: 600;
         text-decoration: none;
+        max-width: 30%;
       }
 
       .button-highlight {
@@ -170,6 +240,16 @@ section {
 
     #content-right {
       text-align: left;
+    }
+    #content-left {
+      text-align: right;
+      align-items: end;
+      .two-columns {
+        justify-items: start;
+      }
+      .two-columns li {
+        margin-left: 50px;
+      }
     }
   }
 }
