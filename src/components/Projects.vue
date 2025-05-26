@@ -13,7 +13,7 @@
           alt="Domy pod Krakowem Logo"
           class="item-logo"
         />
-        <a class="custom-button" type="button" href="#kontakt">
+        <a class="custom-button" type="button" href="#contact">
           <div class="button-highlight">
             <span class="button-icon">
               <ArrowRight :size="20" />
@@ -29,7 +29,7 @@
           alt="Domy przy Brzozowej Logo"
           class="item-logo"
         />
-        <a class="custom-button" type="button" href="#kontakt">
+        <a class="custom-button" type="button" href="#contact">
           <div class="button-highlight">
             <span class="button-icon">
               <ArrowRight :size="20" />
@@ -41,7 +41,7 @@
       <div class="item-c">
         <img :src="sadowa_render" alt="Sadowa 20 Render" class="item-img" />
         <img :src="sadowa_logo" alt="Sadowa 20 Logo" class="item-logo" />
-        <a class="custom-button" type="button" href="#kontakt">
+        <a class="custom-button" type="button" href="#contact">
           <div class="button-highlight">
             <span class="button-icon">
               <ArrowRight :size="20" />
@@ -62,7 +62,7 @@
           alt="Generator Deweloper Logo"
           class="item-logo"
         />
-        <a class="custom-button" type="button" href="#kontakt">
+        <a class="custom-button" type="button" href="#contact">
           <div class="button-highlight">
             <span class="button-icon">
               <ArrowRight :size="20" />
@@ -78,7 +78,7 @@
           alt="Pułaskiego 32 Logo"
           class="item-logo"
         />
-        <a class="custom-button" type="button" href="#kontakt">
+        <a class="custom-button" type="button" href="#contact">
           <div class="button-highlight">
             <span class="button-icon">
               <ArrowRight :size="20" />
@@ -88,11 +88,20 @@
         </a>
       </div>
       <div class="item-f">
-        <h2>Nasze realizacje</h2>
-        <h3>
-          Każdy projekt to inna historia. Poniżej znajdziesz wybrane realizacje,
-          które pokazują nasz styl i&nbsp;podejście.
-        </h3>
+        <img :src="dragon_folie" alt="OMD" class="item-img" />
+        <!-- <img
+          :src="brzozowa_logo"
+          alt="Domy przy Brzozowej Logo"
+          class="item-logo"
+        /> -->
+        <a class="custom-button" type="button" href="#contact">
+          <div class="button-highlight">
+            <span class="button-icon">
+              <ArrowRight :size="20" />
+            </span>
+          </div>
+          <span class="button-text">Dragon Folie</span>
+        </a>
       </div>
       <div class="item-g">
         <img :src="dragon_folie" alt="OMD" class="item-img" />
@@ -101,7 +110,7 @@
           alt="Domy przy Brzozowej Logo"
           class="item-logo"
         /> -->
-        <a class="custom-button" type="button" href="#kontakt">
+        <a class="custom-button" type="button" href="#contact">
           <div class="button-highlight">
             <span class="button-icon">
               <ArrowRight :size="20" />
@@ -117,7 +126,7 @@
           alt="Domy w Stokach Logo"
           class="item-logo"
         /> -->
-        <a class="custom-button" type="button" href="#kontakt">
+        <a class="custom-button" type="button" href="#contact">
           <div class="button-highlight">
             <span class="button-icon">
               <ArrowRight :size="20" />
@@ -133,7 +142,7 @@
           alt="Domy przy Brzozowej Logo"
           class="item-logo"
         /> -->
-        <a class="custom-button" type="button" href="#kontakt">
+        <a class="custom-button" type="button" href="#contact">
           <div class="button-highlight">
             <span class="button-icon">
               <ArrowRight :size="20" />
@@ -191,11 +200,11 @@ section {
     grid-template-areas:
       "a b c"
       "a b c"
-      "a b d"
+      "a b c"
       "e b d"
       "e f d"
-      "e g d"
-      "e g h"
+      "e f d"
+      "i f h"
       "i g h"
       "i g h";
   }
@@ -217,7 +226,6 @@ section {
   }
   .item-f {
     grid-area: f;
-    padding: 30px;
   }
   .item-g {
     grid-area: g;
@@ -265,7 +273,7 @@ section {
     left: 50%;
     transform: translateX(-50%);
     border-radius: 9999px;
-    border: 1px solid #1f1f1f;
+    border: 3px solid #1f1f1f;
     background-color: #1f1f1f;
     padding: 0.5rem;
     font-size: 1.25rem;

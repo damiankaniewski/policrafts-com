@@ -22,7 +22,7 @@
             lepiej zaprezentować produkty i&nbsp;koncepcje w&nbsp;atrakcyjnej,
             angażującej formie.
           </p>
-          <a class="custom-button" type="button" href="#kontakt">
+          <a class="custom-button" type="button" href="#contact">
             <div class="button-highlight">
               <span class="button-icon">
                 <ArrowRight :size="20" />
@@ -48,7 +48,7 @@
             i&nbsp;rozwiązania, skutecznie przyciągające klientów, dbając
             o&nbsp;obecność Twojej marki w&nbsp;sieci.
           </p>
-          <a class="custom-button" type="button" href="#kontakt">
+          <a class="custom-button" type="button" href="#contact">
             <div class="button-highlight">
               <span class="button-icon">
                 <ArrowRight :size="20" />
@@ -81,7 +81,7 @@
             Dostarczamy kompleksowe wsparcie na każdym etapie cyfrowej
             transformacji, dopasowując rozwiązania do Twoich potrzeb.
           </p>
-          <a class="custom-button" type="button" href="#kontakt">
+          <a class="custom-button" type="button" href="#contact">
             <div class="button-highlight">
               <span class="button-icon">
                 <ArrowRight :size="20" />
@@ -186,7 +186,7 @@ section {
       .custom-button {
         position: relative;
         border-radius: 9999px;
-        border: 1px solid #1f1f1f;
+        border: 3px solid #1f1f1f;
         background-color: #1f1f1f;
         padding: 0.5rem;
         font-size: 1.25rem;
