@@ -5,6 +5,7 @@
     <About />
     <Services />
     <Projects />
+    <Gallery />
     <Collaboration />
     <Contact />
     <Footer />
@@ -20,6 +21,7 @@ import Projects from "./components/Projects.vue";
 import Collaboration from "./components/Collaboration.vue";
 import Contact from "./components/Contact.vue";
 import Footer from "./components/Footer.vue";
+import Gallery from "./components/Gallery.vue";
 
 export default {
   name: "App",
@@ -29,6 +31,7 @@ export default {
     About,
     Services,
     Projects,
+    Gallery,
     Collaboration,
     Contact,
     Footer,

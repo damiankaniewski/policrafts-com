@@ -96,20 +96,12 @@
         <a href="#projects">Zobacz nasze realizacje</a>
       </div>
       <div class="projects" id="project-1">
-        <img :src="pulaskiego" alt="Pułaskiego render" />
-        <a href="https://www.pulaskiego32.pl" target="_blank" id="circle">
-          <div id="circle-content">
-            <ArrowRight color="#fff" size="3.5rem" />
-          </div>
-        </a>
+        <img class="background" :src="pulaskiego" alt="Pułaskiego render" />
+        <img class="logo" :src="pulaskiegologo" alt="Pułaskiego logo" />
       </div>
       <div class="projects" id="project-2">
-        <img :src="brzozowa" alt="Brzozowa render" />
-        <a href="https://www.domyzakrzow.pl" target="_blank" id="circle">
-          <div id="circle-content">
-            <ArrowRight color="#fff" size="3.5rem" />
-          </div>
-        </a>
+        <img class="background" :src="brzozowa" alt="Brzozowa render" />
+        <img class="logo" :src="brzozowalogo" alt="Brzozowa logo" />
       </div>
     </div>
 
@@ -146,9 +138,10 @@
 <script setup>
 import brutalizm from "@/assets/images/brutalizm.jpg";
 import brzozowa from "@/assets/images/brzozowa.webp";
+import brzozowalogo from "@/assets/images/brzozowa_logo.webp";
 import pulaskiego from "@/assets/images/pulaskiego.webp";
+import pulaskiegologo from "@/assets/images/pulaskiego_logo.webp";
 import modern from "@/assets/images/modern.webp";
-import { ArrowRight } from "lucide-vue-next";
 import { Roller } from "vue-roller";
 import "vue-roller/dist/style.css";
 </script>
@@ -179,14 +172,6 @@ section {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transform: scale(1.2);
-
-      transition: all 5s ease-in-out;
-
-      &:hover {
-        cursor: pointer;
-        transform: scale(1);
-      }
     }
   }
 
@@ -202,23 +187,11 @@ section {
     h1 {
       font-size: 10rem;
       margin: 0;
-      transition: all 5s ease-in-out;
-
-      &:hover {
-        cursor: pointer;
-        transform: scale(1.2);
-      }
     }
 
     p {
       margin: 0;
       font-size: 3.85rem;
-      transition: all 5s ease-in-out;
-
-      &:hover {
-        cursor: pointer;
-        transform: scale(1.2);
-      }
     }
   }
 
@@ -240,7 +213,6 @@ section {
 
   .rounded-box {
     background-color: #f0f0f0;
-    border-radius: 50px;
   }
 
   #motto {
@@ -257,7 +229,7 @@ section {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 50px;
+
       position: absolute;
       z-index: 1;
     }
@@ -346,37 +318,38 @@ section {
   .projects {
     padding: 0;
     position: relative;
+    overflow: hidden;
 
-    img {
+    &:hover {
+      cursor: pointer;
+
+      .background {
+        transform: scale(1.1);
+      }
+
+      .logo {
+        transform: translate(-50%, -50%) scale(0.9);
+      }
+    }
+
+    .background {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 50px;
-    }
-    #circle {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 27%;
-      aspect-ratio: 1/1;
-      background-color: #fff;
-      border-radius: 50px;
-      padding: 2%;
+      display: block;
       transition: all 0.3s ease;
-
-      &:hover {
-        transform: scale(1.1);
-      }
     }
-    #circle-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      background-color: #000;
-      border-radius: 50px;
-      color: #fff;
+
+    .logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 250px;
+      height: auto;
+      z-index: 100;
+      filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.75));
+      transform: translate(-50%, -50%);
+      transition: all 0.3s ease;
     }
   }
 

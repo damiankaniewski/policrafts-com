@@ -7,6 +7,7 @@
       <a href="#about">O nas</a>
       <a href="#services">Usługi</a>
       <a href="#projects">Realizacje</a>
+      <a href="#gallery">Galeria</a>
       <a href="#collaboration">Współpraca</a>
       <a href="#contact">Kontakt</a>
     </nav>
