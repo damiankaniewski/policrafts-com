@@ -2,19 +2,23 @@
   <section id="gallery">
     <h1>Galeria</h1>
     <div
+      v-for="(group, section) in groupedImages"
+      :key="section"
       class="gallery-grid"
       @mouseenter="isHovering = true"
       @mouseleave="isHovering = false"
     >
       <div
         class="image-tile"
-        v-for="(image, index) in images"
-        :key="index"
-        @mouseenter="hoveredIndex = index"
+        v-for="(image, index) in group"
+        :key="`${section}-${index}`"
+        @mouseenter="hoveredIndex = `${section}-${index}`"
         @mouseleave="hoveredIndex = null"
-        :class="{ dimmed: isHovering && hoveredIndex !== index }"
+        :class="{
+          dimmed: isHovering && hoveredIndex !== `${section}-${index}`,
+        }"
       >
-        <img :src="image.url" :alt="`Obrazek ${index + 1}`" loading="lazy" />
+        <img :src="image.url" :alt="image.title" loading="lazy" />
         <div class="caption">
           <h2>{{ image.title }}</h2>
           <p class="description">{{ image.description }}</p>
@@ -31,16 +35,47 @@ export default {
     return {
       isHovering: false,
       hoveredIndex: null,
-      images: Array.from({ length: 15 }, (_, i) => {
-        const width = Math.floor(Math.random() * 100) + 200;
-        const height = Math.floor(Math.random() * 30) + 200;
-        return {
-          url: `https://picsum.photos/${width}/${height}?random=${i + 1}`,
-          title: `Zdjęcie ${i + 1}`,
-          description: "Krótki opis zdjęcia po najechaniu.",
-        };
-      }),
+      images: [],
     };
+  },
+  computed: {
+    groupedImages() {
+      // Grupa: { '1': [obrazki], '2': [obrazki], ... } posortowana po kluczu
+      const grouped = this.images.reduce((acc, img) => {
+        if (!acc[img.section]) acc[img.section] = [];
+        acc[img.section].push(img);
+        return acc;
+      }, {});
+
+      return Object.fromEntries(
+        Object.entries(grouped).sort(([a], [b]) => Number(a) - Number(b))
+      );
+    },
+  },
+  created() {
+    const context = require.context(
+      "@/assets/images/gallery",
+      true,
+      /\.(jpg|webp)$/i
+    );
+
+    const images = context.keys().map((key) => {
+      const url = context(key);
+      const cleaned = key.replace(/^\.\/|\.jpg$|\.webp$/gi, "");
+      const [section, filename] = cleaned.split("/", 2);
+      const [title, description] = filename
+        .split("-")
+        .map((part) => part.trim());
+
+      return {
+        url,
+        title: title || "Bez tytułu",
+        description: description || "Brak opisu",
+        section,
+      };
+    });
+
+    this.images = images;
   },
 };
 </script>
