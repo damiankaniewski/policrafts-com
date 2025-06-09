@@ -154,7 +154,7 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  padding-top: 120px;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -162,7 +162,7 @@ section {
 
   .image-container {
     width: calc(100% - 40px);
-    height: calc(100vh - 140px);
+    height: calc(100vh - 40px);
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
     @extend .rounded-box;
     overflow: hidden;
