@@ -50,6 +50,6 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  padding: 20px;
+  padding: 16px;
 }
 </style>

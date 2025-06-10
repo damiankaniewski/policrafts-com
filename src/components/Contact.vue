@@ -34,7 +34,7 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  padding: 20px;
+  padding: 16px;
   overflow: hidden;
 }
 
@@ -81,7 +81,7 @@ h1 {
 
 .input {
   width: 100%;
-  padding: 0 0 20px 0;
+  padding: 0 0 16px 0;
   border: none;
   border-bottom: 3px solid #7e7e7e;
   font-size: 1.5rem;

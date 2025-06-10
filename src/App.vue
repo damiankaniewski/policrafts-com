@@ -2,6 +2,7 @@
   <div id="app">
     <Header />
     <Home />
+    <HomeGrid />
     <About />
     <Services />
     <Projects />
@@ -15,6 +16,7 @@
 <script>
 import Header from "./components/Header.vue";
 import Home from "./components/Home.vue";
+import HomeGrid from "./components/HomeGrid.vue";
 import About from "./components/About.vue";
 import Services from "./components/Services.vue";
 import Projects from "./components/Projects.vue";
@@ -28,6 +30,7 @@ export default {
   components: {
     Header,
     Home,
+    HomeGrid,
     About,
     Services,
     Projects,

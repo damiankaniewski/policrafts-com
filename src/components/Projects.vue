@@ -116,7 +116,7 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  padding: 20px;
+  padding: 16px;
   scroll-margin-top: 100px;
 
   h1 {
@@ -174,7 +174,7 @@ section {
   }
 
   .container > a {
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     background: #d1d1d1;
     display: flex;
     align-items: center;

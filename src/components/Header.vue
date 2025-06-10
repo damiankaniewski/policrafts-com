@@ -23,7 +23,7 @@ import logo from "@/assets/logo_full.png";
 const isVisible = ref(false);
 
 const handleScroll = () => {
-  isVisible.value = window.scrollY >= 100;
+  isVisible.value = window.scrollY >= 1200;
 };
 
 onMounted(() => {
@@ -78,7 +78,7 @@ export default {
     a {
       display: inline-block;
       font-size: 1.2rem;
-      margin-left: 20px;
+      margin-left: 16px;
       color: #000;
       text-decoration: none;
       transform: scale(1);

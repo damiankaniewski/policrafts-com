@@ -82,7 +82,7 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  padding: 20px;
+  padding: 16px;
 
   h1 {
     font-size: 7rem;
@@ -95,7 +95,7 @@ section {
   .gallery-grid {
     column-count: 4;
     column-gap: 0;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 
     @media (max-width: 1200px) {
       column-count: 2;

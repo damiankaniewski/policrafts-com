@@ -109,7 +109,7 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  padding: 20px;
+  padding: 16px;
 
   .container {
     display: flex;
@@ -137,7 +137,7 @@ section {
     .about-item {
       width: 50%;
       height: 100%;
-      gap: 20px;
+      gap: 16px;
       display: flex;
       flex-direction: column;
 
@@ -147,7 +147,7 @@ section {
 
         object-fit: cover;
         height: 600px;
-        box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
       }
 
       h2 {
