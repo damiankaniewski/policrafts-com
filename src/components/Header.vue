@@ -23,7 +23,7 @@ import logo from "@/assets/logo_full.png";
 const isVisible = ref(false);
 
 const handleScroll = () => {
-  isVisible.value = window.scrollY >= 1200;
+  isVisible.value = window.scrollY >= 200;
 };
 
 onMounted(() => {
