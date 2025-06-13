@@ -1,7 +1,13 @@
 <template>
   <section id="homegrid">
     <div class="grid-container">
-      <div id="motto">
+      <motion.div
+        id="motto"
+        :initial="{ opacity: 0, scale: 0.95 }"
+        :inView="{ opacity: 1, scale: 1 }"
+        :inViewOptions="{ margin: '-50px' }"
+        :transition="{ duration: 1, delay: 0.4, easing: 'ease-out' }"
+      >
         <img :src="modern" alt="Modern render" />
         <div class="motto-content">
           <svg
@@ -78,23 +84,43 @@
             </div>
           </div>
         </div>
-      </div>
-      <div id="desc">
+      </motion.div>
+      <motion.div
+        id="desc"
+        :initial="{ opacity: 0, x: -50 }"
+        :inView="{ opacity: 1, x: 0 }"
+        :transition="{ duration: 0.8, delay: 0.2 }"
+        :inViewOptions="{ margin: '-50px' }"
+      >
         <h2>Niepowtarzalny styl</h2>
         <p>
           Łączymy preferencje klienta oraz nowoczesne technologie, starannie
           analizując trendy rynkowe i&nbsp;specyfikę branży.
         </p>
         <a href="#projects">Zobacz nasze realizacje</a>
-      </div>
-      <div class="projects" id="project-1">
+      </motion.div>
+      <motion.div
+        class="projects"
+        id="project-1"
+        :initial="{ opacity: 0, y: 30 }"
+        :inView="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.8, delay: 0.6 }"
+        :inViewOptions="{ margin: '-50px' }"
+      >
         <img class="background" :src="pulaskiego" alt="Pułaskiego render" />
         <img class="logo" :src="pulaskiegologo" alt="Pułaskiego logo" />
-      </div>
-      <div class="projects" id="project-2">
+      </motion.div>
+      <motion.div
+        class="projects"
+        id="project-2"
+        :initial="{ opacity: 0, y: 30 }"
+        :inView="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.8, delay: 0.8 }"
+        :inViewOptions="{ margin: '-50px' }"
+      >
         <img class="background" :src="brzozowa" alt="Brzozowa render" />
         <img class="logo" :src="brzozowalogo" alt="Brzozowa logo" />
-      </div>
+      </motion.div>
     </div>
 
     <div class="stats-container">
@@ -135,6 +161,7 @@ import pulaskiegologo from "@/assets/images/pulaskiego_logo.webp";
 import modern from "@/assets/images/modern.webp";
 import { Roller } from "vue-roller";
 import "vue-roller/dist/style.css";
+import { motion } from "motion-v";
 </script>
 
 <script>
@@ -155,7 +182,6 @@ section {
     grid-template-columns: repeat(5, 1fr);
     gap: 16px;
     width: calc(100% - 32x);
-    // height: calc(100vh - 140px);
     height: auto;
     padding: 16px;
   }
@@ -258,7 +284,6 @@ section {
       background-color: #ccc;
       font-size: 1rem;
       margin: 5px;
-      transition: all 0.3s ease-in-out;
       cursor: pointer;
 
       &:hover {

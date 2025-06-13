@@ -2,16 +2,37 @@
   <section id="home">
     <div class="image-container">
       <img :src="brutalizm" alt="Policrafts" />
-      <div class="overlay">
-        <h1>Policrafts</h1>
-        <p>Twoja wizja, nasza misja</p>
-      </div>
+      <motion.div
+        class="overlay"
+        :initial="{}"
+        :whileInView="{
+          transition: {
+            staggerChildren: 0.3,
+          },
+        }"
+      >
+        <motion.h1
+          :initial="{ opacity: 0, y: 50, scale: 0.95 }"
+          :animate="{ opacity: 1, y: 0, scale: 1 }"
+          :transition="{ duration: 1, ease: 'easeOut' }"
+        >
+          Policrafts
+        </motion.h1>
+        <motion.p
+          :initial="{ opacity: 0, y: 50, scale: 0.95 }"
+          :animate="{ opacity: 1, y: 0, scale: 1 }"
+          :transition="{ duration: 1.2, ease: 'easeOut', delay: 0.3 }"
+        >
+          Twoja wizja, nasza misja
+        </motion.p>
+      </motion.div>
     </div>
   </section>
 </template>
 
 <script setup>
 import brutalizm from "@/assets/images/brutalizm.jpg";
+import { motion } from "motion-v";
 </script>
 <script>
 export default {
@@ -44,12 +65,16 @@ section {
 
   .overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     text-align: center;
     color: #ffffff;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    z-index: 10;
 
     h1 {
       font-size: 10rem;
