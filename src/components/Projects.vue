@@ -41,6 +41,7 @@ import generator_logo from "@/assets/images/generator_logo.webp";
 import omd_render from "@/assets/images/OMD_render.webp";
 import domy_w_stokach from "@/assets/images/domy_w_stokach.webp";
 import dragon_folie from "@/assets/images/dragon_folie.webp";
+import dragon_folie_logo from "@/assets/images/dragon_folie_logo.webp";
 
 const projects = [
   {
@@ -88,7 +89,7 @@ const projects = [
     name: "Dragon Folie",
     link: "https://www.dragonfolie.com",
     image: dragon_folie,
-    logo: brzozowa_logo,
+    logo: dragon_folie_logo,
     alt: "Dragon Folie",
   },
   {

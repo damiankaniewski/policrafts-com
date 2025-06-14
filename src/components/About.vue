@@ -1,15 +1,35 @@
 <template>
   <section id="about">
     <h2>O nas</h2>
+    <h3>Nasza historia</h3>
+    <motion.div
+      class="text-container"
+      :initial="{ opacity: 0, y: 30 }"
+      :inView="{ opacity: 1, y: 0 }"
+      :transition="{ duration: 1, ease: 'easeOut' }"
+      :inViewOptions="{ margin: '-20px' }"
+    >
+      <p>
+        <strong>Policrafts</strong> powstało z pasji do technologii, designu
+        i&nbsp;nowoczesnych rozwiązań. Zaczynaliśmy jako mały zespół
+        freelancerów, którzy łączyli siły przy kreatywnych projektach. Dziś
+        działamy jako zgrany kolektyw specjalistów – od programistów, przez
+        designerów, po ekspertów od infrastruktury. Naszym celem jest tworzenie
+        innowacyjnych produktów cyfrowych, które łączą estetykę
+        z&nbsp;funkcjonalnością.
+      </p>
+    </motion.div>
+
+    <h3>Kto u nas tworzy?</h3>
     <div class="grid">
       <motion.div
+        v-for="(person, index) in people"
+        :key="index"
+        class="card"
         :initial="{ opacity: 0, scale: 0.9 }"
         :inView="{ opacity: 1, scale: 1 }"
         :transition="{ duration: 1, ease: 'easeInOut', delay: 0.1 * index }"
         :inViewOptions="{ margin: '-20px' }"
-        v-for="(person, index) in people"
-        :key="index"
-        class="card"
       >
         <div class="card-image">
           <div class="overlay"></div>
@@ -21,6 +41,24 @@
         </div>
       </motion.div>
     </div>
+
+    <h3>Dlaczego my?</h3>
+    <motion.div
+      class="text-container"
+      :initial="{ opacity: 0, y: 30 }"
+      :inView="{ opacity: 1, y: 0 }"
+      :transition="{ duration: 1, ease: 'easeOut' }"
+      :inViewOptions="{ margin: '-20px' }"
+    >
+      <p>
+        Jesteśmy małym zespołem z&nbsp;wielkim zapałem. Doskonale rozumiemy
+        wyzwania i&nbsp;potrzeby współczesnego świata technologii. Nie nosimy
+        korpo uniformów, za to mamy świeże pomysły, ogromną ambicję i&nbsp;chęć,
+        by działać szybko i&nbsp;skutecznie. Dla nas każdy projekt to nowa
+        przygoda i&nbsp;szansa, by pokazać, że można tworzyć inaczej —
+        z&nbsp;pasją, szczerością i&nbsp;autentycznością.
+      </p>
+    </motion.div>
   </section>
 </template>
 
@@ -38,22 +76,34 @@ export default {
       people: [
         {
           image: placeholder,
-          name: "Jan Kowalski",
-          position: "Frontend Developer",
-        },
-        { image: placeholder, name: "Anna Nowak", position: "UX Designer" },
-        {
-          image: placeholder,
-          name: "Tomasz Wiśniewski",
-          position: "Project Manager",
+          name: "Maciej Krzyszkowski",
+          position: "Founder & 3D Designer",
         },
         {
           image: placeholder,
-          name: "Maria Zielińska",
-          position: "Backend Developer",
+          name: "Damian Kaniewski",
+          position: "Software Developer & Project Manager",
         },
-        { image: placeholder, name: "Adam Kaczmarek", position: "QA Engineer" },
-        { image: placeholder, name: "Ewa Mazur", position: "Scrum Master" },
+        {
+          image: placeholder,
+          name: "Rafał Ciupek",
+          position: "Full-Stack Developer",
+        },
+        {
+          image: placeholder,
+          name: "Jakub Szostak",
+          position: "Cloud Developer & DevOps Engineer",
+        },
+        {
+          image: placeholder,
+          name: "Anna Prochownik",
+          position: "HR, Finance & Legal Coordinator",
+        },
+        {
+          image: placeholder,
+          name: "Aleksandra Walkiewicz",
+          position: "UX/UI Designer & Concept Artist",
+        },
       ],
     };
   },
@@ -64,6 +114,23 @@ export default {
 section {
   padding: 16px;
 
+  h3 {
+    font-size: 3rem;
+  }
+
+  .text-container {
+    max-width: 60rem;
+    margin: 0 auto 32px;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    text-align: center;
+    color: #333;
+
+    @media (max-width: 600px) {
+      font-size: 1rem;
+      padding: 0 10px;
+    }
+  }
   .grid {
     display: grid;
     gap: 16px;
