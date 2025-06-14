@@ -2,97 +2,34 @@
   <section id="projects">
     <h1>Realizacje</h1>
     <div class="container">
-      <a
-        href="https://www.domypodkrakowem.com.pl"
+      <motion.a
+        v-for="(project, index) in projects"
+        :key="index"
+        :href="project.link"
         target="_blank"
-        class="item-a"
+        :class="`item-${project.id}`"
+        class="project-item"
+        :initial="{ opacity: 0 }"
+        :inView="{ opacity: 1 }"
+        :transition="{ duration: 1, ease: 'easeInOut', delay: 0.1 * index }"
+        :inViewOptions="{ margin: '-50px' }"
       >
+        <img :src="project.image" :alt="project.alt" class="item-img" />
         <img
-          :src="domy_pod_krakowem_render"
-          alt="Domy pod Krakowem"
-          class="item-img"
-        />
-        <img
-          :src="domy_pod_krakowem_logo"
-          alt="Domy pod Krakowem Logo"
+          :src="project.logo"
+          :alt="`${project.name} Logo`"
           class="item-logo"
         />
-      </a>
-      <a href="https://www.domyzakrzow.pl" target="_blank" class="item-b">
-        <img :src="brzozowa" alt="Domy pod Krakowem" class="item-img" />
-        <img
-          :src="brzozowa_logo"
-          alt="Domy przy Brzozowej Logo"
-          class="item-logo"
-        />
-      </a>
-      <a href="https://www.sadowa20.pl" target="_blank" class="item-c">
-        <img :src="sadowa_render" alt="Sadowa 20 Render" class="item-img" />
-        <img :src="sadowa_logo" alt="Sadowa 20 Logo" class="item-logo" />
-      </a>
-
-      <a
-        href="https://www.generator-deweloper.com"
-        target="_blank"
-        class="item-d"
-      >
-        <img
-          :src="domy_pod_krakowem_render_gora"
-          alt="Domy pod Krakowem"
-          class="item-img"
-        />
-        <img
-          :src="generator_logo"
-          alt="Generator Deweloper Logo"
-          class="item-logo"
-        />
-      </a>
-      <a href="https://www.pulaskiego32.pl" target="_blank" class="item-e">
-        <img :src="pulaskiego" alt="Pułaskiego 32 Render" class="item-img" />
-        <img
-          :src="pulaskiego_logo"
-          alt="Pułaskiego 32 Logo"
-          class="item-logo"
-        />
-      </a>
-      <a href="https://www.dragonfolie.com" target="_blank" class="item-f">
-        <img :src="dragon_folie" alt="OMD" class="item-img" />
-        <img
-          :src="brzozowa_logo"
-          alt="Domy przy Brzozowej Logo"
-          class="item-logo"
-        />
-      </a>
-      <a href="https://www.dragonfolie.com" target="_blank" class="item-g">
-        <img :src="dragon_folie" alt="OMD" class="item-img" />
-        <img
-          :src="brzozowa_logo"
-          alt="Domy przy Brzozowej Logo"
-          class="item-logo"
-        />
-      </a>
-      <a href="https://www.domywstokach.pl" target="_blank" class="item-h">
-        <img :src="domy_w_stokach" alt="Domy w Stokach" class="item-img" />
-        <img
-          :src="brzozowa_logo"
-          alt="Domy przy Brzozowej Logo"
-          class="item-logo"
-        />
-      </a>
-      <a href="https://www.omd-budownictwo.com" target="_blank" class="item-i">
-        <img :src="omd_render" alt="OMD" class="item-img" />
-        <img
-          :src="brzozowa_logo"
-          alt="Domy przy Brzozowej Logo"
-          class="item-logo"
-        />
-      </a>
+      </motion.a>
     </div>
   </section>
 </template>
 
 <script setup>
+import { motion } from "motion-v";
+
 import domy_pod_krakowem_render from "@/assets/images/domy_pod_krakowem_render.webp";
+import domy_pod_krakowem_render_gora from "@/assets/images/domy_pod_krakowem_render_gora.webp";
 import domy_pod_krakowem_logo from "@/assets/images/domy_pod_krakowem_logo.webp";
 import brzozowa from "@/assets/images/brzozowa.webp";
 import brzozowa_logo from "@/assets/images/brzozowa_logo.webp";
@@ -100,12 +37,85 @@ import sadowa_render from "@/assets/images/sadowa_render.webp";
 import sadowa_logo from "@/assets/images/sadowa_logo.webp";
 import pulaskiego from "@/assets/images/pulaskiego.webp";
 import pulaskiego_logo from "@/assets/images/pulaskiego_logo.webp";
-import domy_pod_krakowem_render_gora from "@/assets/images/domy_pod_krakowem_render_gora.webp";
 import generator_logo from "@/assets/images/generator_logo.webp";
 import omd_render from "@/assets/images/OMD_render.webp";
 import domy_w_stokach from "@/assets/images/domy_w_stokach.webp";
 import dragon_folie from "@/assets/images/dragon_folie.webp";
-// import domy_w_stokach_logo from "@/assets/images/domy_w_stokach_logo.webp";
+
+const projects = [
+  {
+    id: "a",
+    name: "Domy pod Krakowem",
+    link: "https://www.domypodkrakowem.com.pl",
+    image: domy_pod_krakowem_render,
+    logo: domy_pod_krakowem_logo,
+    alt: "Domy pod Krakowem",
+  },
+  {
+    id: "b",
+    name: "Domy przy Brzozowej",
+    link: "https://www.domyzakrzow.pl",
+    image: brzozowa,
+    logo: brzozowa_logo,
+    alt: "Domy przy Brzozowej",
+  },
+  {
+    id: "c",
+    name: "Sadowa 20",
+    link: "https://www.sadowa20.pl",
+    image: sadowa_render,
+    logo: sadowa_logo,
+    alt: "Sadowa 20",
+  },
+  {
+    id: "d",
+    name: "Generator Deweloper",
+    link: "https://www.generator-deweloper.com",
+    image: domy_pod_krakowem_render_gora,
+    logo: generator_logo,
+    alt: "Generator Deweloper",
+  },
+  {
+    id: "e",
+    name: "Pułaskiego 32",
+    link: "https://www.pulaskiego32.pl",
+    image: pulaskiego,
+    logo: pulaskiego_logo,
+    alt: "Pułaskiego 32",
+  },
+  {
+    id: "f",
+    name: "Dragon Folie",
+    link: "https://www.dragonfolie.com",
+    image: dragon_folie,
+    logo: brzozowa_logo,
+    alt: "Dragon Folie",
+  },
+  {
+    id: "g",
+    name: "Dragon Folie",
+    link: "https://www.dragonfolie.com",
+    image: dragon_folie,
+    logo: brzozowa_logo,
+    alt: "Dragon Folie",
+  },
+  {
+    id: "h",
+    name: "Domy w Stokach",
+    link: "https://www.domywstokach.pl",
+    image: domy_w_stokach,
+    logo: brzozowa_logo,
+    alt: "Domy w Stokach",
+  },
+  {
+    id: "i",
+    name: "OMD Budownictwo",
+    link: "https://www.omd-budownictwo.com",
+    image: omd_render,
+    logo: brzozowa_logo,
+    alt: "OMD",
+  },
+];
 </script>
 
 <script>
@@ -114,7 +124,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 section {
   padding: 16px;
   scroll-margin-top: 100px;
@@ -123,8 +133,7 @@ section {
     font-size: 7rem;
     color: #000;
     font-weight: 700;
-    margin: 0;
-    margin-bottom: 50px;
+    margin: 0 0 50px;
   }
 
   .container {
@@ -145,44 +154,16 @@ section {
       "i g h";
   }
 
-  .item-a {
-    grid-area: a;
-  }
-  .item-b {
-    grid-area: b;
-  }
-  .item-c {
-    grid-area: c;
-  }
-  .item-d {
-    grid-area: d;
-  }
-  .item-e {
-    grid-area: e;
-  }
-  .item-f {
-    grid-area: f;
-  }
-  .item-g {
-    grid-area: g;
-  }
-  .item-h {
-    grid-area: h;
-  }
-  .item-i {
-    grid-area: i;
-  }
-
-  .container > a {
+  .project-item {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     background: #d1d1d1;
     display: flex;
     align-items: center;
     justify-content: center;
-
     position: relative;
     overflow: hidden;
     flex-direction: column;
+    transition: transform 0.3s;
 
     &:hover {
       .item-img {
@@ -215,13 +196,33 @@ section {
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
   }
 
-  h2 {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #000;
-    text-align: start;
-    margin: 0;
-    margin-bottom: 10px;
+  // Grid area styling
+  .item-a {
+    grid-area: a;
+  }
+  .item-b {
+    grid-area: b;
+  }
+  .item-c {
+    grid-area: c;
+  }
+  .item-d {
+    grid-area: d;
+  }
+  .item-e {
+    grid-area: e;
+  }
+  .item-f {
+    grid-area: f;
+  }
+  .item-g {
+    grid-area: g;
+  }
+  .item-h {
+    grid-area: h;
+  }
+  .item-i {
+    grid-area: i;
   }
 }
 </style>

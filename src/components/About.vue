@@ -2,26 +2,37 @@
   <section id="about">
     <h1>O nas</h1>
     <div class="grid">
-      <AboutCard
+      <motion.div
+        :initial="{ opacity: 0, scale: 0.9 }"
+        :inView="{ opacity: 1, scale: 1 }"
+        :transition="{ duration: 1, ease: 'easeInOut', delay: 0.1 * index }"
+        :inViewOptions="{ margin: '-50px' }"
         v-for="(person, index) in people"
         :key="index"
-        :image="person.image"
-        :name="person.name"
-        :position="person.position"
-      />
+        class="card"
+      >
+        <div class="card-image">
+          <div class="overlay"></div>
+          <img :src="person.image" :alt="person.name" />
+          <div class="card-info">
+            <h2>{{ person.name }}</h2>
+            <p>{{ person.position }}</p>
+          </div>
+        </div>
+      </motion.div>
     </div>
   </section>
 </template>
 
+<script setup>
+import { motion } from "motion-v";
+</script>
+
 <script>
-import AboutCard from "@/components/partial/AboutCard.vue";
 import placeholder from "@/assets/images/szostak.jpg";
 
 export default {
   name: "AboutSection",
-  components: {
-    AboutCard,
-  },
   data() {
     return {
       people: [
@@ -69,6 +80,58 @@ section {
 
     @media (max-width: 600px) {
       grid-template-columns: 1fr;
+    }
+  }
+
+  .card {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+
+    .card-image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 0, 0, 0) 50%,
+          rgb(0, 0, 0) 110%
+        );
+      }
+
+      .card-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 10px 12px;
+        color: white;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: left;
+        z-index: 6;
+
+        h2 {
+          font-size: 2.5rem;
+          margin: 0;
+        }
+
+        p {
+          font-size: 1rem;
+          margin: 2px 0 0;
+        }
+      }
     }
   }
 }

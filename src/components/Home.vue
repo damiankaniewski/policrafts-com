@@ -12,16 +12,16 @@
         }"
       >
         <motion.h1
-          :initial="{ opacity: 0, y: 50, scale: 0.95 }"
-          :animate="{ opacity: 1, y: 0, scale: 1 }"
-          :transition="{ duration: 1, ease: 'easeOut' }"
+          :initial="{ opacity: 0, scale: 0.8 }"
+          :animate="{ opacity: 1, scale: 1 }"
+          :transition="{ duration: 2, ease: 'easeInOut' }"
         >
           Policrafts
         </motion.h1>
         <motion.p
-          :initial="{ opacity: 0, y: 50, scale: 0.95 }"
+          :initial="{ opacity: 0, y: 100, scale: 0.9 }"
           :animate="{ opacity: 1, y: 0, scale: 1 }"
-          :transition="{ duration: 1.2, ease: 'easeOut', delay: 0.3 }"
+          :transition="{ duration: 1.5, ease: 'easeInOut', delay: 0.5 }"
         >
           Twoja wizja, nasza misja
         </motion.p>
@@ -49,8 +49,8 @@ section {
   align-items: center;
 
   .image-container {
-    width: calc(100% - 40px);
-    height: calc(100vh - 40px);
+    width: calc(100% - 32px);
+    height: calc(100vh - 32px);
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
     @extend .rounded-box;
     overflow: hidden;

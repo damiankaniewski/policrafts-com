@@ -3,13 +3,23 @@
     <div class="grid-container">
       <motion.div
         id="motto"
-        :initial="{ opacity: 0, scale: 0.95 }"
-        :inView="{ opacity: 1, scale: 1 }"
+        :initial="{ opacity: 0, x: 100 }"
+        :inView="{ opacity: 1, x: 0 }"
         :inViewOptions="{ margin: '-50px' }"
-        :transition="{ duration: 1, delay: 0.4, easing: 'ease-out' }"
+        :transition="{ duration: 2, ease: 'easeInOut' }"
       >
         <img :src="modern" alt="Modern render" />
-        <div class="motto-content">
+        <motion.div
+          :initial="{ opacity: 0, x: 1000 }"
+          :inView="{ opacity: 1, x: 0 }"
+          :inViewOptions="{ margin: '-50px' }"
+          :transition="{
+            duration: 1,
+            delay: 1,
+            ease: 'easeInOut',
+          }"
+          class="motto-content"
+        >
           <svg
             width="50"
             height="50"
@@ -83,13 +93,13 @@
               <h2>Technologia</h2>
             </div>
           </div>
-        </div>
+        </motion.div>
       </motion.div>
       <motion.div
         id="desc"
-        :initial="{ opacity: 0, x: -50 }"
+        :initial="{ opacity: 0, x: -100 }"
         :inView="{ opacity: 1, x: 0 }"
-        :transition="{ duration: 0.8, delay: 0.2 }"
+        :transition="{ duration: 1 }"
         :inViewOptions="{ margin: '-50px' }"
       >
         <h2>Niepowtarzalny styl</h2>
@@ -102,9 +112,9 @@
       <motion.div
         class="projects"
         id="project-1"
-        :initial="{ opacity: 0, y: 30 }"
-        :inView="{ opacity: 1, y: 0 }"
-        :transition="{ duration: 0.8, delay: 0.6 }"
+        :initial="{ opacity: 0, x: -100 }"
+        :inView="{ opacity: 1, x: 0 }"
+        :transition="{ duration: 1, delay: 0.3 }"
         :inViewOptions="{ margin: '-50px' }"
       >
         <img class="background" :src="pulaskiego" alt="Pułaskiego render" />
@@ -113,9 +123,9 @@
       <motion.div
         class="projects"
         id="project-2"
-        :initial="{ opacity: 0, y: 30 }"
-        :inView="{ opacity: 1, y: 0 }"
-        :transition="{ duration: 0.8, delay: 0.8 }"
+        :initial="{ opacity: 0, x: -100 }"
+        :inView="{ opacity: 1, x: 0 }"
+        :transition="{ duration: 1, delay: 0.6 }"
         :inViewOptions="{ margin: '-50px' }"
       >
         <img class="background" :src="brzozowa" alt="Brzozowa render" />
@@ -127,25 +137,73 @@
       <div class="stats-container">
         <div class="stat-item">
           <p>ponad</p>
-          <Roller value="7" :duration="1000"></Roller>
+          <motion.span
+            :initial="{ opacity: 0 }"
+            :inView="{ opacity: 1 }"
+            :transition="{ duration: 1, ease: 'easeInOut' }"
+            :inViewOptions="{ margin: '-50px' }"
+            >7</motion.span
+          >
           <p>lat na rynku</p>
         </div>
 
         <div class="stat-item">
           <p>ponad</p>
-          <Roller value="275" :duration="1500"></Roller>
+          <motion.span
+            :initial="{ opacity: 0 }"
+            :inView="{ opacity: 1 }"
+            :transition="{ duration: 1, ease: 'easeInOut', delay: 0.1 }"
+            :inViewOptions="{ margin: '-50px' }"
+            >2</motion.span
+          ><motion.span
+            :initial="{ opacity: 0 }"
+            :inView="{ opacity: 1 }"
+            :transition="{ duration: 1, ease: 'easeInOut', delay: 0.2 }"
+            :inViewOptions="{ margin: '-50px' }"
+            >7</motion.span
+          ><motion.span
+            :initial="{ opacity: 0 }"
+            :inView="{ opacity: 1 }"
+            :transition="{ duration: 1, ease: 'easeInOut', delay: 0.3 }"
+            :inViewOptions="{ margin: '-50px' }"
+            >5</motion.span
+          >
           <p>wizualizacji</p>
         </div>
 
         <div class="stat-item">
           <p>ponad</p>
-          <Roller value="55" :duration="2000"></Roller>
+          <motion.span
+            :initial="{ opacity: 0 }"
+            :inView="{ opacity: 1 }"
+            :transition="{ duration: 1, ease: 'easeInOut', delay: 0.4 }"
+            :inViewOptions="{ margin: '-50px' }"
+            >5</motion.span
+          ><motion.span
+            :initial="{ opacity: 0 }"
+            :inView="{ opacity: 1 }"
+            :transition="{ duration: 1, ease: 'easeInOut', delay: 0.5 }"
+            :inViewOptions="{ margin: '-50px' }"
+            >5</motion.span
+          >
           <p>projektów graficznych</p>
         </div>
 
         <div class="stat-item">
           <p>ponad</p>
-          <Roller value="15" :duration="2500"></Roller>
+          <motion.span
+            :initial="{ opacity: 0 }"
+            :inView="{ opacity: 1 }"
+            :transition="{ duration: 1, ease: 'easeInOut', delay: 0.6 }"
+            :inViewOptions="{ margin: '-50px' }"
+            >1</motion.span
+          ><motion.span
+            :initial="{ opacity: 0 }"
+            :inView="{ opacity: 1 }"
+            :transition="{ duration: 1, ease: 'easeInOut', delay: 0.7 }"
+            :inViewOptions="{ margin: '-50px' }"
+            >5</motion.span
+          >
           <p>stron internetowych</p>
         </div>
       </div>
@@ -159,8 +217,6 @@ import brzozowalogo from "@/assets/images/brzozowa_logo.webp";
 import pulaskiego from "@/assets/images/pulaskiego.webp";
 import pulaskiegologo from "@/assets/images/pulaskiego_logo.webp";
 import modern from "@/assets/images/modern.webp";
-import { Roller } from "vue-roller";
-import "vue-roller/dist/style.css";
 import { motion } from "motion-v";
 </script>
 
@@ -358,7 +414,10 @@ section {
       font-size: 7rem;
       margin: 1rem;
 
-      .roller {
+      motion.span {
+        font-size: 9rem;
+        margin: 0;
+        padding: 0;
         justify-content: center;
       }
 

@@ -3,9 +3,15 @@
     <h1>Usługi</h1>
     <div class="container">
       <div class="about-content">
-        <div class="about-item">
+        <motion.div
+          :initial="{ opacity: 0, x: -200 }"
+          :inView="{ opacity: 1, x: 0 }"
+          :transition="{ duration: 1, ease: 'easeInOut' }"
+          :inViewOptions="{ margin: '-50px' }"
+          class="about-item"
+        >
           <img :src="sadowa_teren_zielony" alt="Sadowa 20 - teren zielony" />
-        </div>
+        </motion.div>
         <div class="about-item" id="content-right">
           <h2>Design - Technologia - Grafika</h2>
           <h3>Wizualizacje 3D i&nbsp;grafika</h3>
@@ -57,17 +63,29 @@
             <span class="button-text"> Skontaktuj się z&nbsp;nami </span>
           </a>
         </div>
-        <div class="about-item">
+        <motion.div
+          :initial="{ opacity: 0, x: 200 }"
+          :inView="{ opacity: 1, x: 0 }"
+          :transition="{ duration: 1, ease: 'easeInOut' }"
+          :inViewOptions="{ margin: '-50px' }"
+          class="about-item"
+        >
           <img
             :src="domy_pod_krakowem_strona"
             alt="Sadowa 20 - teren zielony"
           />
-        </div>
+        </motion.div>
       </div>
       <div class="about-content">
-        <div class="about-item">
+        <motion.div
+          :initial="{ opacity: 0, x: -200 }"
+          :inView="{ opacity: 1, x: 0 }"
+          :transition="{ duration: 1, ease: 'easeInOut' }"
+          :inViewOptions="{ margin: '-50px' }"
+          class="about-item"
+        >
           <img :src="mvr" alt="Modern render" />
-        </div>
+        </motion.div>
         <div class="about-item" id="content-right">
           <h2>Design - Technologia - Informatyka</h2>
           <h3>Pozostałe usługi informatyczno-graficzne</h3>
@@ -96,6 +114,7 @@
 </template>
 
 <script setup>
+import { motion } from "motion-v";
 import sadowa_teren_zielony from "@/assets/images/sadowa_teren_zielony.webp";
 import domy_pod_krakowem_strona from "@/assets/images/domy_pod_krakowem_strona.webp";
 import mvr from "@/assets/images/mvr.jpg";
