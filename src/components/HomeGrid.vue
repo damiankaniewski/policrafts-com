@@ -8,7 +8,7 @@
         :inViewOptions="{ margin: '-50px' }"
         :transition="{ duration: 2, ease: 'easeInOut' }"
       >
-        <img :src="modern" alt="Modern render" />
+        <img :src="brutalizm" alt="Modern render" />
         <motion.div
           :initial="{ opacity: 0, x: 1000 }"
           :inView="{ opacity: 1, x: 0 }"
@@ -132,80 +132,40 @@
         <img class="logo" :src="brzozowalogo" alt="Brzozowa logo" />
       </motion.div>
     </div>
-
     <div class="stats-container">
       <div class="stats-container">
-        <div class="stat-item">
+        <motion.div
+          class="stat-item"
+          v-for="(stat, statIndex) in stats"
+          :key="statIndex"
+          :initial="{ opacity: 0 }"
+          :animate="{ opacity: 1 }"
+          :transition="{
+            duration: 0.5,
+            ease: 'easeInOut',
+            delay: statIndex * 0.5,
+          }"
+        >
           <p>ponad</p>
-          <motion.span
-            :initial="{ opacity: 0 }"
-            :inView="{ opacity: 1 }"
-            :transition="{ duration: 1, ease: 'easeInOut' }"
-            :inViewOptions="{ margin: '-50px' }"
-            >7</motion.span
-          >
-          <p>lat na rynku</p>
-        </div>
-
-        <div class="stat-item">
-          <p>ponad</p>
-          <motion.span
-            :initial="{ opacity: 0 }"
-            :inView="{ opacity: 1 }"
-            :transition="{ duration: 1, ease: 'easeInOut', delay: 0.1 }"
-            :inViewOptions="{ margin: '-50px' }"
-            >2</motion.span
-          ><motion.span
-            :initial="{ opacity: 0 }"
-            :inView="{ opacity: 1 }"
-            :transition="{ duration: 1, ease: 'easeInOut', delay: 0.2 }"
-            :inViewOptions="{ margin: '-50px' }"
-            >7</motion.span
-          ><motion.span
-            :initial="{ opacity: 0 }"
-            :inView="{ opacity: 1 }"
-            :transition="{ duration: 1, ease: 'easeInOut', delay: 0.3 }"
-            :inViewOptions="{ margin: '-50px' }"
-            >5</motion.span
-          >
-          <p>wizualizacji</p>
-        </div>
-
-        <div class="stat-item">
-          <p>ponad</p>
-          <motion.span
-            :initial="{ opacity: 0 }"
-            :inView="{ opacity: 1 }"
-            :transition="{ duration: 1, ease: 'easeInOut', delay: 0.4 }"
-            :inViewOptions="{ margin: '-50px' }"
-            >5</motion.span
-          ><motion.span
-            :initial="{ opacity: 0 }"
-            :inView="{ opacity: 1 }"
-            :transition="{ duration: 1, ease: 'easeInOut', delay: 0.5 }"
-            :inViewOptions="{ margin: '-50px' }"
-            >5</motion.span
-          >
-          <p>projektów graficznych</p>
-        </div>
-
-        <div class="stat-item">
-          <p>ponad</p>
-          <motion.span
-            :initial="{ opacity: 0 }"
-            :inView="{ opacity: 1 }"
-            :transition="{ duration: 1, ease: 'easeInOut', delay: 0.6 }"
-            :inViewOptions="{ margin: '-50px' }"
-            >1</motion.span
-          ><motion.span
-            :initial="{ opacity: 0 }"
-            :inView="{ opacity: 1 }"
-            :transition="{ duration: 1, ease: 'easeInOut', delay: 0.7 }"
-            :inViewOptions="{ margin: '-50px' }"
-            >5</motion.span
-          >
-          <p>stron internetowych</p>
-        </div>
+          <div>
+            <motion.span
+              v-for="(digit, index) in stat.number.split('')"
+              :key="index"
+              :initial="{ opacity: 0, scale: 0.5 }"
+              :animate="{ opacity: 1, scale: 1 }"
+              :transition="{
+                duration: 0.25,
+                ease: 'easeInOut',
+                delay: 0.25 + statIndex * 0.5 + index * 0.25,
+              }"
+              :inViewOptions="{ margin: '-50px' }"
+              style="display: inline-block"
+            >
+              {{ digit }}
+            </motion.span>
+          </div>
+          <p>{{ stat.label }}</p>
+        </motion.div>
       </div>
     </div>
   </section>
@@ -216,8 +176,15 @@ import brzozowa from "@/assets/images/brzozowa.webp";
 import brzozowalogo from "@/assets/images/brzozowa_logo.webp";
 import pulaskiego from "@/assets/images/pulaskiego.webp";
 import pulaskiegologo from "@/assets/images/pulaskiego_logo.webp";
-import modern from "@/assets/images/modern.webp";
+import brutalizm from "@/assets/images/brutalizm.jpg";
 import { motion } from "motion-v";
+
+const stats = [
+  { label: "lat na rynku", number: "7" },
+  { label: "wizualizacji", number: "275" },
+  { label: "projektów graficznych", number: "55" },
+  { label: "stron internetowych", number: "15" },
+];
 </script>
 
 <script>

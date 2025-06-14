@@ -1,7 +1,7 @@
 <template>
   <section id="home">
     <div class="image-container">
-      <img :src="brutalizm" alt="Policrafts" />
+      <img :src="home" alt="Policrafts" />
       <motion.div
         class="overlay"
         :initial="{}"
@@ -12,28 +12,88 @@
         }"
       >
         <motion.h1
-          :initial="{ opacity: 0, scale: 0.8 }"
-          :animate="{ opacity: 1, scale: 1 }"
-          :transition="{ duration: 2, ease: 'easeInOut' }"
+          :initial="{}"
+          :animate="{}"
+          :transition="{ staggerChildren: 0.1 }"
         >
-          Policrafts
+          <motion.span
+            v-for="(letter, index) in title"
+            :key="index"
+            :initial="{ opacity: 0, scale: 0.5 }"
+            :animate="{ opacity: 1, scale: 1 }"
+            :transition="{
+              duration: 0.25,
+              ease: 'easeInOut',
+              delay: index * 0.1,
+            }"
+            style="display: inline-block"
+          >
+            {{ letter }}
+          </motion.span>
         </motion.h1>
         <motion.p
-          :initial="{ opacity: 0, y: 100, scale: 0.9 }"
-          :animate="{ opacity: 1, y: 0, scale: 1 }"
-          :transition="{ duration: 1.5, ease: 'easeInOut', delay: 0.5 }"
+          :initial="{ opacity: 0 }"
+          :animate="{ opacity: 1 }"
+          :transition="{ duration: 2, ease: 'easeInOut', delay: 1 }"
         >
           Twoja wizja, nasza misja
         </motion.p>
       </motion.div>
+      <div class="nav-links-right">
+        <ul>
+          <motion.li
+            :initial="{ opacity: 0 }"
+            :animate="{ opacity: 1 }"
+            :transition="{ duration: 1.5, ease: 'easeInOut', delay: 1 }"
+            ><a href="#contact">Kontakt</a></motion.li
+          >
+          <motion.li
+            :initial="{ opacity: 0 }"
+            :animate="{ opacity: 1 }"
+            :transition="{ duration: 1.5, ease: 'easeInOut', delay: 1.2 }"
+            ><a href="#collaboration">Współpraca</a></motion.li
+          >
+        </ul>
+      </div>
+      <div class="nav-links-left">
+        <ul>
+          <motion.li
+            :initial="{ opacity: 0 }"
+            :animate="{ opacity: 1 }"
+            :transition="{ duration: 1.5, ease: 'easeInOut', delay: 1.4 }"
+            ><a href="#about">O nas</a></motion.li
+          >
+          <motion.li
+            :initial="{ opacity: 0 }"
+            :animate="{ opacity: 1 }"
+            :transition="{ duration: 1.5, ease: 'easeInOut', delay: 1.6 }"
+            ><a href="#services">Usługi</a></motion.li
+          >
+          <motion.li
+            :initial="{ opacity: 0 }"
+            :animate="{ opacity: 1 }"
+            :transition="{ duration: 1.5, ease: 'easeInOut', delay: 1.8 }"
+            ><a href="#gallery">Galeria</a></motion.li
+          >
+          <motion.li
+            :initial="{ opacity: 0 }"
+            :animate="{ opacity: 1 }"
+            :transition="{ duration: 1.5, ease: 'easeInOut', delay: 2 }"
+            ><a href="#projects">Realizacje</a></motion.li
+          >
+        </ul>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import brutalizm from "@/assets/images/brutalizm.jpg";
+import home from "@/assets/images/OMD_render.webp";
 import { motion } from "motion-v";
+
+const title = "Policrafts".split("");
 </script>
+
 <script>
 export default {
   name: "HomeSection",
@@ -78,14 +138,66 @@ section {
 
     h1 {
       font-size: 10rem;
+      line-height: 10rem;
       margin: 0;
     }
 
     p {
       margin: 0;
       font-size: 3.85rem;
+      line-height: 3.5rem;
     }
   }
+
+  .nav-links {
+    position: absolute;
+    bottom: 20px;
+    z-index: 11;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      li {
+        a {
+          line-height: 2.75rem;
+          display: inline-block;
+          font-size: 3rem;
+          color: #fff;
+          text-decoration: none;
+          transform: scale(1);
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+
+  .nav-links-left {
+    @extend .nav-links;
+    right: 20px;
+
+    ul li {
+      text-align: right;
+    }
+  }
+
+  .nav-links-right {
+    @extend .nav-links;
+    left: 20px;
+
+    ul li {
+      text-align: left;
+    }
+  }
+
   .rounded-box {
     background-color: #f0f0f0;
   }
