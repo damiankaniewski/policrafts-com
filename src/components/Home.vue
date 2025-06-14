@@ -45,13 +45,17 @@
             :initial="{ opacity: 0 }"
             :animate="{ opacity: 1 }"
             :transition="{ duration: 1.5, ease: 'easeInOut', delay: 1 }"
-            ><a href="#contact">Kontakt</a></motion.li
+            ><a @click.prevent="scrollToWithOffset('contact')"
+              >Kontakt</a
+            ></motion.li
           >
           <motion.li
             :initial="{ opacity: 0 }"
             :animate="{ opacity: 1 }"
             :transition="{ duration: 1.5, ease: 'easeInOut', delay: 1.2 }"
-            ><a href="#collaboration">Współpraca</a></motion.li
+            ><a @click.prevent="scrollToWithOffset('collaboration')"
+              >Współpraca</a
+            ></motion.li
           >
         </ul>
       </div>
@@ -61,25 +65,31 @@
             :initial="{ opacity: 0 }"
             :animate="{ opacity: 1 }"
             :transition="{ duration: 1.5, ease: 'easeInOut', delay: 1.4 }"
-            ><a href="#about">O nas</a></motion.li
           >
+            <a @click.prevent="scrollToWithOffset('about')">O nas</a>
+          </motion.li>
           <motion.li
             :initial="{ opacity: 0 }"
             :animate="{ opacity: 1 }"
             :transition="{ duration: 1.5, ease: 'easeInOut', delay: 1.6 }"
-            ><a href="#services">Usługi</a></motion.li
           >
+            <a @click.prevent="scrollToWithOffset('services')">Usługi</a>
+          </motion.li>
           <motion.li
             :initial="{ opacity: 0 }"
             :animate="{ opacity: 1 }"
             :transition="{ duration: 1.5, ease: 'easeInOut', delay: 1.8 }"
-            ><a href="#gallery">Galeria</a></motion.li
+            ><a @click.prevent="scrollToWithOffset('gallery')"
+              >Galeria</a
+            ></motion.li
           >
           <motion.li
             :initial="{ opacity: 0 }"
             :animate="{ opacity: 1 }"
             :transition="{ duration: 1.5, ease: 'easeInOut', delay: 2 }"
-            ><a href="#projects">Realizacje</a></motion.li
+            ><a @click.prevent="scrollToWithOffset('projects')"
+              >Realizacje</a
+            ></motion.li
           >
         </ul>
       </div>
@@ -90,6 +100,7 @@
 <script setup>
 import home from "@/assets/images/OMD_render.webp";
 import { motion } from "motion-v";
+import { scrollToWithOffset } from "@/utils/scrollToWithOffset.js";
 
 const title = "Policrafts".split("");
 </script>

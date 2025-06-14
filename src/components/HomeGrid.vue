@@ -5,14 +5,14 @@
         id="motto"
         :initial="{ opacity: 0, x: 100 }"
         :inView="{ opacity: 1, x: 0 }"
-        :inViewOptions="{ margin: '-50px' }"
+        :inViewOptions="{ margin: '-20px' }"
         :transition="{ duration: 2, ease: 'easeInOut' }"
       >
         <img :src="brutalizm" alt="Modern render" />
         <motion.div
           :initial="{ opacity: 0, x: 1000 }"
           :inView="{ opacity: 1, x: 0 }"
-          :inViewOptions="{ margin: '-50px' }"
+          :inViewOptions="{ margin: '-20px' }"
           :transition="{
             duration: 1,
             delay: 1,
@@ -50,7 +50,7 @@
               />
             </svg>
             <div id="motto-item">
-              <h2>Design</h2>
+              <h3>Design</h3>
             </div>
           </div>
           <div class="motto-row">
@@ -70,7 +70,7 @@
             </svg>
 
             <div id="motto-item">
-              <h2>Marketing</h2>
+              <h3>Marketing</h3>
             </div>
           </div>
           <div class="motto-row">
@@ -90,7 +90,7 @@
             </svg>
 
             <div id="motto-item">
-              <h2>Technologia</h2>
+              <h3>Technologia</h3>
             </div>
           </div>
         </motion.div>
@@ -100,9 +100,9 @@
         :initial="{ opacity: 0, x: -100 }"
         :inView="{ opacity: 1, x: 0 }"
         :transition="{ duration: 1 }"
-        :inViewOptions="{ margin: '-50px' }"
+        :inViewOptions="{ margin: '-20px' }"
       >
-        <h2>Niepowtarzalny styl</h2>
+        <h3>Niepowtarzalny styl</h3>
         <p>
           Łączymy preferencje klienta oraz nowoczesne technologie, starannie
           analizując trendy rynkowe i&nbsp;specyfikę branży.
@@ -115,7 +115,7 @@
         :initial="{ opacity: 0, x: -100 }"
         :inView="{ opacity: 1, x: 0 }"
         :transition="{ duration: 1, delay: 0.3 }"
-        :inViewOptions="{ margin: '-50px' }"
+        :inViewOptions="{ margin: '-20px' }"
       >
         <img class="background" :src="pulaskiego" alt="Pułaskiego render" />
         <img class="logo" :src="pulaskiegologo" alt="Pułaskiego logo" />
@@ -126,7 +126,7 @@
         :initial="{ opacity: 0, x: -100 }"
         :inView="{ opacity: 1, x: 0 }"
         :transition="{ duration: 1, delay: 0.6 }"
-        :inViewOptions="{ margin: '-50px' }"
+        :inViewOptions="{ margin: '-20px' }"
       >
         <img class="background" :src="brzozowa" alt="Brzozowa render" />
         <img class="logo" :src="brzozowalogo" alt="Brzozowa logo" />
@@ -158,7 +158,7 @@
                 ease: 'easeInOut',
                 delay: 0.25 + statIndex * 0.5 + index * 0.25,
               }"
-              :inViewOptions="{ margin: '-50px' }"
+              :inViewOptions="{ margin: '-20px' }"
               style="display: inline-block"
             >
               {{ digit }}
@@ -211,7 +211,7 @@ section {
 
   .grid-item {
     padding: 16px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
     @extend .rounded-box;
   }
 
@@ -260,7 +260,7 @@ section {
       }
     }
 
-    h2 {
+    h3 {
       font-size: 7rem;
       font-weight: 700;
       color: #000;
@@ -285,7 +285,7 @@ section {
     display: flex;
     flex-direction: column;
 
-    h2 {
+    h3 {
       text-align: left;
       margin: 5px;
       font-size: 1.7rem;

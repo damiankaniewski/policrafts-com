@@ -1,21 +1,204 @@
 <template>
-  <footer>
-    <p>&copy; 2025 Policrafts. Wszelkie prawa zastrzeżone.</p>
+  <footer class="footer">
+    <div class="footer__container">
+      <!-- Lewa kolumna: Nawigacja -->
+      <div class="footer__links">
+        <h3>Nawigacja</h3>
+        <ul>
+          <li><a @click.prevent="scrollToWithOffset('about')">O nas</a></li>
+          <li><a @click.prevent="scrollToWithOffset('services')">Usługi</a></li>
+          <li>
+            <a @click.prevent="scrollToWithOffset('projects')">Realizacje</a>
+          </li>
+          <li><a @click.prevent="scrollToWithOffset('gallery')">Galeria</a></li>
+          <li>
+            <a @click.prevent="scrollToWithOffset('collaboration')"
+              >Współpraca</a
+            >
+          </li>
+          <li><a @click.prevent="scrollToWithOffset('contact')">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <!-- Środkowa kolumna: Branding -->
+      <div class="footer__branding">
+        <h3>Policrafts</h3>
+        <p>Tworzymy oprogramowanie skrojone na miarę.</p>
+      </div>
+
+      <!-- Prawa kolumna: Kontakt -->
+      <div class="footer__contact">
+        <h3>Kontakt</h3>
+        <p>
+          <strong>Email: </strong>
+          <a href="mailto:kontakt@policrafts.pl">biuro@policrafts.com</a><br />
+        </p>
+        <p>
+          <strong>Telefon: </strong>
+          <a href="tel:+48123456789">+48 123 456 789</a>
+        </p>
+        <div class="footer__socials">
+          <a href="#" aria-label="Facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="#" aria-label="LinkedIn"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dolna sekcja -->
+    <div class="footer__bottom">
+      <p>&copy; {{ currentYear }} Policrafts. Wszelkie prawa zastrzeżone.</p>
+      <div class="footer__policies">
+        <a href="/polityka-prywatnosci" target="_blank">Polityka prywatności</a>
+        <span>|</span>
+        <a href="/polityka-cookies" target="_blank">Polityka ciasteczek</a>
+      </div>
+    </div>
   </footer>
 </template>
+
+<script setup>
+import { scrollToWithOffset } from "@/utils/scrollToWithOffset.js";
+</script>
 
 <script>
 export default {
   name: "FooterSection",
+  data() {
+    return {
+      currentYear: new Date().getFullYear(),
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-footer {
-  padding: 16px;
-  background-color: #2c3e50;
+.footer {
+  background-color: #1f1f1f;
   color: #fff;
-  text-align: center;
-  margin-top: 40px;
+  padding: 16px 16px 16px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 1rem;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+
+    > div {
+      flex: 1 1 100px;
+    }
+
+    .footer__branding {
+      text-align: center;
+
+      h3 {
+        margin-bottom: 8px;
+        color: #fff;
+      }
+
+      p {
+        color: #ccc;
+      }
+    }
+
+    .footer__links {
+      text-align: left;
+
+      h3 {
+        margin-bottom: 12px;
+        color: #fff;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 8px;
+        }
+
+        a {
+          color: #ccc;
+          text-decoration: none;
+          transition: all 0.3s;
+
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .footer__contact {
+      text-align: right;
+
+      h3 {
+        margin-bottom: 12px;
+        color: #fff;
+      }
+
+      p,
+      a {
+        color: #ccc;
+        line-height: 14px;
+        text-decoration: none;
+      }
+      a {
+        transition: all 0.3s;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+
+      .footer__socials {
+        margin-top: 10px;
+
+        a {
+          margin-left: 10px;
+          color: #ccc;
+          transition: all 0.3s;
+
+          &:hover {
+            color: #1da1f2;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid #333;
+    margin-top: 16px;
+    padding-top: 20px;
+    text-align: center;
+    color: #888;
+
+    .footer__policies {
+      margin-top: 8px;
+
+      a {
+        color: #888;
+        margin: 0 5px;
+        text-decoration: none;
+        transition: all 0.3s;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+
+      span {
+        color: #666;
+      }
+    }
+  }
 }
 </style>

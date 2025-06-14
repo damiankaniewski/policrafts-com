@@ -5,12 +5,12 @@
         <img :src="logo" alt="Logo" />
       </a>
       <nav>
-        <a href="#about">O nas</a>
-        <a href="#services">Usługi</a>
-        <a href="#projects">Realizacje</a>
-        <a href="#gallery">Galeria</a>
-        <a href="#collaboration">Współpraca</a>
-        <a href="#contact">Kontakt</a>
+        <a @click.prevent="scrollToWithOffset('about')">O nas</a>
+        <a @click.prevent="scrollToWithOffset('services')">Usługi</a>
+        <a @click.prevent="scrollToWithOffset('projects')">Realizacje</a>
+        <a @click.prevent="scrollToWithOffset('gallery')">Galeria</a>
+        <a @click.prevent="scrollToWithOffset('collaboration')">Współpraca</a>
+        <a @click.prevent="scrollToWithOffset('contact')">Kontakt</a>
       </nav>
     </header>
   </transition>
@@ -19,6 +19,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import logo from "@/assets/logo_full.png";
+import { scrollToWithOffset } from "@/utils/scrollToWithOffset.js";
 
 const isVisible = ref(false);
 

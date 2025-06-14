@@ -1,27 +1,30 @@
 <template>
-  <section id="contact" class="container">
-    <div class="headers">
-      <h2>
-        Podaj nam szczegóły projektu, a&nbsp;my skontaktujemy się z&nbsp;Tobą
-        ASAP
-      </h2>
-      <h1>Zostańmy Partnerami!</h1>
-    </div>
-    <div class="contact-details">
-      <h2 id="contact-header">Podaj nam swoje dane*</h2>
-      <div class="name-lastName">
-        <input v-model="message" placeholder="Imię" class="input" />
-        <input v-model="message" placeholder="Nazwisko" class="input" />
+  <section id="contact">
+    <h2>Kontakt</h2>
+    <div class="container">
+      <div class="headers">
+        <h3>
+          Podaj nam szczegóły projektu, a&nbsp;my skontaktujemy się z&nbsp;Tobą
+          ASAP
+        </h3>
+        <h3>Zostańmy Partnerami!</h3>
       </div>
-      <input v-model="message" placeholder="Email" class="input" />
-      <input v-model="message" placeholder="Telefon" class="input" />
-      <h2 id="contact-header">Opisz szczegóły projektu*</h2>
-      <textarea
-        v-model="message"
-        placeholder="Twoje szczegóły projektu"
-        rows="3"
-        class="input"
-      />
+      <div class="contact-details">
+        <h3 id="contact-header">Podaj nam swoje dane*</h3>
+        <div class="name-lastName">
+          <input v-model="message" placeholder="Imię" class="input" />
+          <input v-model="message" placeholder="Nazwisko" class="input" />
+        </div>
+        <input v-model="message" placeholder="Email" class="input" />
+        <input v-model="message" placeholder="Telefon" class="input" />
+        <h3 id="contact-header">Opisz szczegóły projektu*</h3>
+        <textarea
+          v-model="message"
+          placeholder="Twoje szczegóły projektu"
+          rows="3"
+          class="input"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -52,18 +55,10 @@ section {
   width: 50%;
 }
 
-h2 {
+h3 {
   font-size: 1.5rem;
   color: #7e7e7e;
   font-weight: 700;
-  margin: 0;
-  text-align: start;
-}
-
-h1 {
-  font-size: 5rem;
-  color: #000;
-  font-weight: 500;
   margin: 0;
   text-align: start;
 }

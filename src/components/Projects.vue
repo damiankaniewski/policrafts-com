@@ -1,6 +1,6 @@
 <template>
   <section id="projects">
-    <h1>Realizacje</h1>
+    <h2>Realizacje</h2>
     <div class="container">
       <motion.a
         v-for="(project, index) in projects"
@@ -12,7 +12,7 @@
         :initial="{ opacity: 0 }"
         :inView="{ opacity: 1 }"
         :transition="{ duration: 1, ease: 'easeInOut', delay: 0.1 * index }"
-        :inViewOptions="{ margin: '-50px' }"
+        :inViewOptions="{ margin: '-20px' }"
       >
         <img :src="project.image" :alt="project.alt" class="item-img" />
         <img
@@ -129,13 +129,6 @@ section {
   padding: 16px;
   scroll-margin-top: 100px;
 
-  h1 {
-    font-size: 7rem;
-    color: #000;
-    font-weight: 700;
-    margin: 0 0 50px;
-  }
-
   .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -155,7 +148,7 @@ section {
   }
 
   .project-item {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
     background: #d1d1d1;
     display: flex;
     align-items: center;

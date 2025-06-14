@@ -1,6 +1,6 @@
 <template>
   <section id="gallery">
-    <h1>Galeria</h1>
+    <h2>Galeria</h2>
     <div
       v-for="(group, section) in groupedImages"
       :key="section"
@@ -20,7 +20,7 @@
       >
         <img :src="image.url" :alt="image.title" loading="lazy" />
         <div class="caption">
-          <h2>{{ image.title }}</h2>
+          <h3>{{ image.title }}</h3>
           <p class="description">{{ image.description }}</p>
         </div>
       </div>
@@ -84,18 +84,10 @@ export default {
 section {
   padding: 16px;
 
-  h1 {
-    font-size: 7rem;
-    color: #000;
-    font-weight: 700;
-    margin: 0;
-    margin-bottom: 50px;
-  }
-
   .gallery-grid {
     column-count: 4;
     column-gap: 0;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 
     @media (max-width: 1200px) {
       column-count: 2;
@@ -131,7 +123,7 @@ section {
         box-sizing: border-box;
         text-align: left;
 
-        h2 {
+        h3 {
           margin: 0;
           font-size: 1.2rem;
         }

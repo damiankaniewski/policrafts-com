@@ -1,20 +1,20 @@
 <template>
   <section id="services">
-    <h1>Usługi</h1>
+    <h2>Usługi</h2>
     <div class="container">
       <div class="about-content">
         <motion.div
           :initial="{ opacity: 0, x: -200 }"
           :inView="{ opacity: 1, x: 0 }"
           :transition="{ duration: 1, ease: 'easeInOut' }"
-          :inViewOptions="{ margin: '-50px' }"
+          :inViewOptions="{ margin: '-20px' }"
           class="about-item"
         >
           <img :src="sadowa_teren_zielony" alt="Sadowa 20 - teren zielony" />
         </motion.div>
         <div class="about-item" id="content-right">
-          <h2>Design - Technologia - Grafika</h2>
-          <h3>Wizualizacje 3D i&nbsp;grafika</h3>
+          <h3>Design - Technologia - Grafika</h3>
+          <h4>Wizualizacje 3D i&nbsp;grafika</h4>
           <ul class="two-columns">
             <li>Wizualizacje wnętrz</li>
             <li>Wizualizacje budynków</li>
@@ -40,8 +40,8 @@
       </div>
       <div class="about-content">
         <div class="about-item" id="content-left">
-          <h2>Design - Technologia - Informatyka</h2>
-          <h3>Systemy i&nbsp;strony internetowe</h3>
+          <h3>Design - Technologia - Informatyka</h3>
+          <h4>Systemy i&nbsp;strony internetowe</h4>
           <ul class="two-columns">
             <li>Strony internetowe</li>
             <li>Systemy i&nbsp;aplikacje webowe</li>
@@ -67,7 +67,7 @@
           :initial="{ opacity: 0, x: 200 }"
           :inView="{ opacity: 1, x: 0 }"
           :transition="{ duration: 1, ease: 'easeInOut' }"
-          :inViewOptions="{ margin: '-50px' }"
+          :inViewOptions="{ margin: '-20px' }"
           class="about-item"
         >
           <img
@@ -81,14 +81,14 @@
           :initial="{ opacity: 0, x: -200 }"
           :inView="{ opacity: 1, x: 0 }"
           :transition="{ duration: 1, ease: 'easeInOut' }"
-          :inViewOptions="{ margin: '-50px' }"
+          :inViewOptions="{ margin: '-20px' }"
           class="about-item"
         >
           <img :src="mvr" alt="Modern render" />
         </motion.div>
         <div class="about-item" id="content-right">
-          <h2>Design - Technologia - Informatyka</h2>
-          <h3>Pozostałe usługi informatyczno-graficzne</h3>
+          <h3>Design - Technologia - Informatyka</h3>
+          <h4>Pozostałe usługi informatyczno-graficzne</h4>
           <ul class="two-columns">
             <li>Konsultacje IT/Design</li>
             <li>Wsparcie techniczne</li>
@@ -137,14 +137,6 @@ section {
     align-items: center;
     gap: 80px;
   }
-  h1 {
-    font-size: 7rem;
-    color: #000;
-    font-weight: 700;
-    margin: 0;
-    margin-bottom: 50px;
-  }
-
   .about-content {
     display: flex;
     flex-direction: row;
@@ -166,17 +158,17 @@ section {
 
         object-fit: cover;
         height: 600px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
       }
 
-      h2 {
+      h3 {
         font-size: 1.5rem;
         color: #7e7e7e;
         font-weight: 700;
         margin: 0;
       }
 
-      h3 {
+      h4 {
         font-size: 5rem;
         color: #000;
         font-weight: 500;

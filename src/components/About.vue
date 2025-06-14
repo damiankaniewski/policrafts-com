@@ -1,12 +1,12 @@
 <template>
   <section id="about">
-    <h1>O nas</h1>
+    <h2>O nas</h2>
     <div class="grid">
       <motion.div
         :initial="{ opacity: 0, scale: 0.9 }"
         :inView="{ opacity: 1, scale: 1 }"
         :transition="{ duration: 1, ease: 'easeInOut', delay: 0.1 * index }"
-        :inViewOptions="{ margin: '-50px' }"
+        :inViewOptions="{ margin: '-20px' }"
         v-for="(person, index) in people"
         :key="index"
         class="card"
@@ -15,7 +15,7 @@
           <div class="overlay"></div>
           <img :src="person.image" :alt="person.name" />
           <div class="card-info">
-            <h2>{{ person.name }}</h2>
+            <h3>{{ person.name }}</h3>
             <p>{{ person.position }}</p>
           </div>
         </div>
@@ -64,11 +64,6 @@ export default {
 section {
   padding: 16px;
 
-  h1 {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
   .grid {
     display: grid;
     gap: 16px;
@@ -84,7 +79,7 @@ section {
   }
 
   .card {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 
     .card-image {
       position: relative;
@@ -122,7 +117,7 @@ section {
         text-align: left;
         z-index: 6;
 
-        h2 {
+        h3 {
           font-size: 2.5rem;
           margin: 0;
         }
