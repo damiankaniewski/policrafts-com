@@ -333,7 +333,7 @@ section {
       text-decoration: none;
       align-self: flex-end;
       border: 2px solid #333;
-      border-radius: 16px;
+      border-radius: 25px;
       padding: 10px 14px 10px 14px;
       color: #000;
       font-weight: bold;
@@ -341,6 +341,7 @@ section {
       font-size: 1rem;
       margin: 5px;
       cursor: pointer;
+      transition: all 0.2s ease-in-out;
 
       &:hover {
         background-color: #000;

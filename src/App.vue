@@ -10,6 +10,7 @@
     <Collaboration />
     <Contact />
     <Footer />
+    <CookieConsent />
   </div>
 </template>
 
@@ -24,6 +25,7 @@ import Collaboration from "./components/Collaboration.vue";
 import Contact from "./components/Contact.vue";
 import Footer from "./components/Footer.vue";
 import Gallery from "./components/Gallery.vue";
+import CookieConsent from "./components/CookieConsent.vue";
 
 export default {
   name: "App",
@@ -38,6 +40,7 @@ export default {
     Collaboration,
     Contact,
     Footer,
+    CookieConsent,
   },
 };
 </script>

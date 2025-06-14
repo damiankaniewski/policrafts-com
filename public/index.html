@@ -9,31 +9,6 @@
   </head>
 
   <body>
-    <script
-      type="text/javascript"
-      src="https://cookieconsent.popupsmart.com/src/js/popper.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://cookieconsent.popupsmart.com/src/js/popper.js"
-    ></script>
-    <script>
-      window.start.init({
-        Palette: "palette6",
-        Mode: "banner bottom",
-        Theme: "block",
-        Message:
-          "Ta strona używa plików cookies w celach analitycznych i marketingowych. Klikając Akceptuj, wyrażasz zgodę na ich użycie.",
-        ButtonText: "Akceptuję",
-        LinkText: "Dowiedz się więcej",
-        Location: "https://policrafts.com/polityka-prywatności",
-        Time: "3",
-        onAccept: function () {
-          loadGoogleAnalytics();
-        },
-      });
-    </script>
-
     <noscript>
       <strong
         >We're sorry but Policrafts doesn't work properly without JavaScript
@@ -41,27 +16,5 @@
       >
     </noscript>
     <div id="app"></div>
-    <script>
-      function loadGoogleAnalytics() {
-        if (window.gtagHasLoaded) return;
-        window.gtagHasLoaded = true;
-
-        const gtagScript = document.createElement("script");
-        gtagScript.src =
-          "https://www.googletagmanager.com/gtag/js?id=G-CNY1FPCMSV";
-        gtagScript.async = true;
-        document.head.appendChild(gtagScript);
-
-        gtagScript.onload = () => {
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-          window.gtag = gtag;
-          gtag("js", new Date());
-          gtag("config", "G-CNY1FPCMSV");
-        };
-      }
-    </script>
   </body>
 </html>
