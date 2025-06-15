@@ -73,12 +73,6 @@
                 accept=".pdf,.doc,.docx,.jpg,.png,.zip"
                 class="hidden-input"
               />
-
-              <ul v-if="files.length">
-                <li v-for="(file, i) in files" :key="i">{{ file.name }}</li>
-              </ul>
-
-              <p v-if="fileError" class="error">{{ fileError }}</p>
             </div>
 
             <div class="privacy-submit-wrapper">
@@ -95,6 +89,13 @@
 
               <button type="submit" class="submit-btn">Wyślij</button>
             </div>
+          </div>
+          <div class="files">
+            <ul v-if="files.length">
+              <li v-for="(file, i) in files" :key="i">{{ file.name }}</li>
+            </ul>
+
+            <p v-if="fileError" class="error">{{ fileError }}</p>
           </div>
         </form>
       </div>
@@ -273,6 +274,7 @@ section {
             background: transparent;
             outline: none;
             transition: all 0.3s ease;
+            font-family: "Figtree", sans-serif;
 
             &:focus {
               color: #000;
@@ -375,6 +377,7 @@ section {
                   transform: scale(1.2);
                   vertical-align: middle;
                   margin: 0;
+                  accent-color: #000;
                 }
 
                 a {
@@ -390,6 +393,7 @@ section {
               }
 
               .submit-btn {
+                margin-top: 0.5rem;
                 white-space: nowrap;
                 border: 2px solid #333;
                 border-radius: 25px;
@@ -407,6 +411,24 @@ section {
                   color: #fff;
                 }
               }
+            }
+          }
+
+          .files {
+            width: 100%;
+            text-align: start;
+            ul {
+              list-style: none;
+              padding: 0;
+              font-size: 0.9rem;
+              margin-top: auto; // ul wypycha się na dół, zachowując miejsce dla przycisku
+            }
+
+            p.error {
+              color: #d60000;
+              font-size: 0.9rem;
+              margin-top: 4px;
+              text-align: left;
             }
           }
 
