@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import PrivacyPolicyView from "@/views/PrivacyPolicyView.vue";
+import CookiePolicy from "@/views/CookiePolicy.vue";
 
 const routes = [
   {
@@ -12,6 +13,14 @@ const routes = [
     path: "/polityka-prywatnosci",
     name: "polityka-prywatnosci",
     component: PrivacyPolicyView,
+  },
+  {
+    path: "/polityka-cookies",
+    name: "cookie-policy",
+    component: CookiePolicy,
+    meta: {
+      title: "Polityka Ciasteczek",
+    },
   },
 ];
 
