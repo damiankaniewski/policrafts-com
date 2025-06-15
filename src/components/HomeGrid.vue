@@ -140,6 +140,7 @@
           :key="statIndex"
           :initial="{ opacity: 0 }"
           :animate="{ opacity: 1 }"
+          :inViewOptions="{ margin: '-20px' }"
           :transition="{
             duration: 0.5,
             ease: 'easeInOut',

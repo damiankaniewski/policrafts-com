@@ -83,7 +83,7 @@
       <!-- Środkowa kolumna: Branding -->
       <div class="footer__branding">
         <h3>Policrafts</h3>
-        <p>Tworzymy oprogramowanie skrojone na miarę.</p>
+        <p>Tworzymy wizualizacje i oprogramowanie na najwyższym poziomie.</p>
       </div>
 
       <!-- Prawa kolumna: Kontakt -->

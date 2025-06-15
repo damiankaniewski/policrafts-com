@@ -67,7 +67,7 @@ import { motion } from "motion-v";
 </script>
 
 <script>
-import placeholder from "@/assets/images/szostak.jpg";
+import placeholder from "@/assets/images/placeholder.png";
 
 export default {
   name: "AboutSection",

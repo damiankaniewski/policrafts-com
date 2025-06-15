@@ -15,7 +15,7 @@
         wspólnie rysujemy plan działania: krok po&nbsp;kroku, bez&nbsp;zbędnego
         żargonu. Działamy zwinnie, słuchamy uważnie i&nbsp;regularnie pokazujemy
         postępy, żebyś zawsze wiedział, na&nbsp;jakim etapie jesteśmy.
-        Dla&nbsp;nich to nie tylko projekt — to współpraca, w&nbsp;której liczy
+        Dla&nbsp;nas to nie tylko projekt — to współpraca, w&nbsp;której liczy
         się zaufanie, komunikacja i&nbsp;wspólny cel.
       </p>
     </motion.div>
