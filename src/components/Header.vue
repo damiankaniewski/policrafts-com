@@ -1,16 +1,26 @@
 <template>
   <transition name="fade-slide">
     <header v-if="isVisible" class="scroll-header">
-      <a href="#home" class="logo-link">
+      <router-link to="/" class="logo-link">
         <img :src="logo" alt="Logo" />
-      </a>
+      </router-link>
       <nav>
-        <a @click.prevent="scrollToWithOffset('about')">O nas</a>
-        <a @click.prevent="scrollToWithOffset('services')">Usługi</a>
-        <a @click.prevent="scrollToWithOffset('projects')">Realizacje</a>
-        <a @click.prevent="scrollToWithOffset('gallery')">Galeria</a>
-        <a @click.prevent="scrollToWithOffset('collaboration')">Współpraca</a>
-        <a @click.prevent="scrollToWithOffset('contact')">Kontakt</a>
+        <template v-for="(item, index) in navItems" :key="index">
+          <a
+            v-if="$route.path === '/'"
+            @click.prevent="scrollToWithOffset(item.id)"
+            class="nav-link"
+          >
+            {{ item.label }}
+          </a>
+          <router-link
+            v-else
+            :to="{ path: '/', hash: `#${item.id}` }"
+            class="nav-link"
+          >
+            {{ item.label }}
+          </router-link>
+        </template>
       </nav>
     </header>
   </transition>
@@ -22,6 +32,15 @@ import logo from "@/assets/logo_full.png";
 import { scrollToWithOffset } from "@/utils/scrollToWithOffset.js";
 
 const isVisible = ref(false);
+
+const navItems = [
+  { id: "about", label: "O nas" },
+  { id: "services", label: "Usługi" },
+  { id: "projects", label: "Realizacje" },
+  { id: "gallery", label: "Galeria" },
+  { id: "collaboration", label: "Współpraca" },
+  { id: "contact", label: "Kontakt" },
+];
 
 const handleScroll = () => {
   isVisible.value = window.scrollY >= 200;

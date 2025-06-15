@@ -5,18 +5,78 @@
       <div class="footer__links">
         <h3>Nawigacja</h3>
         <ul>
-          <li><a @click.prevent="scrollToWithOffset('about')">O nas</a></li>
-          <li><a @click.prevent="scrollToWithOffset('services')">Usługi</a></li>
           <li>
-            <a @click.prevent="scrollToWithOffset('projects')">Realizacje</a>
-          </li>
-          <li><a @click.prevent="scrollToWithOffset('gallery')">Galeria</a></li>
-          <li>
-            <a @click.prevent="scrollToWithOffset('collaboration')"
-              >Współpraca</a
+            <router-link
+              v-if="$route.path === '/'"
+              to="#"
+              @click.prevent="scrollToWithOffset('about')"
             >
+              O nas
+            </router-link>
+            <router-link v-else :to="{ path: '/', hash: '#about' }">
+              O nas
+            </router-link>
           </li>
-          <li><a @click.prevent="scrollToWithOffset('contact')">Kontakt</a></li>
+          <li>
+            <router-link
+              v-if="$route.path === '/'"
+              to="#"
+              @click.prevent="scrollToWithOffset('services')"
+            >
+              Usługi
+            </router-link>
+            <router-link v-else :to="{ path: '/', hash: '#services' }">
+              Usługi
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              v-if="$route.path === '/'"
+              to="#"
+              @click.prevent="scrollToWithOffset('projects')"
+            >
+              Realizacje
+            </router-link>
+            <router-link v-else :to="{ path: '/', hash: '#projects' }">
+              Realizacje
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              v-if="$route.path === '/'"
+              to="#"
+              @click.prevent="scrollToWithOffset('gallery')"
+            >
+              Galeria
+            </router-link>
+            <router-link v-else :to="{ path: '/', hash: '#gallery' }">
+              Galeria
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              v-if="$route.path === '/'"
+              to="#"
+              @click.prevent="scrollToWithOffset('collaboration')"
+            >
+              Współpraca
+            </router-link>
+            <router-link v-else :to="{ path: '/', hash: '#collaboration' }">
+              Współpraca
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              v-if="$route.path === '/'"
+              to="#"
+              @click.prevent="scrollToWithOffset('contact')"
+            >
+              Kontakt
+            </router-link>
+            <router-link v-else :to="{ path: '/', hash: '#contact' }">
+              Kontakt
+            </router-link>
+          </li>
         </ul>
       </div>
 
@@ -53,9 +113,11 @@
     <div class="footer__bottom">
       <p>&copy; {{ currentYear }} Policrafts. Wszelkie prawa zastrzeżone.</p>
       <div class="footer__policies">
-        <a href="/polityka-prywatnosci" target="_blank">Polityka prywatności</a>
+        <router-link to="/polityka-prywatnosci"
+          >Polityka prywatności</router-link
+        >
         <span>|</span>
-        <a href="/polityka-cookies" target="_blank">Polityka ciasteczek</a>
+        <router-link to="/polityka-cookies">Polityka ciasteczek</router-link>
       </div>
     </div>
   </footer>
