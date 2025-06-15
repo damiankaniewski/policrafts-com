@@ -1,6 +1,25 @@
 <template>
   <section id="collaboration" class="collaboration">
     <h2>Współpraca</h2>
+    <motion.div
+      class="text-container"
+      :initial="{ opacity: 0, y: 30 }"
+      :inView="{ opacity: 1, y: 0 }"
+      :transition="{ duration: 1, ease: 'easeOut' }"
+      :inViewOptions="{ margin: '-20px' }"
+    >
+      <p>
+        Współpraca z&nbsp;nami to prosta, ludzka sprawa. Bez&nbsp;niepotrzebnych
+        formalności i&nbsp;sztywnych schematów. Na&nbsp;początku po&nbsp;prostu
+        rozmawiamy — chcemy zrozumieć Twoje potrzeby, pomysły i&nbsp;cele. Potem
+        wspólnie rysujemy plan działania: krok po&nbsp;kroku, bez&nbsp;zbędnego
+        żargonu. Działamy zwinnie, słuchamy uważnie i&nbsp;regularnie pokazujemy
+        postępy, żebyś zawsze wiedział, na&nbsp;jakim etapie jesteśmy.
+        Dla&nbsp;nich to nie tylko projekt — to współpraca, w&nbsp;której liczy
+        się zaufanie, komunikacja i&nbsp;wspólny cel.
+      </p>
+    </motion.div>
+    <h3>Schemat współpracy</h3>
 
     <motion.div
       :initial="{ opacity: 0 }"
@@ -131,6 +150,24 @@ export default {
         font-size: 1.2rem;
         max-width: 80%;
       }
+    }
+  }
+
+  h3 {
+    font-size: 3rem;
+  }
+
+  .text-container {
+    max-width: 60rem;
+    margin: 0 auto 32px;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    text-align: center;
+    color: #333;
+
+    @media (max-width: 600px) {
+      font-size: 1rem;
+      padding: 0 10px;
     }
   }
 }

@@ -1,7 +1,6 @@
 <template>
   <section id="about">
     <h2>O nas</h2>
-    <h3>Nasza historia</h3>
     <motion.div
       class="text-container"
       :initial="{ opacity: 0, y: 30 }"
@@ -20,7 +19,7 @@
       </p>
     </motion.div>
 
-    <h3>Kto u nas tworzy?</h3>
+    <h3>Kto u nas działa?</h3>
     <div class="grid">
       <motion.div
         v-for="(person, index) in people"
@@ -52,11 +51,12 @@
     >
       <p>
         Jesteśmy małym zespołem z&nbsp;wielkim zapałem. Doskonale rozumiemy
-        wyzwania i&nbsp;potrzeby współczesnego świata technologii. Nie nosimy
-        korpo uniformów, za to mamy świeże pomysły, ogromną ambicję i&nbsp;chęć,
-        by działać szybko i&nbsp;skutecznie. Dla nas każdy projekt to nowa
-        przygoda i&nbsp;szansa, by pokazać, że można tworzyć inaczej —
-        z&nbsp;pasją, szczerością i&nbsp;autentycznością.
+        wyzwania i&nbsp;potrzeby współczesnego świata technologii. Mamy świeże
+        pomysły, ogromną ambicję i&nbsp;chęć, by działać szybko
+        i&nbsp;skutecznie. Dla nas każdy projekt to nowa przygoda i&nbsp;szansa,
+        by pokazać, że można tworzyć inaczej — z&nbsp;<strong
+          >pasją, szczerością i&nbsp;autentycznością.</strong
+        >
       </p>
     </motion.div>
   </section>
