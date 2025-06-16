@@ -3,10 +3,10 @@
     <h2>Kontakt</h2>
     <div class="container">
       <div class="column left">
-        <h3>Masz do nas pytanie?</h3>
+        <h3>Jak możemy rozpocząć współpracę?</h3>
         <p>
-          Śmiało napisz lub zadzwoń – odpowiemy tak szybko, jak to możliwe.
-          Możemy też od razu omówić Twój pomysł na współpracę.
+          Napisz lub zadzwoń – odpowiemy tak szybko, jak to możliwe. Możemy też
+          od razu omówić Twój pomysł na współpracę.
         </p>
         <ul class="contact-info">
           <li>
@@ -28,7 +28,7 @@
 
       <div class="column right">
         <form class="contact-details" @submit.prevent="handleSubmit">
-          <h3 id="contact-header">Jak możemy rozpocząć współpracę?</h3>
+          <h3 id="contact-header">Masz pytanie lub pomysł?</h3>
           <div class="name-lastName">
             <input v-model="form.firstName" placeholder="Imię" class="input" />
             <input
@@ -45,7 +45,7 @@
           <div>
             <textarea
               v-model="form.message"
-              placeholder="Szczegóły projektu"
+              placeholder="Szczegóły projektu*"
               rows="3"
               class="input"
             />

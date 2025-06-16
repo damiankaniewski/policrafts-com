@@ -24,7 +24,7 @@
             <li>Animacje 3D</li>
           </ul>
           <p>
-            Realistyczne wizualizacje, modele 3D i&nbsp;animacje, pomagające
+            Realistyczne wizualizacje, modele 3D i&nbsp;animacje, które pomogą
             lepiej zaprezentować produkty i&nbsp;koncepcje w&nbsp;atrakcyjnej,
             angażującej formie.
           </p>
@@ -51,7 +51,7 @@
           </ul>
           <p>
             Nowoczesne strony www, zachwycające funkcjonalnością systemy
-            i&nbsp;rozwiązania, skutecznie przyciągające klientów, dbając
+            i&nbsp;rozwiązania, które skutecznie przyciągną klientów, dbając
             o&nbsp;obecność Twojej marki w&nbsp;sieci.
           </p>
           <a class="custom-button" type="button" href="#contact">
@@ -97,7 +97,7 @@
           </ul>
           <p>
             Dostarczamy kompleksowe wsparcie na każdym etapie cyfrowej
-            transformacji, dopasowując rozwiązania do Twoich potrzeb.
+            transformacji, dopasowujemy rozwiązania do Twoich potrzeb.
           </p>
           <a class="custom-button" type="button" href="#contact">
             <div class="button-highlight">

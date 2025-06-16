@@ -9,14 +9,15 @@
       :inViewOptions="{ margin: '-20px' }"
     >
       <p>
-        Współpraca z&nbsp;nami to prosta, ludzka sprawa. Bez&nbsp;niepotrzebnych
-        formalności i&nbsp;sztywnych schematów. Na&nbsp;początku po&nbsp;prostu
-        rozmawiamy — chcemy zrozumieć Twoje potrzeby, pomysły i&nbsp;cele. Potem
-        wspólnie rysujemy plan działania: krok po&nbsp;kroku, bez&nbsp;zbędnego
-        żargonu. Działamy zwinnie, słuchamy uważnie i&nbsp;regularnie pokazujemy
-        postępy, żebyś zawsze wiedział, na&nbsp;jakim etapie jesteśmy.
-        Dla&nbsp;nas to nie tylko projekt — to współpraca, w&nbsp;której liczy
-        się zaufanie, komunikacja i&nbsp;wspólny cel.
+        Współpraca z&nbsp;nami opiera się na prostocie i partnerskim podejściu.
+        Bez&nbsp;niepotrzebnych formalności i&nbsp;sztywnych schematów.
+        Na&nbsp;początku po&nbsp;prostu rozmawiamy — chcemy zrozumieć
+        <strong>Twoje potrzeby, pomysły i&nbsp;cele.</strong> Potem wspólnie
+        rysujemy plan działania: krok po&nbsp;kroku. Działamy zwinnie, słuchamy
+        uważnie i&nbsp;regularnie pokazujemy postępy, żebyś zawsze wiedział,
+        na&nbsp;jakim etapie jesteśmy. Dla&nbsp;nas to nie tylko projekt — to
+        <strong>współpraca</strong>, w&nbsp;której liczy się
+        <strong>zaufanie, komunikacja i&nbsp;wspólny cel</strong>.
       </p>
     </motion.div>
     <h3>Schemat współpracy</h3>
@@ -73,7 +74,7 @@ const steps = [
   {
     title: "1. Rozpoznanie potrzeb",
     description:
-      "Zbieramy informacje o Twojej firmie, klientach i celach — czy potrzebujesz strony, systemu czy obu.",
+      "Zbieramy informacje o Twojej firmie, klientach i celach — czy potrzebujesz strony, systemu lub wizualizacji czy grafiki.",
     image: step1,
   },
   {

@@ -12,10 +12,10 @@
         <strong>Policrafts</strong> powstało z pasji do technologii, designu
         i&nbsp;nowoczesnych rozwiązań. Zaczynaliśmy jako mały zespół
         freelancerów, którzy łączyli siły przy kreatywnych projektach. Dziś
-        działamy jako zgrany kolektyw specjalistów – od programistów, przez
-        designerów, po ekspertów od infrastruktury. Naszym celem jest tworzenie
-        innowacyjnych produktów cyfrowych, które łączą estetykę
-        z&nbsp;funkcjonalnością.
+        działamy jako zgrany <strong>kolektyw specjalistów</strong> – od
+        programistów, przez designerów, po ekspertów od infrastruktury. Naszym
+        celem jest tworzenie <strong>innowacyjnych</strong> produktów cyfrowych,
+        które łączą estetykę z&nbsp;funkcjonalnością.
       </p>
     </motion.div>
 
@@ -50,11 +50,12 @@
       :inViewOptions="{ margin: '-20px' }"
     >
       <p>
-        Jesteśmy małym zespołem z&nbsp;wielkim zapałem. Doskonale rozumiemy
-        wyzwania i&nbsp;potrzeby współczesnego świata technologii. Mamy świeże
-        pomysły, ogromną ambicję i&nbsp;chęć, by działać szybko
-        i&nbsp;skutecznie. Dla nas każdy projekt to nowa przygoda i&nbsp;szansa,
-        by pokazać, że można tworzyć inaczej — z&nbsp;<strong
+        Jesteśmy zgranym, ambitnym zespołem,
+        <strong>który nie boi się wyzwań</strong>. Doskonale rozumiemy potrzeby
+        współczesnego świata technologii i&nbsp;designu. Mamy świeże pomysły
+        i&nbsp;ogromną chęć, by działać szybko i&nbsp;skutecznie. Dla nas każdy
+        projekt to nowa przygoda i&nbsp;szansa, by pokazać, że można tworzyć
+        inaczej — z&nbsp;<strong
           >pasją, szczerością i&nbsp;autentycznością.</strong
         >
       </p>
@@ -82,12 +83,12 @@ export default {
         {
           image: placeholder,
           name: "Damian Kaniewski",
-          position: "Software Developer & Project Manager",
+          position: "Full-Stack Developer & Project Manager",
         },
         {
           image: placeholder,
           name: "Rafał Ciupek",
-          position: "Full-Stack Developer",
+          position: "Software Developer",
         },
         {
           image: placeholder,

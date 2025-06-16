@@ -70,7 +70,7 @@
             </svg>
 
             <div id="motto-item">
-              <h3>Marketing</h3>
+              <h3>Innowacja</h3>
             </div>
           </div>
           <div class="motto-row">
@@ -104,8 +104,8 @@
       >
         <h3>Niepowtarzalny styl</h3>
         <p>
-          Łączymy preferencje klienta oraz nowoczesne technologie, starannie
-          analizując trendy rynkowe i&nbsp;specyfikę branży.
+          Łączymy preferencje klienta i&nbsp;najlepsze trendy rynkowe, starannie
+          analizując specyfikę branży.
         </p>
         <a href="#projects">Zobacz nasze realizacje</a>
       </motion.div>
@@ -182,9 +182,9 @@ import { motion } from "motion-v";
 
 const stats = [
   { label: "lat na rynku", number: "7" },
-  { label: "wizualizacji", number: "275" },
-  { label: "projektów graficznych", number: "55" },
-  { label: "stron internetowych", number: "15" },
+  { label: "wizualizacji", number: "250" },
+  { label: "projektów graficznych", number: "50" },
+  { label: "stron internetowych", number: "10" },
 ];
 </script>
 
