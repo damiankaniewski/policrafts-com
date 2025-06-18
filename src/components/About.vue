@@ -197,5 +197,35 @@ section {
       }
     }
   }
+
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 6rem;
+    }
+
+    h3 {
+      font-size: 3rem;
+    }
+    .card .card-info {
+      h3 {
+        font-size: 2rem !important;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 3rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+    }
+    .card .card-info {
+      h3 {
+        font-size: 1.5rem !important;
+      }
+    }
+  }
 }
 </style>
