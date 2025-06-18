@@ -39,6 +39,28 @@
           Twoja wizja, nasza misja
         </motion.p>
       </motion.div>
+      <motion.div
+        class="scroll-arrow"
+        :initial="{ opacity: 0, y: 0 }"
+        :animate="{ opacity: 1, y: [0, -10, 0] }"
+        :transition="{
+          opacity: { delay: 1, duration: 0.5 },
+          y: { repeat: Infinity, duration: 2, ease: 'easeInOut', delay: 1 },
+        }"
+      >
+        <a @click.prevent="scrollToWithOffset('about')">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            fill="white"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 16.5l-7-7 1.41-1.42L12 13.67l5.59-5.59L19 9.5z" />
+          </svg>
+        </a>
+      </motion.div>
+
       <div class="nav-links-right">
         <ul>
           <motion.li
@@ -101,7 +123,6 @@
 import home from "@/assets/images/OMD_render.webp";
 import { motion } from "motion-v";
 import { scrollToWithOffset } from "@/utils/scrollToWithOffset.js";
-
 const title = "Policrafts".split("");
 </script>
 
@@ -160,6 +181,10 @@ section {
     }
   }
 
+  .scroll-arrow {
+    display: none;
+  }
+
   .nav-links {
     position: absolute;
     bottom: 20px;
@@ -209,8 +234,65 @@ section {
     }
   }
 
-  .rounded-box {
+  .nav .rounded-box {
     background-color: #f0f0f0;
+  }
+
+  @media (max-width: 1024px) {
+    .overlay {
+      h1 {
+        font-size: 6rem;
+        line-height: 6rem;
+      }
+
+      p {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+      }
+    }
+
+    .nav-links-left,
+    .nav-links-right {
+      ul {
+        gap: 16px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .overlay {
+      h1 {
+        font-size: 3.5rem;
+        line-height: 4rem;
+      }
+
+      p {
+        font-size: 1.75rem;
+        line-height: 2rem;
+      }
+    }
+    .nav-links-left,
+    .nav-links-right {
+      display: none;
+    }
+    .scroll-arrow {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      bottom: 24px;
+      left: calc(50% - 20px);
+      z-index: 12;
+      cursor: pointer;
+
+      svg {
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover svg {
+        opacity: 1;
+      }
+    }
   }
 }
 </style>
