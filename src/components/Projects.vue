@@ -17,10 +17,13 @@
       >
         <img :src="project.image" :alt="project.alt" class="item-img" />
         <img
+          v-if="project.logo"
           :src="project.logo"
           :alt="`${project.name} Logo`"
           class="item-logo"
         />
+        <div v-if="project.title" class="item-title">{{ project.title }}</div>
+        <!-- ⬅️ -->
       </motion.a>
       <div
         v-for="project in compareProjects"
@@ -40,6 +43,7 @@
           class="image image-2"
         />
         <img :src="clickIcon" alt="Kliknij, aby porównać" class="click-icon" />
+        <div v-if="project.title" class="item-title">{{ project.title }}</div>
       </div>
     </div>
   </section>
@@ -134,27 +138,30 @@ const projects = [
   {
     id: "e",
     name: "Dragon Folie",
-    link: "https://www.dragonfolie.com",
+    //link: "https://www.dragonfolie.com",
     image: dragon_folie,
     logo: dragon_folie_logo,
     alt: "Dragon Folie",
+    title: "Praca w toku",
   },
 
   {
     id: "h",
     name: "Domy w Stokach",
-    link: "https://www.domywstokach.pl",
+    //link: "https://www.domywstokach.pl",
     image: domy_w_stokach,
-    logo: brzozowa_logo,
+    //logo: brzozowa_logo,
     alt: "Domy w Stokach",
+    title: "Praca w toku",
   },
   {
     id: "i",
     name: "OMD Budownictwo",
-    link: "https://www.omd-budownictwo.com",
+    //link: "https://www.omd-budownictwo.com",
     image: omd_render,
-    logo: brzozowa_logo,
+    //logo: brzozowa_logo,
     alt: "OMD",
+    title: "Praca w toku",
   },
   //grafiki
   {
@@ -164,6 +171,7 @@ const projects = [
     image2: realizacja32,
     alt: "Realizacja graficzna 3",
     type: "compare",
+    title: "Wizualizacja budynku handlowo-usługowego",
   },
   {
     id: "k",
@@ -172,6 +180,7 @@ const projects = [
     image2: realizacja62,
     alt: "Realizacja graficzna 6",
     type: "compare",
+    title: "Wizualizacja budynku handlowo-usługowego",
   },
   {
     id: "g",
@@ -180,6 +189,7 @@ const projects = [
     image2: realizacja112,
     alt: "Realizacja graficzna 14",
     type: "compare",
+    title: "Wizualizacja budynku handlowo-usługowego",
   },
 ];
 </script>
@@ -290,7 +300,7 @@ section {
   }
 
   .item-logo {
-    width: 50%;
+    width: 40%;
     height: auto;
     z-index: 20;
     position: absolute;
@@ -298,7 +308,7 @@ section {
     left: 50%;
     transition: all 0.3s;
     transform: translate(-50%, -50%);
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.75));
   }
 
   // Grid area styling
@@ -335,5 +345,23 @@ section {
   .item-k {
     grid-area: k;
   }
+}
+.item-title {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 1));
+  font-size: 1.2rem;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  z-index: 30;
+  pointer-events: none;
+  text-align: center;
+  max-width: 95%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>

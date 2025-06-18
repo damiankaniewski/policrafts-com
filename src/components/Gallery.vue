@@ -14,7 +14,7 @@
         :key="`${section}-${index}`"
         @mouseenter="hoveredIndex = `${section}-${index}`"
         @mouseleave="hoveredIndex = null"
-        @click="openModal(image, flatImages.indexOf(image))"
+        @click="openModal(image)"
         :class="{
           dimmed: isHovering && hoveredIndex !== `${section}-${index}`,
         }"
@@ -28,16 +28,28 @@
     </div>
 
     <!-- Modal -->
-    <transition name="fade">
+    <transition name="modal-fade">
       <div v-if="modalImage" class="modal" @click.self="closeModal">
         <button class="close-button" @click="closeModal">×</button>
         <button class="arrow left" @click.stop="prevImage">‹</button>
-        <img
-          :src="modalImage.url"
-          :alt="modalImage.title"
-          class="modal-image"
-        />
+
+        <div class="carousel-track">
+          <div
+            v-for="(img, i) in visibleImages"
+            :key="img.url"
+            class="carousel-image"
+            :class="{
+              center: i === 1,
+              left: i === 0,
+              right: i === 2,
+            }"
+          >
+            <img :src="img.url" :alt="img.title" />
+          </div>
+        </div>
+
         <button class="arrow right" @click.stop="nextImage">›</button>
+
         <div class="modal-caption">
           <h3>{{ modalImage.title }}</h3>
           <p>{{ modalImage.description }}</p>
@@ -73,11 +85,18 @@ export default {
     flatImages() {
       return Object.values(this.groupedImages).flat();
     },
+    visibleImages() {
+      const len = this.flatImages.length;
+      const prev = this.flatImages[(this.currentIndex - 1 + len) % len];
+      const curr = this.flatImages[this.currentIndex];
+      const next = this.flatImages[(this.currentIndex + 1) % len];
+      return [prev, curr, next];
+    },
   },
   methods: {
-    openModal(image, index) {
-      this.modalImage = image;
-      this.currentIndex = index;
+    openModal(image) {
+      this.currentIndex = this.flatImages.findIndex((img) => img === image);
+      this.modalImage = this.flatImages[this.currentIndex];
       document.addEventListener("keydown", this.handleKey);
     },
     closeModal() {
@@ -86,21 +105,19 @@ export default {
       document.removeEventListener("keydown", this.handleKey);
     },
     prevImage() {
-      if (this.currentIndex > 0) {
-        this.currentIndex--;
-        this.modalImage = this.flatImages[this.currentIndex];
-      }
+      this.currentIndex =
+        (this.currentIndex - 1 + this.flatImages.length) %
+        this.flatImages.length;
+      this.modalImage = this.flatImages[this.currentIndex];
     },
     nextImage() {
-      if (this.currentIndex < this.flatImages.length - 1) {
-        this.currentIndex++;
-        this.modalImage = this.flatImages[this.currentIndex];
-      }
+      this.currentIndex = (this.currentIndex + 1) % this.flatImages.length;
+      this.modalImage = this.flatImages[this.currentIndex];
     },
     handleKey(e) {
       if (e.key === "ArrowLeft") this.prevImage();
-      if (e.key === "ArrowRight") this.nextImage();
-      if (e.key === "Escape") this.closeModal();
+      else if (e.key === "ArrowRight") this.nextImage();
+      else if (e.key === "Escape") this.closeModal();
     },
   },
   created() {
@@ -109,21 +126,20 @@ export default {
       true,
       /\.(jpg|webp)$/i
     );
-    const images = context.keys().map((key) => {
+    this.images = context.keys().map((key) => {
       const url = context(key);
       const cleaned = key.replace(/^\.\/|\.jpg$|\.webp$/gi, "");
       const [section, filename] = cleaned.split("/", 2);
-      const [title, description] = filename
+      const [title, description] = (filename || "")
         .split("-")
-        .map((part) => part.trim());
+        .map((s) => s.trim());
       return {
         url,
+        section,
         title: title || "Bez tytułu",
         description: description || "Brak opisu",
-        section,
       };
     });
-    this.images = images;
   },
 };
 </script>
@@ -207,7 +223,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -215,6 +231,49 @@ section {
     z-index: 9999;
     transition: opacity 0.3s ease;
     padding: 20px;
+
+    .carousel-track {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      perspective: 1000px;
+    }
+
+    .carousel-image {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all 0.3s ease;
+      opacity: 0.5;
+      z-index: 1;
+
+      img {
+        max-height: 80vh;
+        object-fit: cover;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      }
+
+      &.center {
+        transform: translateX(0) scale(1) translateY(-50%);
+        opacity: 1;
+        z-index: 3;
+      }
+
+      &.left {
+        transform: translateX(-60%) scale(0.8) translateY(-50%);
+        z-index: 2;
+      }
+
+      &.right {
+        transform: translateX(60%) scale(0.8) translateY(-50%);
+        z-index: 2;
+      }
+    }
 
     .modal-image {
       max-width: 90%;
@@ -285,15 +344,29 @@ section {
     }
   }
 
-  // Fade transition for modal
   .fade-enter-active,
   .fade-leave-active {
-    transition: opacity 0.3s ease;
+    transition: opacity 0.75s ease;
   }
 
   .fade-enter,
   .fade-leave-to {
     opacity: 0;
+  }
+
+  .modal-fade-enter-active,
+  .modal-fade-leave-active {
+    transition: opacity 0.75s ease;
+  }
+
+  .modal-fade-enter-from,
+  .modal-fade-leave-to {
+    opacity: 0;
+  }
+
+  .modal-fade-enter-to,
+  .modal-fade-leave-from {
+    opacity: 1;
   }
 }
 </style>
