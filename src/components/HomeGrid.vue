@@ -230,11 +230,14 @@ section {
     flex-direction: column;
     box-shadow: none;
 
+    svg {
+      opacity: 50%;
+    }
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-
       position: absolute;
       z-index: 1;
     }
@@ -249,7 +252,7 @@ section {
       height: 100%;
 
       #motto-item {
-        background-color: #fff;
+        background-color: #ffffff80;
         padding: 0 25px 0 25px;
         border-radius: 50px 0 0 0;
       }

@@ -2,9 +2,10 @@
   <section id="projects">
     <h2>Realizacje</h2>
     <div class="container">
+      <!-- Klasyczne, klikalne -->
       <motion.a
-        v-for="(project, index) in projects"
-        :key="index"
+        v-for="(project, index) in normalProjects"
+        :key="project.id"
         :href="project.link"
         target="_blank"
         :class="`item-${project.id}`"
@@ -21,6 +22,25 @@
           class="item-logo"
         />
       </motion.a>
+      <div
+        v-for="project in compareProjects"
+        :key="project.id"
+        :class="[
+          'project-item',
+          'compare-wrapper',
+          `item-${project.id}`,
+          { active: activeId === project.id },
+        ]"
+        @click="toggleActive(project.id)"
+      >
+        <img :src="project.image" :alt="project.alt" class="image image-1" />
+        <img
+          :src="project.image2"
+          :alt="`${project.name} Porównanie`"
+          class="image image-2"
+        />
+        <img :src="clickIcon" alt="Kliknij, aby porównać" class="click-icon" />
+      </div>
     </div>
   </section>
 </template>
@@ -42,6 +62,33 @@ import omd_render from "@/assets/images/OMD_render.webp";
 import domy_w_stokach from "@/assets/images/domy_w_stokach.webp";
 import dragon_folie from "@/assets/images/dragon_folie.webp";
 import dragon_folie_logo from "@/assets/images/dragon_folie_logo.webp";
+import realizacja31 from "@/assets/images/3-1.jpg";
+import realizacja32 from "@/assets/images/3-2.jpg";
+import realizacja61 from "@/assets/images/6-1.jpg";
+import realizacja62 from "@/assets/images/6-2.jpg";
+import realizacja141 from "@/assets/images/14-1.jpg";
+import realizacja112 from "@/assets/images/14-2.jpg";
+import { computed } from "vue";
+import { ref } from "vue";
+import clickIcon from "@/assets/images/clickicon.png";
+
+const activeId = ref(null);
+
+function toggleActive(id) {
+  activeId.value = id;
+  setTimeout(() => {
+    if (activeId.value === id) {
+      activeId.value = null;
+    }
+  }, 3000); // reset po 2s
+}
+const normalProjects = computed(() =>
+  projects.filter((p) => p.type !== "compare")
+);
+
+const compareProjects = computed(() =>
+  projects.filter((p) => p.type === "compare")
+);
 
 const projects = [
   {
@@ -77,7 +124,7 @@ const projects = [
     alt: "Generator Deweloper",
   },
   {
-    id: "e",
+    id: "f",
     name: "Pułaskiego 32",
     link: "https://www.pulaskiego32.pl",
     image: pulaskiego,
@@ -85,21 +132,14 @@ const projects = [
     alt: "Pułaskiego 32",
   },
   {
-    id: "f",
+    id: "e",
     name: "Dragon Folie",
     link: "https://www.dragonfolie.com",
     image: dragon_folie,
     logo: dragon_folie_logo,
     alt: "Dragon Folie",
   },
-  {
-    id: "g",
-    name: "Dragon Folie",
-    link: "https://www.dragonfolie.com",
-    image: dragon_folie,
-    logo: brzozowa_logo,
-    alt: "Dragon Folie",
-  },
+
   {
     id: "h",
     name: "Domy w Stokach",
@@ -116,6 +156,31 @@ const projects = [
     logo: brzozowa_logo,
     alt: "OMD",
   },
+  //grafiki
+  {
+    id: "j",
+    name: "Realizacja graficzna 3",
+    image: realizacja31,
+    image2: realizacja32,
+    alt: "Realizacja graficzna 3",
+    type: "compare",
+  },
+  {
+    id: "k",
+    name: "Realizacja graficzna 6",
+    image: realizacja61,
+    image2: realizacja62,
+    alt: "Realizacja graficzna 6",
+    type: "compare",
+  },
+  {
+    id: "g",
+    name: "Realizacja graficzna 14",
+    image: realizacja141,
+    image2: realizacja112,
+    alt: "Realizacja graficzna 14",
+    type: "compare",
+  },
 ];
 </script>
 
@@ -129,6 +194,49 @@ export default {
 section {
   padding: 16px;
   scroll-margin-top: 100px;
+  .compare-wrapper {
+    cursor: pointer;
+
+    .image {
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .image-1 {
+      z-index: 1;
+    }
+
+    .image-2 {
+      z-index: 2;
+      opacity: 1;
+    }
+
+    &.active {
+      .image-2 {
+        opacity: 0;
+      }
+    }
+
+    .click-icon {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      width: 5rem;
+      z-index: 10;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    &:hover {
+      .click-icon {
+        opacity: 1;
+      }
+    }
+  }
 
   .container {
     display: grid;
@@ -144,8 +252,11 @@ section {
       "e f d"
       "e f d"
       "i f h"
+      "i f h"
       "i g h"
-      "i g h";
+      "j g k"
+      "j g k"
+      "j g k";
   }
 
   .project-item {
@@ -217,6 +328,12 @@ section {
   }
   .item-i {
     grid-area: i;
+  }
+  .item-j {
+    grid-area: j;
+  }
+  .item-k {
+    grid-area: k;
   }
 }
 </style>
