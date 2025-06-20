@@ -9,9 +9,9 @@
       :inViewOptions="{ margin: '-20px' }"
     >
       <p>
-        Współpraca z&nbsp;nami opiera się na prostocie i partnerskim podejściu.
-        Bez&nbsp;niepotrzebnych formalności i&nbsp;sztywnych schematów.
-        Na&nbsp;początku po&nbsp;prostu rozmawiamy — chcemy zrozumieć
+        Współpraca z&nbsp;nami opiera się na prostocie i&nbsp;partnerskim
+        podejściu. Bez&nbsp;niepotrzebnych formalności i&nbsp;sztywnych
+        schematów. Na&nbsp;początku po&nbsp;prostu rozmawiamy — chcemy zrozumieć
         <strong>Twoje potrzeby, pomysły i&nbsp;cele.</strong> Potem wspólnie
         rysujemy plan działania: krok po&nbsp;kroku. Działamy zwinnie, słuchamy
         uważnie i&nbsp;regularnie pokazujemy postępy, żebyś zawsze wiedział,
@@ -73,8 +73,7 @@ import { motion } from "motion-v";
 const steps = [
   {
     title: "1. Rozpoznanie potrzeb",
-    description:
-      "Zbieramy informacje o Twojej firmie, klientach i celach — czy potrzebujesz strony, systemu lub wizualizacji czy grafiki.",
+    description: `Zbieramy informacje o${"\u00A0"}Twojej firmie, klientach i${"\u00A0"}celach — czy potrzebujesz strony, systemu lub wizualizacji czy grafiki.`,
     image: step1,
   },
   {
@@ -85,8 +84,7 @@ const steps = [
   },
   {
     title: "3. Projektowanie interfejsu (UI)",
-    description:
-      "Tworzymy dopracowany wizualnie layout dopasowany do Twojej marki i potrzeb użytkownika.",
+    description: `Tworzymy dopracowany wizualnie layout dopasowany do Twojej marki i${"\u00A0"}potrzeb użytkownika.`,
     image: step3,
   },
   {
@@ -97,14 +95,12 @@ const steps = [
   },
   {
     title: "5. Testowanie & poprawki",
-    description:
-      "Sprawdzamy użyteczność, responsywność i funkcjonalność. Wprowadzamy zmiany zgodnie z Twoimi uwagami.",
+    description: `Sprawdzamy użyteczność, responsywność i${"\u00A0"}funkcjonalność. Wprowadzamy zmiany zgodnie z${"\u00A0"}Twoimi uwagami.`,
     image: step5,
   },
   {
     title: "6. Wdrożenie & wsparcie",
-    description:
-      "Uruchamiamy projekt na serwerze lub urządzeniu i zapewniamy wsparcie techniczne, aktualizacje lub dalszy rozwój.",
+    description: `Uruchamiamy projekt na serwerze lub urządzeniu i${"\u00A0"}zapewniamy wsparcie techniczne, aktualizacje lub dalszy rozwój.`,
     image: step6,
   },
 ];
@@ -169,6 +165,25 @@ export default {
     @media (max-width: 600px) {
       font-size: 1rem;
       padding: 0 10px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 6rem;
+    }
+
+    h3 {
+      font-size: 3rem !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 3rem;
+    }
+    h3 {
+      font-size: 2rem !important;
     }
   }
 }
