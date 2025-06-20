@@ -83,7 +83,9 @@
       <!-- Środkowa kolumna: Branding -->
       <div class="footer__branding">
         <h3>Policrafts</h3>
-        <p>Tworzymy wizualizacje i oprogramowanie na najwyższym poziomie.</p>
+        <p>
+          Tworzymy wizualizacje i&nbsp;oprogramowanie na najwyższym poziomie.
+        </p>
       </div>
 
       <!-- Prawa kolumna: Kontakt -->
@@ -153,6 +155,11 @@ export default {
     align-items: flex-start;
     margin: 0 auto;
 
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
     > div {
       flex: 1 1 100px;
     }
@@ -172,7 +179,9 @@ export default {
 
     .footer__links {
       text-align: left;
-
+      @media (max-width: 768px) {
+        text-align: center;
+      }
       h3 {
         margin-bottom: 12px;
         color: #fff;
@@ -200,7 +209,9 @@ export default {
 
     .footer__contact {
       text-align: right;
-
+      @media (max-width: 768px) {
+        text-align: center;
+      }
       h3 {
         margin-bottom: 12px;
         color: #fff;
