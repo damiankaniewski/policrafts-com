@@ -78,10 +78,10 @@
             <div class="privacy-submit-wrapper">
               <label class="privacy-label">
                 <input type="checkbox" v-model="privacyConsent" />
-                Akceptuję
-                <a href="/polityka-prywatnosci" target="_blank"
-                  >politykę prywatności</a
-                >*
+                <span> Akceptuję </span>
+                <a href="/polityka-prywatnosci" target="_blank">
+                  politykę prywatności*</a
+                >
               </label>
               <p v-if="errors.privacyConsent" class="error">
                 {{ errors.privacyConsent }}
@@ -371,13 +371,16 @@ section {
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
-                gap: 6px;
-
+                flex-wrap: wrap;
                 input {
                   transform: scale(1.2);
                   vertical-align: middle;
-                  margin: 0;
+                  margin-right: 6px;
                   accent-color: #000;
+                }
+
+                span {
+                  margin-right: 4px;
                 }
 
                 a {
@@ -440,6 +443,35 @@ section {
           }
         }
       }
+    }
+  }
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 6rem;
+    }
+
+    h3 {
+      font-size: 3rem !important;
+    }
+
+    p {
+      font-size: 1.2rem !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 3rem;
+    }
+    h3 {
+      font-size: 2rem !important;
+    }
+    .contact-info li i {
+      font-size: 1.2rem !important;
+    }
+
+    .contact-info li a {
+      font-size: 1.2rem !important;
     }
   }
 }
