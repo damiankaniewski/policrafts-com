@@ -405,6 +405,7 @@ section {
 
     .about-content {
       flex-direction: column;
+      gap: 16px;
 
       .about-item {
         width: 100%;
