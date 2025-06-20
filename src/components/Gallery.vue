@@ -212,7 +212,7 @@ section {
       }
 
       &.dimmed {
-        filter: brightness(70%);
+        filter: brightness(90%);
       }
     }
   }
