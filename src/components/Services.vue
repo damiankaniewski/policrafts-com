@@ -10,7 +10,9 @@
           :inViewOptions="{ margin: '-20px' }"
           class="about-item"
         >
-          <img :src="sadowa_teren_zielony" alt="Sadowa 20 - teren zielony" />
+          <div class="image-wrapper">
+            <img :src="sadowa_teren_zielony" alt="Sadowa 20 - teren zielony" />
+          </div>
         </motion.div>
         <motion.div
           :initial="'hidden'"
@@ -110,10 +112,12 @@
           :inViewOptions="{ margin: '-20px' }"
           class="about-item"
         >
-          <img
-            :src="domy_pod_krakowem_strona"
-            alt="Sadowa 20 - teren zielony"
-          />
+          <div class="image-wrapper">
+            <img
+              :src="domy_pod_krakowem_strona"
+              alt="Sadowa 20 - teren zielony"
+            />
+          </div>
         </motion.div>
       </div>
       <div class="about-content" id="column-reverse">
@@ -124,7 +128,9 @@
           :inViewOptions="{ margin: '-20px' }"
           class="about-item"
         >
-          <img :src="mvr" alt="Modern render" />
+          <div class="image-wrapper">
+            <img :src="mvr" alt="Modern render" />
+          </div>
         </motion.div>
         <motion.div
           :initial="'hidden'"
@@ -236,13 +242,22 @@ section {
       display: flex;
       flex-direction: column;
 
-      img {
+      .image-wrapper {
+        position: relative;
         width: 100%;
-        height: 100%;
-
-        object-fit: cover;
-        height: 600px;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        border-radius: 8px;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
 
       h3 {
