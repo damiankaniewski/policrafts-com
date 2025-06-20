@@ -2,7 +2,7 @@
   <section id="services">
     <h2>Usługi</h2>
     <div class="container">
-      <div class="about-content">
+      <div class="about-content" id="column-reverse">
         <motion.div
           :initial="{ opacity: 0, x: -200 }"
           :inView="{ opacity: 1, x: 0 }"
@@ -12,57 +12,97 @@
         >
           <img :src="sadowa_teren_zielony" alt="Sadowa 20 - teren zielony" />
         </motion.div>
-        <div class="about-item" id="content-right">
-          <h3>Design - Technologia - Grafika</h3>
-          <h4>Wizualizacje 3D i&nbsp;grafika</h4>
+        <motion.div
+          :initial="'hidden'"
+          :while-in-view="'visible'"
+          :viewport="{ once: true, margin: '-20px' }"
+          :variants="container"
+          class="about-item"
+          id="content-right"
+        >
+          <motion.h3 :variants="fadeInRight"
+            >Design - Technologia - Grafika</motion.h3
+          >
+          <motion.h4 :variants="fadeInRight"
+            >Wizualizacje 3D i&nbsp;grafika</motion.h4
+          >
           <ul class="two-columns">
-            <li>Wizualizacje wnętrz</li>
-            <li>Wizualizacje budynków</li>
-            <li>Modele 3D</li>
-            <li>Tworzenie logo</li>
-            <li>Renderowanie 3D</li>
-            <li>Animacje 3D</li>
+            <motion.li :variants="fadeInRight">Wizualizacje wnętrz</motion.li>
+            <motion.li :variants="fadeInRight">Wizualizacje budynków</motion.li>
+            <motion.li :variants="fadeInRight">Modele 3D</motion.li>
+            <motion.li :variants="fadeInRight">Tworzenie logo</motion.li>
+            <motion.li :variants="fadeInRight">Renderowanie 3D</motion.li>
+            <motion.li :variants="fadeInRight">Animacje 3D</motion.li>
           </ul>
-          <p>
+          <motion.p :variants="fadeInRight">
             Realistyczne wizualizacje, modele 3D i&nbsp;animacje, które pomogą
             lepiej zaprezentować produkty i&nbsp;koncepcje w&nbsp;atrakcyjnej,
             angażującej formie.
-          </p>
-          <a class="custom-button" type="button" href="#contact">
+          </motion.p>
+          <motion.a
+            class="custom-button"
+            type="button"
+            href="#contact"
+            :variants="fadeInRight"
+          >
             <div class="button-highlight">
               <span class="button-icon">
                 <ArrowRight :size="20" />
               </span>
             </div>
             <span class="button-text"> Skontaktuj się z&nbsp;nami </span>
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </div>
       <div class="about-content">
-        <div class="about-item" id="content-left">
-          <h3>Design - Technologia - Informatyka</h3>
-          <h4>Systemy i&nbsp;strony internetowe</h4>
+        <motion.div
+          :initial="'hidden'"
+          :while-in-view="'visible'"
+          :viewport="{ once: true, margin: '-20px' }"
+          :variants="container"
+          class="about-item"
+          id="content-left"
+        >
+          <motion.h3 :variants="fadeInLeft"
+            >Design - Technologia - Informatyka</motion.h3
+          >
+          <motion.h4 :variants="fadeInLeft"
+            >Systemy i&nbsp;strony internetowe</motion.h4
+          >
           <ul class="two-columns">
-            <li>Strony internetowe</li>
-            <li>Systemy i&nbsp;aplikacje webowe</li>
-            <li>Aplikacje mobilne i&nbsp;desktopowe</li>
-            <li>Technologie i&nbsp;integracje</li>
-            <li>Optymalizacja i&nbsp;bezpieczeństwo</li>
+            <motion.li :variants="fadeInLeft">Strony internetowe</motion.li>
+            <motion.li :variants="fadeInLeft"
+              >Systemy i&nbsp;aplikacje webowe</motion.li
+            >
+            <motion.li :variants="fadeInLeft"
+              >Aplikacje mobilne i&nbsp;desktopowe</motion.li
+            >
+            <motion.li :variants="fadeInLeft"
+              >Technologie i&nbsp;integracje</motion.li
+            >
+            <motion.li :variants="fadeInLeft"
+              >Optymalizacja i&nbsp;bezpieczeństwo</motion.li
+            >
           </ul>
-          <p>
+          <motion.p :variants="fadeInLeft">
             Nowoczesne strony www, zachwycające funkcjonalnością systemy
             i&nbsp;rozwiązania, które skutecznie przyciągną klientów, dbając
             o&nbsp;obecność Twojej marki w&nbsp;sieci.
-          </p>
-          <a class="custom-button" type="button" href="#contact">
+          </motion.p>
+          <motion.a
+            :variants="fadeInLeft"
+            class="custom-button"
+            type="button"
+            href="#contact"
+          >
             <div class="button-highlight">
               <span class="button-icon">
                 <ArrowRight :size="20" />
               </span>
             </div>
             <span class="button-text"> Skontaktuj się z&nbsp;nami </span>
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
         <motion.div
           :initial="{ opacity: 0, x: 200 }"
           :inView="{ opacity: 1, x: 0 }"
@@ -76,7 +116,7 @@
           />
         </motion.div>
       </div>
-      <div class="about-content">
+      <div class="about-content" id="column-reverse">
         <motion.div
           :initial="{ opacity: 0, x: -200 }"
           :inView="{ opacity: 1, x: 0 }"
@@ -86,28 +126,45 @@
         >
           <img :src="mvr" alt="Modern render" />
         </motion.div>
-        <div class="about-item" id="content-right">
-          <h3>Design - Technologia - Informatyka</h3>
-          <h4>Pozostałe usługi informatyczno-graficzne</h4>
+        <motion.div
+          :initial="'hidden'"
+          :while-in-view="'visible'"
+          :viewport="{ once: true, margin: '-20px' }"
+          :variants="container"
+          class="about-item"
+          id="content-right"
+        >
+          <motion.h3 :variants="fadeInRight"
+            >Design - Technologia - Informatyka</motion.h3
+          >
+          <motion.h4 :variants="fadeInRight"
+            >Pozostałe usługi informatyczno-graficzne</motion.h4
+          >
           <ul class="two-columns">
-            <li>Konsultacje IT/Design</li>
-            <li>Wsparcie techniczne</li>
-            <li>Audyt, analiza</li>
-            <li>Zarządzanie infrastrukturą</li>
+            <motion.li :variants="fadeInRight">Konsultacje IT/Design</motion.li>
+            <motion.li :variants="fadeInRight">Wsparcie techniczne</motion.li>
+            <motion.li :variants="fadeInRight">Audyt, analiza</motion.li>
+            <motion.li :variants="fadeInRight"
+              >Zarządzanie infrastrukturą</motion.li
+            >
           </ul>
-          <p>
+          <motion.p :variants="fadeInRight">
             Dostarczamy kompleksowe wsparcie na każdym etapie cyfrowej
             transformacji, dopasowujemy rozwiązania do Twoich potrzeb.
-          </p>
-          <a class="custom-button" type="button" href="#contact">
+          </motion.p>
+          <motion.a
+            :variants="fadeInRight"
+            class="custom-button"
+            href="#contact"
+          >
             <div class="button-highlight">
               <span class="button-icon">
                 <ArrowRight :size="20" />
               </span>
             </div>
             <span class="button-text"> Skontaktuj się z&nbsp;nami </span>
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </div>
     </div>
   </section>
@@ -123,6 +180,33 @@ import { ArrowRight } from "lucide-vue-next";
 <script>
 export default {
   name: "AboutSection",
+};
+
+const fadeInRight = {
+  hidden: { opacity: 0, x: 200 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 1, ease: "easeInOut" },
+  },
+};
+
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -200 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 1, ease: "easeInOut" },
+  },
+};
+
+const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
 };
 </script>
 
@@ -206,7 +290,7 @@ section {
         line-height: 1.75rem;
         font-weight: 600;
         text-decoration: none;
-        max-width: 30%;
+        width: fit-content;
       }
 
       .button-highlight {
@@ -269,8 +353,88 @@ section {
         justify-items: start;
       }
       .two-columns li {
+        text-align: left;
         margin-left: 50px;
       }
+    }
+  }
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 6rem;
+    }
+
+    h4 {
+      font-size: 4rem !important;
+    }
+
+    p {
+      font-size: 1.75rem !important;
+      text-align: justify !important;
+    }
+
+    .two-columns {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px;
+      margin: 0;
+    }
+
+    .two-columns li {
+      font-size: 1.2rem !important;
+    }
+
+    .custom-button {
+      font-size: 1.2rem !important;
+      // max-width: 60% !important;
+    }
+
+    .about-content {
+      flex-direction: column;
+
+      .about-item {
+        width: 100%;
+      }
+    }
+
+    #column-reverse {
+      flex-direction: column-reverse;
+    }
+
+    #content-left {
+      align-items: start !important;
+      text-align: left !important;
+      .two-columns li {
+        margin-left: 0px !important;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 3rem;
+    }
+
+    h3 {
+      font-size: 1rem !important;
+    }
+
+    h4 {
+      font-size: 2rem !important;
+    }
+
+    p {
+      font-size: 1.5rem !important;
+    }
+
+    .two-columns {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px;
+      margin: 0;
+    }
+
+    .two-columns li {
+      font-size: 1rem !important;
     }
   }
 }
