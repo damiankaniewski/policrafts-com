@@ -368,5 +368,17 @@ section {
   .modal-fade-leave-from {
     opacity: 1;
   }
+
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 6rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 3rem;
+    }
+  }
 }
 </style>
