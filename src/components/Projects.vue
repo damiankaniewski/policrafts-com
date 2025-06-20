@@ -269,6 +269,60 @@ section {
       "j g k";
   }
 
+  @media (max-width: 1024px) {
+    .container {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        "a b"
+        "c d"
+        "e f"
+        "g h"
+        "i j"
+        "k .";
+      height: 100% !important;
+    }
+    .image {
+      width: 100%;
+    }
+
+    .project-item {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "a"
+        "b"
+        "c"
+        "d"
+        "e"
+        "f"
+        "g"
+        "h"
+        "i"
+        "j"
+        "k";
+      height: 100% !important;
+    }
+
+    .image {
+      width: 100%;
+    }
+    .item-logo {
+      width: auto !important;
+      height: 40% !important;
+    }
+    .project-item {
+      aspect-ratio: 16 / 9;
+    }
+    .item-title {
+      font-size: 1rem;
+    }
+  }
+
   .project-item {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
     background: #d1d1d1;
@@ -363,5 +417,19 @@ section {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 1024px) {
+  h2 {
+    font-size: 6rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 3rem !important;
+  }
 }
 </style>
