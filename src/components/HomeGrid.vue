@@ -350,7 +350,7 @@ section {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 250px;
+      width: 200px;
       height: auto;
       z-index: 100;
       filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.75));
