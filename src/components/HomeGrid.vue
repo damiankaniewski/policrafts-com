@@ -10,7 +10,7 @@
       >
         <img :src="brutalizm" alt="Modern render" />
         <motion.div
-          :initial="{ opacity: 0, x: 1000 }"
+          :initial="{ opacity: 0, x: 100 }"
           :inView="{ opacity: 1, x: 0 }"
           :inViewOptions="{ margin: '-20px' }"
           :transition="{
@@ -205,7 +205,7 @@ section {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 16px;
-    width: calc(100% - 32x);
+    width: calc(100% - 32px);
     height: auto;
     padding: 16px;
   }
@@ -398,6 +398,29 @@ section {
         margin: 1rem;
       }
     }
+  }
+
+  @media (max-width: 1024px) {
+    .grid-container {
+      display: flex !important;
+      flex-direction: column-reverse !important;
+    }
+
+    #project-1,
+    #project-2 {
+      display: none;
+    }
+
+    #motto {
+      aspect-ratio: 16/9;
+
+      .motto-content {
+        display: none !important;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
   }
 }
 </style>
