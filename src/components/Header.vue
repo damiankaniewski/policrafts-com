@@ -107,13 +107,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
-
-    @media (min-width: 768px) {
-      padding: 0 30px;
-    }
+    padding: 0 16px;
   }
 
   .logo-link {
