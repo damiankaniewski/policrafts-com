@@ -142,7 +142,7 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  padding-top: 20px;
+  padding-top: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -278,41 +278,48 @@ section {
   }
 
   @media (max-width: 768px) {
-    .overlay {
-      img {
-        width: 25%;
-      }
+    padding-top: 0 !important;
 
-      h1 {
-        font-size: 3.5rem;
-        line-height: 4rem;
-      }
+    .image-container {
+      margin-top: 0;
+      width: 100%;
+      height: 100vh;
+      .overlay {
+        img {
+          width: 25%;
+        }
 
-      p {
-        font-size: 1.75rem;
-        line-height: 2rem;
-      }
-    }
-    .nav-links-left,
-    .nav-links-right {
-      display: none;
-    }
-    .scroll-arrow {
-      display: flex;
-      justify-content: center;
-      position: absolute;
-      bottom: 24px;
-      left: calc(50% - 20px);
-      z-index: 12;
-      cursor: pointer;
+        h1 {
+          font-size: 3.5rem;
+          line-height: 4rem;
+        }
 
-      svg {
-        opacity: 0.8;
-        transition: opacity 0.3s ease;
+        p {
+          font-size: 1.75rem;
+          line-height: 2rem;
+        }
       }
+      .nav-links-left,
+      .nav-links-right {
+        display: none;
+      }
+      .scroll-arrow {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: 80px;
+        left: calc(50% - 16px);
+        z-index: 12;
+        cursor: pointer;
 
-      &:hover svg {
-        opacity: 1;
+        svg {
+          opacity: 0.8;
+          transition: opacity 0.3s ease;
+        }
+
+        &:hover svg {
+          opacity: 1;
+        }
       }
     }
   }

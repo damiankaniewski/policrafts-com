@@ -113,10 +113,7 @@
           class="about-item"
         >
           <div class="image-wrapper">
-            <img
-              :src="domy_pod_krakowem_strona"
-              alt="Sadowa 20 - teren zielony"
-            />
+            <img :src="strona_screenshot" alt="Sadowa 20 - teren zielony" />
           </div>
         </motion.div>
       </div>
@@ -179,7 +176,7 @@
 <script setup>
 import { motion } from "motion-v";
 import sadowa_teren_zielony from "@/assets/images/sadowa_teren_zielony.webp";
-import domy_pod_krakowem_strona from "@/assets/images/domy_pod_krakowem_strona.webp";
+import strona_screenshot from "@/assets/images/strona_screenshot.jpg";
 import mvr from "@/assets/images/mvr.jpg";
 import { ArrowRight } from "lucide-vue-next";
 </script>
@@ -383,7 +380,7 @@ section {
     }
 
     p {
-      font-size: 1.75rem !important;
+      font-size: 1.5rem !important;
       text-align: justify !important;
     }
 
@@ -439,7 +436,7 @@ section {
     }
 
     p {
-      font-size: 1.5rem !important;
+      font-size: 1.2rem !important;
     }
 
     .two-columns {
