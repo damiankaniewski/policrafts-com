@@ -1,67 +1,132 @@
 <template>
   <section id="gallery">
     <h2>Galeria</h2>
-    <div
-      v-for="(group, section) in groupedImages"
-      :key="section"
-      class="gallery-grid"
-      @mouseenter="isHovering = true"
-      @mouseleave="isHovering = false"
-    >
+    <div class="desktop">
       <div
-        class="image-tile"
-        v-for="(image, index) in group"
-        :key="`${section}-${index}`"
-        @mouseenter="hoveredIndex = `${section}-${index}`"
-        @mouseleave="hoveredIndex = null"
-        @click="openModal(image)"
-        :class="{
-          dimmed: isHovering && hoveredIndex !== `${section}-${index}`,
-        }"
+        v-for="(group, section) in groupedImages"
+        :key="section"
+        class="gallery-grid"
+        @mouseenter="isHovering = true"
+        @mouseleave="isHovering = false"
       >
-        <img :src="image.url" :alt="image.title" loading="lazy" />
-        <div class="caption">
-          <h3>{{ image.title }}</h3>
-          <p class="description">{{ image.description }}</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal -->
-    <transition name="modal-fade">
-      <div v-if="modalImage" class="modal" @click.self="closeModal">
-        <button class="close-button" @click="closeModal">×</button>
-        <button class="arrow left" @click.stop="prevImage">‹</button>
-
-        <div class="carousel-track">
-          <div
-            v-for="(img, i) in visibleImages"
-            :key="img.url"
-            class="carousel-image"
-            :class="{
-              center: i === 1,
-              left: i === 0,
-              right: i === 2,
-            }"
-          >
-            <img :src="img.url" :alt="img.title" />
+        <div
+          class="image-tile"
+          v-for="(image, index) in group"
+          :key="`${section}-${index}`"
+          @mouseenter="hoveredIndex = `${section}-${index}`"
+          @mouseleave="hoveredIndex = null"
+          @click="openModal(image)"
+          :class="{
+            dimmed: isHovering && hoveredIndex !== `${section}-${index}`,
+          }"
+        >
+          <img :src="image.url" :alt="image.title" loading="lazy" />
+          <div class="caption">
+            <h3>{{ image.title }}</h3>
+            <p class="description">{{ image.description }}</p>
           </div>
         </div>
-
-        <button class="arrow right" @click.stop="nextImage">›</button>
-
-        <div class="modal-caption">
-          <h3>{{ modalImage.title }}</h3>
-          <p>{{ modalImage.description }}</p>
-        </div>
       </div>
-    </transition>
+
+      <!-- Modal -->
+      <transition name="modal-fade">
+        <div v-if="modalImage" class="modal" @click.self="closeModal">
+          <button class="close-button" @click="closeModal">×</button>
+          <button class="arrow left" @click.stop="prevImage">‹</button>
+
+          <div class="carousel-track">
+            <div
+              v-for="(img, i) in visibleImages"
+              :key="img.url"
+              class="carousel-image"
+              :class="{
+                center: i === 1,
+                left: i === 0,
+                right: i === 2,
+              }"
+            >
+              <img :src="img.url" :alt="img.title" />
+            </div>
+          </div>
+
+          <motion.button class="arrow right" @click.stop="nextImage">
+            ›</motion.button
+          >
+
+          <div class="modal-caption">
+            <h3>{{ modalImage.title }}</h3>
+            <p>{{ modalImage.description }}</p>
+          </div>
+        </div>
+      </transition>
+    </div>
+    <div class="mobile">
+      <swiper
+        :style="{
+          '--swiper-navigation-color': '#fff',
+          '--swiper-pagination-color': '#fff',
+        }"
+        :loop="true"
+        :spaceBetween="10"
+        :navigation="true"
+        :thumbs="{ swiper: thumbsSwiper }"
+        :modules="modules"
+        class="mobile-swiper-top"
+      >
+        <swiper-slide v-for="(image, index) in flatImages" :key="index">
+          <img :src="image.url" :alt="image.title" />
+          <div class="swiper-caption">
+            <h3>{{ image.title }}</h3>
+            <p>{{ image.description }}</p>
+          </div>
+        </swiper-slide>
+      </swiper>
+
+      <swiper
+        @swiper="setThumbsSwiper"
+        :loop="true"
+        :spaceBetween="10"
+        :slidesPerView="4"
+        :freeMode="true"
+        :watchSlidesProgress="true"
+        :modules="modules"
+        class="mobile-swiper-thumbs"
+      >
+        <swiper-slide v-for="(image, index) in flatImages" :key="index">
+          <img :src="image.url" :alt="image.title" />
+        </swiper-slide>
+      </swiper>
+    </div>
   </section>
 </template>
 
 <script>
+import { ref } from "vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 export default {
   name: "GallerySection",
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    const thumbsSwiper = ref(null);
+
+    const setThumbsSwiper = (swiper) => {
+      thumbsSwiper.value = swiper;
+    };
+
+    return {
+      thumbsSwiper,
+      setThumbsSwiper,
+      modules: [FreeMode, Navigation, Thumbs],
+    };
+  },
   data() {
     return {
       isHovering: false,
@@ -273,6 +338,12 @@ section {
         transform: translateX(60%) scale(0.8) translateY(-50%);
         z-index: 2;
       }
+
+      @media (max-width: 1024px) {
+        img {
+          max-height: 40vh;
+        }
+      }
     }
 
     .modal-image {
@@ -299,8 +370,8 @@ section {
 
     .close-button {
       position: absolute;
-      top: 20px;
-      right: 45px;
+      top: 16px;
+      right: 16px;
       width: 48px;
       height: 48px;
       border-radius: 50%;
@@ -342,6 +413,10 @@ section {
         transform: scale(1.2);
       }
     }
+
+    @media (max-width: 1024px) {
+      padding: 0px;
+    }
   }
 
   .fade-enter-active,
@@ -373,11 +448,86 @@ section {
     h2 {
       font-size: 6rem;
     }
+
+    .desktop {
+      display: none;
+    }
   }
 
   @media (max-width: 768px) {
     h2 {
       font-size: 3rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .mobile {
+      display: none;
+    }
+  }
+
+  .mobile {
+    display: none;
+
+    @media (max-width: 1024px) {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .mobile-swiper-top {
+      width: 100%;
+      height: 60vh;
+      margin-bottom: 10px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .swiper-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 15px;
+
+        h3 {
+          margin: 0;
+          font-size: 1.2rem;
+        }
+
+        p {
+          margin: 5px 0 0;
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .mobile-swiper-thumbs {
+      width: 100%;
+      height: 100px;
+      padding: 10px 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.6;
+        transition: opacity 0.3s;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      .swiper-slide-thumb-active img {
+        opacity: 1;
+      }
     }
   }
 }
