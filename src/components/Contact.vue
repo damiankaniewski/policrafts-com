@@ -11,7 +11,7 @@
         <ul class="contact-info">
           <li>
             <i class="fas fa-envelope icon"></i>
-            <a href="mailto:biuro@twojafirma.pl">biuro@policrafts.com</a>
+            <a href="mailto:biuro@policrafts.com">biuro@policrafts.com</a>
           </li>
           <li>
             <i class="fas fa-phone icon"></i>
