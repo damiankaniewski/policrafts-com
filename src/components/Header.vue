@@ -1,27 +1,38 @@
 <template>
   <transition name="fade-slide">
     <header v-if="isVisible" class="scroll-header">
-      <router-link to="/" class="logo-link">
-        <img :src="logo" alt="Logo" />
-      </router-link>
-      <nav>
-        <template v-for="(item, index) in navItems" :key="index">
-          <a
-            v-if="$route.path === '/'"
-            @click.prevent="scrollToWithOffset(item.id)"
-            class="nav-link"
-          >
-            {{ item.label }}
-          </a>
-          <router-link
-            v-else
-            :to="{ path: '/', hash: `#${item.id}` }"
-            class="nav-link"
-          >
-            {{ item.label }}
-          </router-link>
-        </template>
-      </nav>
+      <div class="header-container">
+        <router-link to="/" class="logo-link">
+          <img :src="logo" alt="Logo" class="logo-img" />
+        </router-link>
+
+        <button class="hamburger" @click="toggleMenu" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav :class="{ active: menuOpen }">
+          <template v-for="(item, index) in navItems" :key="index">
+            <a
+              v-if="$route.path === '/'"
+              @click.prevent="scrollToWithOffset(item.id)"
+              class="nav-link"
+              @click="menuOpen = false"
+            >
+              {{ item.label }}
+            </a>
+            <router-link
+              v-else
+              :to="{ path: '/', hash: `#${item.id}` }"
+              class="nav-link"
+              @click="menuOpen = false"
+            >
+              {{ item.label }}
+            </router-link>
+          </template>
+        </nav>
+      </div>
     </header>
   </transition>
 </template>
@@ -32,6 +43,7 @@ import logo from "@/assets/logo_full.png";
 import { scrollToWithOffset } from "@/utils/scrollToWithOffset.js";
 
 const isVisible = ref(false);
+const menuOpen = ref(false);
 
 const navItems = [
   { id: "about", label: "O nas" },
@@ -46,14 +58,26 @@ const handleScroll = () => {
   isVisible.value = window.scrollY >= 200;
 };
 
+const toggleMenu = () => {
+  menuOpen.value = !menuOpen.value;
+};
+
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
+  window.addEventListener("resize", handleResize);
   handleScroll();
 });
 
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
+  window.removeEventListener("resize", handleResize);
 });
+
+const handleResize = () => {
+  if (window.innerWidth >= 992) {
+    menuOpen.value = false;
+  }
+};
 </script>
 
 <script>
@@ -67,45 +91,157 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 100px;
+  height: 80px;
   background-color: #fff;
   color: #000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   z-index: 1000;
-  padding: 0 30px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+
+  @media (min-width: 768px) {
+    height: 100px;
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    @media (min-width: 768px) {
+      padding: 0 30px;
+    }
+  }
 
   .logo-link {
     display: inline-flex;
     align-items: center;
     transition: transform 0.3s ease-out;
+    z-index: 1001;
 
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
-    img {
-      max-width: 150px;
+    .logo-img {
+      max-width: 120px;
+      height: auto;
+      transition: all 0.3s ease;
+
+      @media (min-width: 768px) {
+        max-width: 150px;
+      }
+    }
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+
+    span {
+      width: 100%;
+      height: 2px;
+      background-color: #000;
+      transition: all 0.3s ease;
+    }
+
+    @media (min-width: 992px) {
+      display: none;
     }
   }
 
   nav {
-    padding-right: 50px;
+    position: fixed;
+    top: 100px;
+    @media (max-width: 768px) {
+      top: 80px;
+    }
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 1000;
+    pointer-events: none;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    &.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    @media (min-width: 992px) {
+      position: static;
+      height: auto;
+      flex-direction: row;
+      transform: none;
+      opacity: 1;
+      background: transparent;
+      padding-right: 0;
+      pointer-events: all;
+      width: auto;
+    }
 
     a {
-      display: inline-block;
-      font-size: 1.2rem;
-      margin-left: 16px;
+      font-size: 1.5rem;
       color: #000;
       text-decoration: none;
-      transform: scale(1);
       transition: all 0.3s ease;
+      padding: 10px 0;
+      position: relative;
 
-      &:hover {
-        transform: scale(1.2);
+      @media (min-width: 992px) {
+        font-size: 1.1rem;
+        margin-left: 20px;
+        padding: 5px 0;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        font-size: 1.2rem;
+        margin-left: 25px;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #000;
+        transition: width 0.3s ease;
+      }
+
+      &:hover:after {
+        width: 100%;
+      }
+
+      &.router-link-exact-active:after {
+        width: 100%;
       }
     }
   }
@@ -125,5 +261,18 @@ export default {
 .fade-slide-leave-from {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Hamburger animation */
+.hamburger.active {
+  span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  span:nth-child(2) {
+    opacity: 0;
+  }
+  span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
 }
 </style>
