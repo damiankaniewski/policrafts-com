@@ -115,14 +115,15 @@ export default {
         phone: "",
         message: "",
       },
-      privacyConsent: false, // <-- nowa zmienna
+      privacyConsent: false,
       errors: {
         email: null,
         message: null,
-        privacyConsent: null, // błąd dla polityki
+        privacyConsent: null,
       },
       files: [],
       fileError: null,
+      loading: false,
     };
   },
   methods: {
@@ -133,6 +134,13 @@ export default {
     handleFiles(event) {
       const selectedFiles = Array.from(event.target.files);
       const totalSize = selectedFiles.reduce((acc, f) => acc + f.size, 0);
+      const allowedTypes = [
+        "application/pdf",
+        "image/jpeg",
+        "image/png",
+        "image/webp",
+        "image/gif",
+      ];
 
       if (selectedFiles.length > 5) {
         this.fileError = "Możesz dodać maksymalnie 5 plików.";
@@ -146,10 +154,19 @@ export default {
         return;
       }
 
+      for (const file of selectedFiles) {
+        if (!allowedTypes.includes(file.type)) {
+          this.fileError =
+            "Dozwolone formaty plików: PDF, JPG, PNG, WEBP, GIF.";
+          this.files = [];
+          return;
+        }
+      }
+
       this.files = selectedFiles;
       this.fileError = null;
     },
-    handleSubmit() {
+    async handleSubmit() {
       this.errors = { email: null, message: null, privacyConsent: null };
 
       if (!this.validateEmail(this.form.email)) {
@@ -166,10 +183,60 @@ export default {
       }
 
       if (
-        !this.errors.email &&
-        !this.errors.message &&
-        !this.errors.privacyConsent
+        this.errors.email ||
+        this.errors.message ||
+        this.errors.privacyConsent
       ) {
+        return;
+      }
+
+      try {
+        this.loading = true;
+        const attachments = await Promise.all(
+          this.files.map((file) => {
+            return new Promise((resolve, reject) => {
+              const reader = new FileReader();
+              reader.onload = () => {
+                const base64 = reader.result.split(",")[1];
+                resolve({
+                  filename: file.name,
+                  content_type: file.type,
+                  base64,
+                });
+              };
+              reader.onerror = () => reject(reader.error);
+              reader.readAsDataURL(file);
+            });
+          })
+        );
+
+        const payload = {
+          email: "policrafts.pl@gmail.com",
+          subject: `Wiadomość od: ${this.form.firstName} ${this.form.lastName}`,
+          message:
+            `Imię i nazwisko: ${this.form.firstName} ${this.form.lastName}\n` +
+            `Email: ${this.form.email}\n` +
+            `Telefon: ${this.form.phone || "-"}\n\n` +
+            `${this.form.message}`,
+          attachments,
+        };
+
+        const response = await fetch(
+          "https://jc5vg6se5e.execute-api.eu-north-1.amazonaws.com/dev/send-mail",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "x-api-key": "_just-a'test\"key,or>is<it?",
+            },
+            body: JSON.stringify(payload),
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Wystąpił błąd podczas wysyłania formularza.");
+        }
+
         alert("Formularz wysłany pomyślnie!");
         this.form = {
           firstName: "",
@@ -180,6 +247,11 @@ export default {
         };
         this.files = [];
         this.privacyConsent = false;
+      } catch (err) {
+        console.error(err);
+        alert("Nie udało się wysłać wiadomości. Spróbuj ponownie.");
+      } finally {
+        this.loading = false;
       }
     },
   },
@@ -304,7 +376,7 @@ section {
           .file-submit-row {
             display: flex;
             gap: 16px;
-            align-items: stretch; // wymuszamy równą wysokość obu dzieci
+            align-items: stretch;
 
             .file-upload {
               flex: 1;
@@ -321,7 +393,7 @@ section {
                 list-style: none;
                 padding: 0;
                 font-size: 0.9rem;
-                margin-top: auto; // ul wypycha się na dół, zachowując miejsce dla przycisku
+                margin-top: auto;
               }
 
               p.error {

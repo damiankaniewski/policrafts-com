@@ -117,7 +117,7 @@ export default {
   padding: 16px;
 
   .step {
-    height: 20rem;
+    height: 16rem;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -137,14 +137,14 @@ export default {
       padding: 20px;
 
       h3 {
-        filter: drop-shadow(3px 3px 3px #000);
+        filter: drop-shadow(3px 3px 2px #000);
         font-size: 3rem;
         margin: 0;
       }
 
       p {
         filter: drop-shadow(3px 3px 2px #000);
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         max-width: 80%;
       }
     }
@@ -169,12 +169,20 @@ export default {
   }
 
   @media (max-width: 1024px) {
+    .step {
+      height: 12rem;
+    }
+
     h2 {
       font-size: 6rem;
     }
 
     h3 {
-      font-size: 3rem !important;
+      font-size: 2.2rem !important;
+    }
+
+    p {
+      font-size: 1rem !important;
     }
   }
 
@@ -182,8 +190,9 @@ export default {
     h2 {
       font-size: 3rem;
     }
+
     h3 {
-      font-size: 2rem !important;
+      font-size: 1.75rem !important;
     }
   }
 }
