@@ -11,6 +11,13 @@
           },
         }"
       >
+        <motion.img
+          :initial="{ opacity: 0 }"
+          :animate="{ opacity: 1 }"
+          :transition="{ duration: 2, ease: 'easeInOut', delay: 0.5 }"
+          :src="logo"
+          alt="Logo Policrafts"
+        />
         <motion.h1
           :initial="{}"
           :animate="{}"
@@ -121,6 +128,7 @@
 
 <script setup>
 import home from "@/assets/images/OMD_render.webp";
+import logo from "@/assets/logo_nowe.png";
 import { motion } from "motion-v";
 import { scrollToWithOffset } from "@/utils/scrollToWithOffset.js";
 const title = "Policrafts".split("");
@@ -162,11 +170,17 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     text-align: center;
     color: #ffffff;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
     z-index: 10;
+
+    img {
+      width: 15%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.7));
+    }
 
     h1 {
       font-size: 10rem;
@@ -240,6 +254,10 @@ section {
 
   @media (max-width: 1024px) {
     .overlay {
+      img {
+        width: 20%;
+      }
+
       h1 {
         font-size: 6rem;
         line-height: 6rem;
@@ -261,6 +279,10 @@ section {
 
   @media (max-width: 768px) {
     .overlay {
+      img {
+        width: 25%;
+      }
+
       h1 {
         font-size: 3.5rem;
         line-height: 4rem;
