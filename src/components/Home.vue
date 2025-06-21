@@ -1,23 +1,25 @@
 <template>
-  <div v-if="isLoading" class="loading-screen">
-    <motion.img
-      :src="logo"
-      alt="Logo"
-      class="loading-logo"
-      :initial="{ scale: 0.9, opacity: 0.8 }"
-      :animate="{
-        scale: [0.9, 1.1, 0.9],
-        opacity: [0.8, 1, 0.8],
-        rotate: [-5, 5, -5],
-      }"
-      :transition="{
-        duration: 2,
-        repeat: Infinity,
-        ease: 'easeInOut',
-      }"
-    />
-  </div>
-  <section id="home" v-show="!isLoading">
+  <transition name="fade" @after-leave="showContent = true">
+    <div v-if="isLoading" class="loading-screen">
+      <motion.img
+        :src="logo"
+        alt="Logo"
+        class="loading-logo"
+        :initial="{ scale: 0.9, opacity: 0.8 }"
+        :animate="{
+          scale: [0.9, 1.1, 0.9],
+          opacity: [0.8, 1, 0.8],
+          rotate: [-5, 5, -5],
+        }"
+        :transition="{
+          duration: 2,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }"
+      />
+    </div>
+  </transition>
+  <section id="home" v-show="!isLoading && showContent">
     <div class="image-container">
       <img
         :src="home"
@@ -36,14 +38,14 @@
       >
         <motion.img
           :initial="{ opacity: 0 }"
-          :animate="{ opacity: 1 }"
+          :animate="showContent ? { opacity: 1 } : {}"
           :transition="{ duration: 2, ease: 'easeInOut', delay: 0.5 }"
           :src="logo"
           alt="Logo Policrafts"
         />
         <motion.h1
           :initial="{}"
-          :animate="{}"
+          :animate="showContent ? {} : {}"
           :transition="{ staggerChildren: 0.1 }"
         >
           <motion.span
@@ -158,11 +160,15 @@ import { scrollToWithOffset } from "@/utils/scrollToWithOffset.js";
 const title = "Policrafts".split("");
 
 const isLoading = ref(true);
+const showContent = ref(false); // Dodaj nową zmienną stanu
 
 const handleImageLoad = () => {
   isLoading.value = false;
-  // Pokazujemy obraz po załadowaniu
-  document.querySelector(".image-container img").style.display = "block";
+  // Dodaj krótkie opóźnienie przed pokazaniem animacji
+  setTimeout(() => {
+    showContent.value = true;
+    document.querySelector(".image-container img").style.display = "block";
+  }, 300); // 300ms to czas na zniknięcie ekranu ładowania
 };
 </script>
 
