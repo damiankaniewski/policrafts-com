@@ -132,40 +132,38 @@
         <img class="logo" :src="brzozowalogo" alt="Brzozowa logo" />
       </motion.div>
     </div>
-    <div class="stats-container">
+    <div class="stats-section">
       <div class="stats-container">
         <motion.div
           class="stat-item"
           v-for="(stat, statIndex) in stats"
           :key="statIndex"
           :initial="{ opacity: 0 }"
-          :animate="{ opacity: 1 }"
+          :inView="{ opacity: 1 }"
           :inViewOptions="{ margin: '-20px' }"
           :transition="{
-            duration: 0.5,
+            duration: 0.4,
             ease: 'easeInOut',
-            delay: statIndex * 0.5,
+            delay: statIndex * 0.4,
           }"
         >
-          <p>ponad</p>
-          <div>
+          <p class="stat-prefix">ponad</p>
+          <div class="stat-number">
             <motion.span
               v-for="(digit, index) in stat.number.split('')"
               :key="index"
               :initial="{ opacity: 0, scale: 0.5 }"
-              :animate="{ opacity: 1, scale: 1 }"
+              :inView="{ opacity: 1, scale: 1 }"
               :transition="{
-                duration: 0.25,
+                duration: 0.2,
                 ease: 'easeInOut',
-                delay: 0.25 + statIndex * 0.5 + index * 0.25,
+                delay: 0.2 + statIndex * 0.4 + index * 0.2,
               }"
-              :inViewOptions="{ margin: '-20px' }"
-              style="display: inline-block"
             >
               {{ digit }}
             </motion.span>
           </div>
-          <p>{{ stat.label }}</p>
+          <p class="stat-label">{{ stat.label }}</p>
         </motion.div>
       </div>
     </div>
@@ -352,7 +350,7 @@ section {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 250px;
+      width: 200px;
       height: auto;
       z-index: 100;
       filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.75));
@@ -373,31 +371,60 @@ section {
     grid-area: 3 / 1 / 4 / 2;
   }
 
+  .stats-section {
+    width: 100%;
+    padding: 16px 0;
+  }
+
   .stats-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 90%;
-    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
     padding: 16px;
 
-    .stat-item {
-      text-align: center;
-      font-size: 7rem;
-      margin: 1rem;
-
-      motion.span {
-        font-size: 9rem;
-        margin: 0;
-        padding: 0;
-        justify-content: center;
-      }
-
-      p {
-        font-size: 2.2rem;
-        margin: 1rem;
-      }
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
     }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-prefix {
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+    color: #666;
+    margin-bottom: 8px;
+  }
+
+  .stat-number {
+    font-size: clamp(3rem, 6vw, 7rem);
+    font-weight: 700;
+    color: #333;
+    margin: 10px 0;
+
+    span {
+      display: inline-block;
+      min-width: 0.5em;
+    }
+  }
+
+  .stat-label {
+    font-size: clamp(1.2rem, 2vw, 2.2rem);
+    color: #444;
+    margin-top: 8px;
+    line-height: 1.3;
+  }
+
+  :deep(motion.span) {
+    font-size: inherit !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   @media (max-width: 1024px) {
