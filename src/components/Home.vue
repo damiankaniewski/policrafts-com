@@ -183,10 +183,12 @@ export default {
 <style lang="scss" scoped>
 .loading-screen {
   position: fixed;
+  width: 100vw;
+  height: 100vh;
   inset: 0;
   display: grid;
   place-items: center;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0);
   backdrop-filter: blur(5px);
   z-index: 9999;
   transition: all 0.8s ease;
