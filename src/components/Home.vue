@@ -1,7 +1,30 @@
 <template>
-  <section id="home">
+  <div v-if="isLoading" class="loading-screen">
+    <motion.img
+      :src="logo"
+      alt="Logo"
+      class="loading-logo"
+      :initial="{ scale: 0.9, opacity: 0.8 }"
+      :animate="{
+        scale: [0.9, 1.1, 0.9],
+        opacity: [0.8, 1, 0.8],
+        rotate: [-5, 5, -5],
+      }"
+      :transition="{
+        duration: 2,
+        repeat: Infinity,
+        ease: 'easeInOut',
+      }"
+    />
+  </div>
+  <section id="home" v-show="!isLoading">
     <div class="image-container">
-      <img :src="home" alt="Policrafts" />
+      <img
+        :src="home"
+        alt="Policrafts"
+        @load="handleImageLoad"
+        style="display: none"
+      />
       <motion.div
         class="overlay"
         :initial="{}"
@@ -127,11 +150,20 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import home from "@/assets/images/OMD_render.webp";
 import logo from "@/assets/logo_nowe.png";
 import { motion } from "motion-v";
 import { scrollToWithOffset } from "@/utils/scrollToWithOffset.js";
 const title = "Policrafts".split("");
+
+const isLoading = ref(true);
+
+const handleImageLoad = () => {
+  isLoading.value = false;
+  // Pokazujemy obraz po załadowaniu
+  document.querySelector(".image-container img").style.display = "block";
+};
 </script>
 
 <script>
@@ -141,6 +173,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #000;
+  z-index: 9999;
+}
+
+.loading-logo {
+  width: min(200px, 50vw);
+  height: auto;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+}
+
 section {
   padding-top: 16px;
   display: flex;
