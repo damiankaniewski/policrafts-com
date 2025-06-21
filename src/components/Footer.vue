@@ -93,11 +93,11 @@
         <h3>Kontakt</h3>
         <p>
           <strong>Email: </strong>
-          <a href="mailto:kontakt@policrafts.pl">biuro@policrafts.com</a><br />
+          <a href="mailto:biuro@policrafts.pl">biuro@policrafts.com</a><br />
         </p>
         <p>
           <strong>Telefon: </strong>
-          <a href="tel:+48123456789">+48 123 456 789</a>
+          <a href="tel:+48696155878">+48 696 155 878</a>
         </p>
         <div class="footer__socials">
           <a href="#" aria-label="Facebook"

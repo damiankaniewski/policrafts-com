@@ -11,15 +11,15 @@
         <ul class="contact-info">
           <li>
             <i class="fas fa-envelope icon"></i>
-            <a href="mailto:kontakt@twojafirma.pl">biuro@policrafts.com</a>
+            <a href="mailto:biuro@twojafirma.pl">biuro@policrafts.com</a>
           </li>
           <li>
             <i class="fas fa-phone icon"></i>
-            <a href="tel:+48123456789">+48 123 456 789</a>
+            <a href="tel:+48696155878">+48 696 155 878</a>
           </li>
           <li>
             <i class="fab fa-linkedin icon"></i>
-            <a href="https://www.linkedin.com/in/twojprofil" target="_blank"
+            <a href="https://www.linkedin.com/company/105426521" target="_blank"
               >Policrafts</a
             >
           </li>
