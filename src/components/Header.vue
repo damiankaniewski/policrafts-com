@@ -164,9 +164,6 @@ export default {
   nav {
     position: fixed;
     top: 100px;
-    @media (max-width: 768px) {
-      top: 80px;
-    }
     left: 0;
     width: 100%;
     height: fit-content;
@@ -188,6 +185,10 @@ export default {
       transform: translateY(0);
       opacity: 1;
       pointer-events: all;
+    }
+
+    @media (max-width: 768px) {
+      top: 80px;
     }
 
     @media (min-width: 992px) {
