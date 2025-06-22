@@ -222,7 +222,7 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 80px;
+    gap: 32px;
   }
   .about-content {
     display: flex;
@@ -230,7 +230,7 @@ section {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    gap: 40px;
+    gap: 16px;
 
     .about-item {
       width: 50%;
@@ -244,7 +244,6 @@ section {
         width: 100%;
         aspect-ratio: 16/9;
         overflow: hidden;
-        border-radius: 8px;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 
         img {

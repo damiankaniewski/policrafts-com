@@ -182,7 +182,7 @@ const stats = [
   { label: "lat na rynku", number: "7" },
   { label: "wizualizacji", number: "250" },
   { label: "projektów graficznych", number: "50" },
-  { label: "stron internetowych", number: "10" },
+  { label: "systemów i stron internetowych", number: "10" },
 ];
 </script>
 

@@ -492,9 +492,14 @@ section {
         bottom: 0;
         left: 0;
         right: 0;
-        background: rgba(0, 0, 0, 0.7);
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.75) 100%
+        );
+        filter: drop-shadow(3px 3px 2px #000000aa);
         color: white;
-        padding: 15px;
+        padding: 50px 15px 15px 15px;
 
         h3 {
           margin: 0;
