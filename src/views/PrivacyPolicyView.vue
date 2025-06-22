@@ -57,11 +57,11 @@
     <p>
       W sprawach związanych z przetwarzaniem danych osobowych możesz
       skontaktować się z nami pod adresem e-mail:
-      <a href="mailto:kontakt@policrafts.pl" class="link"
+      <a href="mailto:biuro@policrafts.com" class="link"
         >biuro@policrafts.com</a
       >
       lub telefonicznie pod numerem
-      <a href="tel:+48123456789" class="link">+48 123 456 789</a>
+      <a href="tel:+48696155878" class="link">+48 696 155 878</a>
       .
     </p>
   </div>

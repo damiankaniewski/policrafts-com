@@ -3,7 +3,7 @@
     <header v-if="isVisible" class="scroll-header">
       <div class="header-container">
         <router-link to="/" class="logo-link">
-          <img :src="logo" alt="Logo" class="logo-img" />
+          <img :src="logo_nowe" alt="Logo" class="logo-img" />
         </router-link>
 
         <button class="hamburger" @click="toggleMenu" aria-label="Menu">
@@ -39,7 +39,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
-import logo from "@/assets/logo_full.png";
+import logo_nowe from "@/assets/logo_nowe_czarne.png";
 import { scrollToWithOffset } from "@/utils/scrollToWithOffset.js";
 
 const isVisible = ref(false);
@@ -121,12 +121,13 @@ export default {
     }
 
     .logo-img {
-      max-width: 120px;
-      height: auto;
+      max-height: 60px;
+      width: auto;
       transition: all 0.3s ease;
 
       @media (min-width: 768px) {
         max-width: 150px;
+        max-height: 70px;
       }
     }
   }
@@ -166,7 +167,6 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
     transform: translateY(-100%);
     opacity: 0;
     transition: all 0.4s ease;
@@ -174,6 +174,7 @@ export default {
     pointer-events: none;
     padding-bottom: 10px;
     padding-top: 10px;
+    gap: 16px;
 
     &.active {
       transform: translateY(0);
@@ -195,6 +196,7 @@ export default {
       padding-right: 0;
       pointer-events: all;
       width: auto;
+      gap: 0;
     }
 
     a {
