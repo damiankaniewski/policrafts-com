@@ -5,7 +5,7 @@
       <p>
         Ta strona używa plików cookies do celów analitycznych. Klikając
         „Akceptuję”, wyrażasz zgodę na ich użycie.
-        <a href="https://policrafts.com/polityka-prywatności" target="_blank">
+        <a href="https://policrafts.com/polityka-cookies" target="_blank">
           Dowiedz się więcej
         </a>
       </p>
