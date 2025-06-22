@@ -126,7 +126,7 @@
           class="about-item"
         >
           <div class="image-wrapper">
-            <img :src="mvr" alt="Modern render" />
+            <img :src="additional" alt="Modern render" />
           </div>
         </motion.div>
         <motion.div
@@ -177,7 +177,7 @@
 import { motion } from "motion-v";
 import sadowa_teren_zielony from "@/assets/images/sadowa_teren_zielony.webp";
 import strona_screenshot from "@/assets/images/strona_screenshot.jpg";
-import mvr from "@/assets/images/mvr.jpg";
+import additional from "@/assets/images/additional.jpg";
 import { ArrowRight } from "lucide-vue-next";
 </script>
 <script>
