@@ -97,6 +97,11 @@ export default {
         },
         {
           image: placeholder,
+          name: "Alicja Janeczek",
+          position: "Architect & Interior Designer",
+        },
+        {
+          image: placeholder,
           name: "Anna Prochownik",
           position: "HR, Finance & Legal Coordinator",
         },
