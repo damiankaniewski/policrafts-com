@@ -63,7 +63,8 @@ import pulaskiego from "@/assets/images/pulaskiego.webp";
 import pulaskiego_logo from "@/assets/images/pulaskiego_logo.webp";
 import generator_logo from "@/assets/images/generator_logo.webp";
 import omd_render from "@/assets/images/OMD_render.webp";
-import domy_w_stokach from "@/assets/images/domy_w_stokach.webp";
+import zelazny_konrad from "@/assets/images/zelaznykonrad.jpg";
+import zelazny_logo from "@/assets/images/zelaznyteam_czarne_cale.png";
 import dragon_folie from "@/assets/images/dragon_folie.webp";
 import dragon_folie_logo from "@/assets/images/dragon_folie_logo.webp";
 import realizacja31 from "@/assets/images/3-1.jpg";
@@ -138,21 +139,18 @@ const projects = [
   {
     id: "e",
     name: "Dragon Folie",
-    //link: "https://www.dragonfolie.com",
+    link: "https://www.dragonfolie.com",
     image: dragon_folie,
     logo: dragon_folie_logo,
     alt: "Dragon Folie",
-    title: "Praca w toku",
   },
-
   {
     id: "h",
-    name: "Domy w Stokach",
-    //link: "https://www.domywstokach.pl",
-    image: domy_w_stokach,
-    //logo: brzozowa_logo,
-    alt: "Domy w Stokach",
-    title: "Praca w toku",
+    name: "Żelazny Trener",
+    link: "https://www.zelazny-trener.pl",
+    image: zelazny_konrad,
+    logo: zelazny_logo,
+    alt: "Żelazny Trener",
   },
   {
     id: "i",

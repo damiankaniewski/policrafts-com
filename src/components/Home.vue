@@ -93,7 +93,39 @@
             </svg>
           </a>
         </motion.div>
-
+        <div class="nav-links-top-right">
+          <ul>
+            <motion.li
+              :initial="{ opacity: 0 }"
+              :animate="{ opacity: 1 }"
+              :transition="{ duration: 1.5, ease: 'easeInOut', delay: 1 }"
+              ><a
+                href="https://www.facebook.com/profile.php?id=61578466156016"
+                target="_blank"
+              >
+                <i class="fab fa-facebook icon"></i></a
+            ></motion.li>
+            <motion.li
+              :initial="{ opacity: 0 }"
+              :animate="{ opacity: 1 }"
+              :transition="{ duration: 1.5, ease: 'easeInOut', delay: 1.2 }"
+            >
+              <a href="https://www.instagram.com/policrafts_" target="_blank">
+                <i class="fab fa-instagram icon"></i></a
+            ></motion.li>
+            <motion.li
+              :initial="{ opacity: 0 }"
+              :animate="{ opacity: 1 }"
+              :transition="{ duration: 1.5, ease: 'easeInOut', delay: 1.2 }"
+            >
+              <a
+                href="https://www.linkedin.com/company/105426521"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin icon"></i></a
+            ></motion.li>
+          </ul>
+        </div>
         <div class="nav-links-right">
           <ul>
             <motion.li
@@ -322,6 +354,23 @@ section {
 
     ul li {
       text-align: left;
+    }
+  }
+
+  .nav-links-top-right {
+    @extend .nav-links;
+    right: 20px;
+    top: 20px;
+
+    i {
+      font-size: 5rem;
+      filter: drop-shadow(4px 4px 2px #000);
+    }
+
+    ul li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 

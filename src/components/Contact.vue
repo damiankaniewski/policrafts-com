@@ -18,6 +18,20 @@
             <a href="tel:+48696155878">+48 696 155 878</a>
           </li>
           <li>
+            <i class="fab fa-facebook icon"></i>
+            <a
+              href="https://www.facebook.com/profile.php?id=61578466156016"
+              target="_blank"
+              >Policrafts</a
+            >
+          </li>
+          <li>
+            <i class="fab fa-instagram icon"></i>
+            <a href="https://www.instagram.com/policrafts_" target="_blank"
+              >policrafts_</a
+            >
+          </li>
+          <li>
             <i class="fab fa-linkedin icon"></i>
             <a href="https://www.linkedin.com/company/105426521" target="_blank"
               >Policrafts</a

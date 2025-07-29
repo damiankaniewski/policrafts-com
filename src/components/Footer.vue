@@ -100,16 +100,24 @@
           <a href="tel:+48696155878">+48 696 155 878</a>
         </p>
         <div class="footer__socials">
-          <!-- <a href="#" aria-label="Facebook"
-            ><i class="fab fa-facebook-f"></i
-          ></a> -->
+          <a
+            href="https://www.facebook.com/profile.php?id=61578466156016"
+            target="_blank"
+            aria-label="Facebook"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/policrafts_"
+            target="_blank"
+            aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
           <a
             href="https://www.linkedin.com/company/105426521"
             target="_blank"
             aria-label="LinkedIn"
             ><i class="fab fa-linkedin-in"></i
           ></a>
-          <!-- <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a> -->
         </div>
       </div>
     </div>
