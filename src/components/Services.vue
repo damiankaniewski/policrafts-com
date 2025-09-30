@@ -146,7 +146,9 @@
           <ul class="two-columns">
             <motion.li :variants="fadeInRight">Konsultacje IT/Design</motion.li>
             <motion.li :variants="fadeInRight">Wsparcie techniczne</motion.li>
-            <motion.li :variants="fadeInRight">Audyt, analiza</motion.li>
+            <motion.li :variants="fadeInRight"
+              >Integracja deweloperów z dane.gov.pl</motion.li
+            >
             <motion.li :variants="fadeInRight"
               >Zarządzanie infrastrukturą</motion.li
             >
